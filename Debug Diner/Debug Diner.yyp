@@ -36,6 +36,7 @@
   "resources":[
     {"id":{"name":"fo_basic","path":"fonts/fo_basic/fo_basic.yy",},},
     {"id":{"name":"obj_move_block","path":"objects/obj_move_block/obj_move_block.yy",},},
+    {"id":{"name":"obj_programming_panel","path":"objects/obj_programming_panel/obj_programming_panel.yy",},},
     {"id":{"name":"obj_scheduler","path":"objects/obj_scheduler/obj_scheduler.yy",},},
     {"id":{"name":"obj_start_button","path":"objects/obj_start_button/obj_start_button.yy",},},
     {"id":{"name":"obj_tile1","path":"objects/obj_tile1/obj_tile1.yy",},},

@@ -2,6 +2,7 @@
   "FolderOrderSettings":[],
   "ResourceOrderSettings":[
     {"name":"obj_move_block","order":4,"path":"objects/obj_move_block/obj_move_block.yy",},
+    {"name":"obj_programming_panel","order":9,"path":"objects/obj_programming_panel/obj_programming_panel.yy",},
     {"name":"obj_scheduler","order":3,"path":"objects/obj_scheduler/obj_scheduler.yy",},
     {"name":"obj_start_button","order":7,"path":"objects/obj_start_button/obj_start_button.yy",},
     {"name":"obj_tile1","order":1,"path":"objects/obj_tile1/obj_tile1.yy",},
