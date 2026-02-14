@@ -23,10 +23,12 @@ if(active) {
 							turn(command.dir);
 							break;
 					}
+					
+					currCommand += 1;
 				}
-				
-				timer = global.stepBuffer;
 			}
+			
+			timer = global.stepBuffer;
 		}
 	}
 }

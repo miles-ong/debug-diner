@@ -1,2 +1,2 @@
-global.stepSpeed = MEDIUM_SPEED; // pixels traveled per frame
-global.stepBuffer = 8; // frames in between steps
+global.stepSpeed = FAST_SPEED; // pixels traveled per frame
+global.stepBuffer = 12; // frames in between steps
