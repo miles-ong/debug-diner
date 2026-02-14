@@ -1,4 +1,4 @@
-if(active) {
+if(global.gameState == State.RUNNING) {
 	var anyMoving = false;
 	
 	with(obj_waiter) {

@@ -1,3 +1,8 @@
+enum State {
+	PROGRAMMING,
+	RUNNING
+}
+
 enum Direction {
 	NORTH = 0,
 	EAST = 1,
