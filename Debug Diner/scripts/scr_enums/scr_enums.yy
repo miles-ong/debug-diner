@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_enums",
+  "%Name":"scr_Enums",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_enums",
+  "name":"scr_Enums",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

@@ -1,7 +1,7 @@
 if(global.gameState == State.RUNNING) {
 	var anyMoving = false;
 	
-	with(obj_waiter) {
+	with(obj_Waiter) {
 		if(moving) {
 			anyMoving = true;
 		}
@@ -11,16 +11,16 @@ if(global.gameState == State.RUNNING) {
 		timer -= 1;
 		
 		if(timer <= 0) {
-			with(obj_waiter) {
+			with(obj_Waiter) {
 				if(currCommand < array_length(program)) {
 					var command = program[currCommand];
 					
 					switch(command.type) {
 						case Command.MOVE:
-							move_forward();
+							MoveForward();
 							break;
 						case Command.TURN:
-							turn(command.dir);
+							Turn(command.dir);
 							break;
 					}
 					

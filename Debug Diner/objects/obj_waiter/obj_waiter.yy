@@ -1,6 +1,6 @@
 {
   "$GMObject":"",
-  "%Name":"obj_waiter",
+  "%Name":"obj_Waiter",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
@@ -9,7 +9,7 @@
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_waiter",
+  "name":"obj_Waiter",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_waiter",
-    "path":"sprites/spr_waiter/spr_waiter.yy",
+    "name":"spr_Waiter",
+    "path":"sprites/spr_Waiter/spr_Waiter.yy",
   },
   "spriteMaskId":null,
   "visible":true,
