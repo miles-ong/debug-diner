@@ -31,7 +31,7 @@ function SaveSelectedProgram() {
 	}
 	
 	currentProgram.program = [];
-	var block = programBlock.childBlock;
+	var block = programBlock.nextBlock;
 	
 	while(block != noone) {
 		array_push(currentProgram.program, block.Serialize());
