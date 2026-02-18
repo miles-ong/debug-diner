@@ -1,5 +1,20 @@
+gridX = round(x / TILE_SIZE);
+gridY = round(y / TILE_SIZE);
+x = gridX * TILE_SIZE;
+y = gridY * TILE_SIZE;
+targetGridX = gridX;
+targetGridY = gridY;
+startX = x;
+startY = y;
+endX = x;
+endY = y;
+isMoving = false;
+moveProgress = 0;
+program = [];
+currentBlock = 0;
+
 function MoveForward() {
-	if(moving) {
+	if(isMoving) {
 		return;
 	}
 	
@@ -14,9 +29,8 @@ function MoveForward() {
 	startY = y;
 	endX = targetGridX * TILE_SIZE;
 	endY = targetGridY * TILE_SIZE;
-	
 	moveProgress = 0;
-	moving = true;
+	isMoving = true;
 }
 
 function Turn(dir) {

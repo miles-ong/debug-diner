@@ -14,10 +14,8 @@ for(var i = 0; i <= cols; i++) {
 	draw_line(lineX, y, lineX, y + panelH);
 }
 
-var offset = -(scrollY % cellSize);
-
 for(var j = 0; j <= rows; j++) {
-	var lineY = y + offset + j * cellSize;
+	var lineY = y + j * cellSize;
 	draw_line(x, lineY, x + panelW, lineY);
 }
 

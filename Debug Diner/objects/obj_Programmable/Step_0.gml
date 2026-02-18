@@ -1,4 +1,4 @@
-if(moving) {
+if(isMoving) {
 	moveProgress += global.stepSpeed;
 	var distance = moveProgress / TILE_SIZE;
 	x = lerp(startX, endX, distance);
@@ -9,7 +9,6 @@ if(moving) {
 		gridY = targetGridY;
 		x = endX;
 		y = endY;
-		moving = false;
+		isMoving = false;
 	}
 }
-

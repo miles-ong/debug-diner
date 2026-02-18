@@ -1,8 +1,8 @@
 if(global.gameState == State.RUNNING) {
 	var anyMoving = false;
 	
-	with(obj_Waiter) {
-		if(moving) {
+	with(obj_Programmable) {
+		if(isMoving) {
 			anyMoving = true;
 		}
 	}
@@ -11,20 +11,21 @@ if(global.gameState == State.RUNNING) {
 		timer -= 1;
 		
 		if(timer <= 0) {
-			with(obj_Waiter) {
-				if(currCommand < array_length(program)) {
-					var command = program[currCommand];
+			with(obj_Programmable) {
+				if(currentBlock < array_length(program)) {
+					var node = program[currentBlock];
 					
-					switch(command.type) {
-						case Command.MOVE:
+					switch(node.type) {
+						case BlockType.MOVE:
 							MoveForward();
 							break;
-						case Command.TURN:
-							Turn(command.dir);
+							
+						case BlockType.TURN:
+							Turn(node.args.turnDirection);
 							break;
 					}
 					
-					currCommand += 1;
+					currentBlock += 1;
 				}
 			}
 			

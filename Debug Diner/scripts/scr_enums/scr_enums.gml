@@ -10,7 +10,20 @@ enum Direction {
 	WEST = 3
 }
 
-enum Command {
+enum TurnDirection {
+	LEFT,
+	RIGHT
+}
+
+enum BlockType {
+	PROGRAM,
 	MOVE,
-	TURN
+	TURN,
+	IF
+}
+
+enum SlotType {
+	SEQUENCE,
+	BODY,
+	END
 }

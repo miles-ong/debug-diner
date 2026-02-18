@@ -1,17 +1,7 @@
-function FinishDrop() {
-	dragging = false;
+function CreateBlock(xx, yy, type) {
+	var block = instance_create_layer(xx, yy, "GameInterface", obj_Block);
+	block.type = type;
+	block.SetupType();
 	
-	if(panel != noone) {
-		gridX = floor((mouse_x - panel.x) / panel.cellSize);
-		gridY = floor((mouse_y - panel.y - panel.scrollY) / panel.cellSize);
-		
-		if(ds_list_find_index(panel.blocks, id) == -1) {
-			ds_list_add(panel.blocks, id);
-		}
-		
-		SaveSelectedProgram();
-	}
-	else {
-		instance_destroy();
-	}
+	return block;
 }
