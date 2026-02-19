@@ -19,13 +19,22 @@ canCollide = true;
 function MoveForward() {
 	if(isMoving) return;
 	
+	var targetX = gridX;
+	var targetY = gridY;
+	
 	switch(facing) {
-		case Direction.NORTH: targetGridY = gridY - 1; break;
-		case Direction.EAST: targetGridX = gridX + 1; break;
-		case Direction.SOUTH: targetGridY = gridY + 1; break;
-		case Direction.WEST: targetGridX = gridX - 1; break;
+		case Direction.NORTH: targetY = gridY - 1; break;
+		case Direction.EAST: targetX = gridX + 1; break;
+		case Direction.SOUTH: targetY = gridY + 1; break;
+		case Direction.WEST: targetX = gridX - 1; break;
 	}
 	
+	var cell = obj_GridController.Get(GridLevel.FLOOR, targetX, targetY);
+	
+	if(cell == noone || !cell.walkable) return;
+	
+	targetGridX = targetX;
+	targetGridY = targetY;
 	startX = x;
 	startY = y;
 	endX = targetGridX * CELL_SIZE;

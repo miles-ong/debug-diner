@@ -12,8 +12,8 @@
   "name":"obj_Programmable",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Programmable",
+    "path":"folders/Objects/Programmable.yy",
   },
   "parentObjectId":null,
   "persistent":false,

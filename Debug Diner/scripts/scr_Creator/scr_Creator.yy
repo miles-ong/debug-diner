@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_BlockHelper",
+  "%Name":"scr_Creator",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_BlockHelper",
+  "name":"scr_Creator",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

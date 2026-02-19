@@ -35,6 +35,10 @@ enum ArgumentType {
 	DROPDOWN
 }
 
+enum TaskType {
+	LESSTHANBLOCKS
+}
+
 enum GridLevel {
 	FLOOR,
 	BASE

@@ -10,8 +10,8 @@
   "name":"obj_Block",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Block",
+    "path":"folders/Objects/Block.yy",
   },
   "parentObjectId":null,
   "persistent":false,

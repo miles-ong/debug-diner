@@ -6,8 +6,8 @@
   "name":"obj_WhiteTile",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Floor",
+    "path":"folders/Objects/Floor.yy",
   },
   "parentObjectId":{
     "name":"obj_Tile",

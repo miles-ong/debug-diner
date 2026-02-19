@@ -8,8 +8,8 @@
   "name":"obj_TurnBlockButton",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Block",
+    "path":"folders/Objects/Block.yy",
   },
   "parentObjectId":{
     "name":"obj_BlockButton",

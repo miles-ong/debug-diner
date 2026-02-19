@@ -13,7 +13,11 @@ function LoadSelectedProgram() {
 	}
 	
 	Clear();
-	programBlock = CreateBlock(x + BLOCK_HEIGHT, y + BLOCK_HEIGHT, BlockType.PROGRAM);
+	
+	programBlock = instance_create_layer(x + BLOCK_HEIGHT, y + BLOCK_HEIGHT, "BlockLayer", obj_Block);
+	programBlock.type = BlockType.PROGRAM;
+	programBlock.SetupType();
+	
 	var previousBlock = programBlock;
 	
 	for(var i = 0; i < array_length(currentProgram.program); i++) {

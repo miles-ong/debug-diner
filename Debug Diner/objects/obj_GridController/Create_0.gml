@@ -15,7 +15,7 @@ function Fill() {
 		other.Set(GridLevel.FLOOR, gCoords.gridX, gCoords.gridY, data);
 	}
 	
-	with(obj_Object) {
+	with(obj_Base) {
 		var gCoords = other.WorldToGrid(x, y);
 		
 		var data = {
