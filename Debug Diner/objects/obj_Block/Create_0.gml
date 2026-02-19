@@ -1,9 +1,10 @@
-type = "";
+type = BlockType.MOVE;
 parentBlock = noone;
 nextBlock = noone;
 childBlock = noone;
 isDragging = false;
 isDraggable = true;
+hasSequence = true;
 hasBody = false;
 hasArguments = false;
 nextSlot = noone;
@@ -48,8 +49,11 @@ function SetupType() {
 	
 	if(hasArguments) OnArgumentChanged();
 	
-	nextSlot = instance_create_layer(x, y + sprite_height, "SlotLayer", obj_BlockSlot);
-	nextSlot.owner = id;
+	if(hasSequence) {
+		nextSlot = instance_create_layer(x, y + sprite_height, "SlotLayer", obj_BlockSlot);
+		nextSlot.owner = id;
+		nextSlot.type = SlotType.SEQUENCE;
+	}
 	
 	if(hasBody) {
 		childSlot = instance_create_layer(x + BLOCK_BODY_WIDTH, y + BLOCK_HEIGHT, "SlotLayer", obj_BlockSlot);

@@ -1,4 +1,4 @@
-if(global.gameState == State.RUNNING) {
+if(global.gameState == GameState.RUNNING) {
 	var anyMoving = false;
 	
 	with(obj_Programmable) {

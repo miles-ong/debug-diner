@@ -12,6 +12,13 @@ levels = [
 currentLevel = 0;
 
 function GoToLevel(index) {
+	if(index < 0 || index > array_length(levels) - 1) return;
+	
 	currentLevel = index;
 	room_goto(levels[currentLevel].room);
+}
+
+function ReturnToMainMenu() {
+	currentLevel = -1;
+	room_goto(rm_MainMenu);
 }

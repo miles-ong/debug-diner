@@ -1,3 +1,3 @@
-if(global.gameState == State.PROGRAMMING) {
+if(global.gameState == GameState.PROGRAMMING) {
 	EnterButton();
 }

@@ -2,6 +2,7 @@ draw_self();
 var paddingX = BLOCK_ARGUMENT_PADDING / 2;
 var paddingY = (sprite_height - string_height("A")) / 2;
 draw_set_color(c_black);
+draw_set_font(fo_basic);
 	
 switch(type) {
 	case ArgumentType.INT:

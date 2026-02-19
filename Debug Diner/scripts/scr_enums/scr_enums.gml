@@ -1,4 +1,4 @@
-enum State {
+enum GameState {
 	PROGRAMMING,
 	RUNNING
 }
@@ -22,10 +22,13 @@ enum BlockType {
 	IF
 }
 
+enum MenuBlockType {
+	NEXTLEVEL
+}
+
 enum SlotType {
 	SEQUENCE,
-	BODY,
-	END
+	BODY
 }
 
 enum ArgumentType {
