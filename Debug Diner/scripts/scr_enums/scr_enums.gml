@@ -11,7 +11,7 @@ enum Direction {
 }
 
 enum TurnDirection {
-	LEFT = -1,
+	LEFT = 0,
 	RIGHT = 1
 }
 

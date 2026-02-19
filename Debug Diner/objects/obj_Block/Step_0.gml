@@ -6,12 +6,7 @@ if(isDragging) {
 	if(!mouse_check_button(mb_left)) {
 		global.isDraggingBlock = false;
 		isDragging = false;
-		layer = layer_get_id("GameInterface");
-		
-		for(var i = 0; i < array_length(args); i++) {
-			args[i].layer = layer_get_id("ArgumentsLayer");
-		}
-		
+		BringToBaseLayer();
 		var slot = instance_position(x, y, obj_BlockSlot);
 		
 		if(!LinkToSlot(slot)) {

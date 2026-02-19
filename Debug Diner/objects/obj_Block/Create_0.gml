@@ -51,11 +51,11 @@ function SetupType() {
 	
 	if(hasArguments) OnArgumentChanged();
 	
-	nextSlot = instance_create_layer(x, y + sprite_height, "GameInterface", obj_BlockSlot);
+	nextSlot = instance_create_layer(x, y + sprite_height, "SlotLayer", obj_BlockSlot);
 	nextSlot.owner = id;
 	
 	if(hasBody) {
-		childSlot = instance_create_layer(x + BLOCK_BODY_WIDTH, y + BLOCK_HEIGHT, "GameInterface", obj_BlockSlot);
+		childSlot = instance_create_layer(x + BLOCK_BODY_WIDTH, y + BLOCK_HEIGHT, "SlotLayer", obj_BlockSlot);
 		childSlot.owner = id;
 		childSlot.type = SlotType.BODY;
 	}
@@ -181,6 +181,34 @@ function DestroyChain() {
 	instance_destroy();
 }
 
+function BringToDraggingLayer() {
+	layer = layer_get_id("BlockDraggingLayer");
+	
+	if(nextSlot != noone) nextSlot.layer = layer_get_id("SlotDraggingLayer");
+	if(childSlot != noone) childSlot.layer = layer_get_id("SlotDraggingLayer");
+	
+	for(var i = 0; i < array_length(args); i++) {
+		args[i].layer = layer_get_id("ArgumentsDraggingLayer");
+	}
+	
+	if(nextBlock != noone) nextBlock.BringToDraggingLayer();
+	if(childBlock != noone) childBlock.BringToDraggingLayer();
+}
+
+function BringToBaseLayer() {
+	layer = layer_get_id("BlockLayer");
+	
+	if(nextSlot != noone) nextSlot.layer = layer_get_id("SlotLayer");
+	if(childSlot != noone) childSlot.layer = layer_get_id("SlotLayer");
+	
+	for(var i = 0; i < array_length(args); i++) {
+		args[i].layer = layer_get_id("ArgumentsLayer");
+	}
+	
+	if(nextBlock != noone) nextBlock.BringToBaseLayer();
+	if(childBlock != noone) childBlock.BringToBaseLayer();
+}
+
 function Serialize() {
 	var node = {
 		type : type,
@@ -229,7 +257,7 @@ function Deserialize(node) {
 	var previousBlock = noone;
 	
 	for(var i = 0; i < array_length(node.body); i++) {
-		var child = instance_create_layer(childSlot.x, childSlot.y, "GameInterface", obj_Block);
+		var child = instance_create_layer(childSlot.x, childSlot.y, "BlockLayer", obj_Block);
 		child.Deserialize(node.body[i]);
 		
 		if(previousBlock == noone) child.LinkToSlot(childSlot);

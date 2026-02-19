@@ -4,7 +4,10 @@
   "children":[
     {"$GMRUILayer":"v1","%Name":"ArgumentsDraggingLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"ArgumentsDraggingLayer","nodeColour":4282970758,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
     {"$GMRUILayer":"v1","%Name":"BlockDraggingLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"BlockDraggingLayer","nodeColour":4286640712,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
+    {"$GMRUILayer":"v1","%Name":"SlotDraggingLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"SlotDraggingLayer","nodeColour":4290201842,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
     {"$GMRUILayer":"v1","%Name":"ArgumentsLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"ArgumentsLayer","nodeColour":4294071368,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
+    {"$GMRUILayer":"v1","%Name":"BlockLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"BlockLayer","nodeColour":4294068376,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
+    {"$GMRUILayer":"v1","%Name":"SlotLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"SlotLayer","nodeColour":4282960370,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
     {"$GMRUILayer":"v1","%Name":"GameInterface","alignItems":2,"children":[
         {"$GMRFlexPanel":"","%Name":"Viewport","alignItems":2,"children":[
             {"$GMRFlexPanel":"","%Name":"Display","alignItems":2,"children":[],"flexDirection":0,"height":{"unit":2,"value":70.0,},"justifyContent":1,"name":"Display","nodeColour":4288016968,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},

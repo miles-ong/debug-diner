@@ -17,7 +17,7 @@ function LoadSelectedProgram() {
 	var previousBlock = programBlock;
 	
 	for(var i = 0; i < array_length(currentProgram.program); i++) {
-		var block = instance_create_layer(previousBlock.nextSlot.x, previousBlock.nextSlot.y, "GameInterface", obj_Block);
+		var block = instance_create_layer(previousBlock.nextSlot.x, previousBlock.nextSlot.y, "BlockLayer", obj_Block);
 		block.Deserialize(currentProgram.program[i]);
 		previousBlock.nextBlock = block;
 		block.parentBlock = previousBlock;

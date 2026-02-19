@@ -34,5 +34,6 @@ function MoveForward() {
 }
 
 function Turn(dir) {
-	facing = (facing + dir + 4) % 4;
+	var d = dir == TurnDirection.LEFT ? -1 : 1
+	facing = (facing + d + 4) % 4;
 }
