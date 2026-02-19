@@ -37,11 +37,10 @@ enum ArgumentType {
 
 enum GridLevel {
 	FLOOR,
-	BASE,
-	UPPER
+	BASE
 }
 
 enum CellType {
 	FLOOR,
-	HAZARD
+	SOLID
 }

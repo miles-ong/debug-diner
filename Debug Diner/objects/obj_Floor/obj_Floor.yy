@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Tile2",
-  "eventList":[],
+  "%Name":"obj_Floor",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_Tile2",
+  "name":"obj_Floor",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -27,10 +29,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_Tile2",
-    "path":"sprites/spr_Tile2/spr_Tile2.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

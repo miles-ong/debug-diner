@@ -1,7 +1,7 @@
-gridX = round(x / TILE_SIZE);
-gridY = round(y / TILE_SIZE);
-x = gridX * TILE_SIZE;
-y = gridY * TILE_SIZE;
+gridX = round(x / CELL_SIZE);
+gridY = round(y / CELL_SIZE);
+x = gridX * CELL_SIZE;
+y = gridY * CELL_SIZE;
 targetGridX = gridX;
 targetGridY = gridY;
 startX = x;
@@ -13,6 +13,8 @@ moveProgress = 0;
 remainingTiles = 0;
 program = [];
 currentBlock = 0;
+
+canCollide = true;
 
 function MoveForward() {
 	if(isMoving) return;
@@ -26,8 +28,8 @@ function MoveForward() {
 	
 	startX = x;
 	startY = y;
-	endX = targetGridX * TILE_SIZE;
-	endY = targetGridY * TILE_SIZE;
+	endX = targetGridX * CELL_SIZE;
+	endY = targetGridY * CELL_SIZE;
 	moveProgress = 0;
 	isMoving = true;
 }

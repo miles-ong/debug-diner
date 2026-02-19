@@ -1,10 +1,10 @@
 if(isMoving) {
 	moveProgress += global.stepSpeed;
-	var distance = moveProgress / TILE_SIZE;
+	var distance = moveProgress / CELL_SIZE;
 	x = lerp(startX, endX, distance);
 	y = lerp(startY, endY, distance);
 	
-	if(moveProgress >= TILE_SIZE) {
+	if(moveProgress >= CELL_SIZE) {
 		gridX = targetGridX;
 		gridY = targetGridY;
 		x = endX;
