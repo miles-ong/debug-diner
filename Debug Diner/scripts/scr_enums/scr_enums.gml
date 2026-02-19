@@ -34,3 +34,14 @@ enum ArgumentType {
 	TEXT,
 	DROPDOWN
 }
+
+enum GridLevel {
+	FLOOR,
+	BASE,
+	UPPER
+}
+
+enum CellType {
+	FLOOR,
+	HAZARD
+}
