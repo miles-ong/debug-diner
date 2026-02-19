@@ -19,6 +19,7 @@
   "height":48,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"32a20160-0769-4ae5-949a-de03a548e0a4","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"32a20160-0769-4ae5-949a-de03a548e0a4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"3a7abfcb-adb5-49fa-98e3-85f15aef13af","blendMode":0,"displayName":"default","isLocked":false,"name":"3a7abfcb-adb5-49fa-98e3-85f15aef13af","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_TurnBlock",

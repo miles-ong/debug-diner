@@ -2,5 +2,7 @@ if(!isDraggable) {
 	return;
 }
 
-isDragging = true;
+global.isDraggingBlock = true;
 UnlinkFromSlot();
+isDragging = true;
+layer = layer_get_id("DraggingLayer");

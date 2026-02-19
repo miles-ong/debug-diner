@@ -133,6 +133,7 @@
     {"name":"inst_40F9BA3B","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_66AB1009","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_17552DE7","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_3FD8D6AD","path":"roomui/RoomUI/RoomUI.yy",},
   ],
   "isDnd":false,
   "layers":[

@@ -2,17 +2,18 @@ if(global.gameState == State.RUNNING) {
 	var anyMoving = false;
 	
 	with(obj_Programmable) {
-		if(isMoving) {
-			anyMoving = true;
-		}
+		if(isMoving) anyMoving = true;
 	}
 	
 	if(!anyMoving) {
 		timer -= 1;
 		
 		if(timer <= 0) {
+			var programComplete = true;
+			
 			with(obj_Programmable) {
 				if(currentBlock < array_length(program)) {
+					programComplete = false;
 					var node = program[currentBlock];
 					
 					switch(node.type) {
@@ -28,6 +29,8 @@ if(global.gameState == State.RUNNING) {
 					currentBlock += 1;
 				}
 			}
+			
+			if(programComplete) global.gameState = State.PROGRAMMING;
 			
 			timer = global.stepBuffer;
 		}

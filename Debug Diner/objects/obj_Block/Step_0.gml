@@ -4,7 +4,9 @@ if(isDragging) {
 	RefreshChain();
 	
 	if(!mouse_check_button(mb_left)) {
+		global.isDraggingBlock = false;
 		isDragging = false;
+		layer = layer_get_id("GameInterface");
 		var slot = instance_position(x, y, obj_BlockSlot);
 		
 		if(!LinkToSlot(slot)) {

@@ -3,3 +3,4 @@ global.stepBuffer = 12; // frames in between steps
 
 global.gameState = State.PROGRAMMING;
 global.selectedProgram = noone;
+global.isDraggingBlock = false;

@@ -31,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_MoveBlock",
-    "path":"sprites/spr_MoveBlock/spr_MoveBlock.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

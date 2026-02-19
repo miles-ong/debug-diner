@@ -19,6 +19,7 @@
   "height":48,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"fe31b399-fe8c-43cd-acd4-4a7d6ea850a0","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"fe31b399-fe8c-43cd-acd4-4a7d6ea850a0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"3a7abfcb-adb5-49fa-98e3-85f15aef13af","blendMode":0,"displayName":"default","isLocked":false,"name":"3a7abfcb-adb5-49fa-98e3-85f15aef13af","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_MoveBlock",

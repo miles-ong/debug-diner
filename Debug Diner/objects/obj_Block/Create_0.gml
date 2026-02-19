@@ -23,13 +23,16 @@ function SetupType() {
 	
 	switch(type) {
 		case BlockType.PROGRAM:
+			sprite_index = spr_ProgramBlock;
 			isDraggable = false;
 			break;
 			
 		case BlockType.MOVE:
+			sprite_index = spr_MoveBlock;
 			break;
 			
 		case BlockType.TURN:
+			sprite_index = spr_TurnBlock;
 			hasArguments = true;
 			turnDirection = TurnDirection.LEFT;
 			break;
@@ -53,13 +56,12 @@ function SetupType() {
 
 function LinkToSlot(slot) {
 	if(slot == noone || !slot.isEmpty) return false;
-	if(IsInChain(slot.owner)) return false;
 	
 	parentBlock = slot.owner;
 		
 	if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
 	else slot.owner.nextBlock = id;
-		
+	
 	slot.isEmpty = false;
 	x = slot.x;
 	y = slot.y;
@@ -83,14 +85,6 @@ function UnlinkFromSlot() {
 	}
 	
 	parentBlock = noone;
-}
-
-function IsInChain(block) {
-    if(block == id) return true;
-    if(nextBlock != noone && nextBlock.IsInChain(block)) return true;
-    if(childBlock != noone && childBlock.IsInChain(block)) return true;
-	
-    return false;
 }
 
 function RefreshChain() {
