@@ -2,7 +2,9 @@
   "$GMRoomUI":"",
   "%Name":"RoomUI",
   "children":[
-    {"$GMRUILayer":"v1","%Name":"DraggingLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"DraggingLayer","nodeColour":4286640712,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
+    {"$GMRUILayer":"v1","%Name":"ArgumentsDraggingLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"ArgumentsDraggingLayer","nodeColour":4282970758,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
+    {"$GMRUILayer":"v1","%Name":"BlockDraggingLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"BlockDraggingLayer","nodeColour":4286640712,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
+    {"$GMRUILayer":"v1","%Name":"ArgumentsLayer","alignItems":2,"children":[],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"ArgumentsLayer","nodeColour":4294071368,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
     {"$GMRUILayer":"v1","%Name":"GameInterface","alignItems":2,"children":[
         {"$GMRFlexPanel":"","%Name":"Viewport","alignItems":2,"children":[
             {"$GMRFlexPanel":"","%Name":"Display","alignItems":2,"children":[],"flexDirection":0,"height":{"unit":2,"value":70.0,},"justifyContent":1,"name":"Display","nodeColour":4288016968,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
@@ -27,7 +29,7 @@
                     {"$GMRInstance":"v4","%Name":"inst_3FD8D6AD","colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":0,"resourceType":"InstanceFlexProps",},"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3FD8D6AD","objectId":{"name":"obj_TurnBlockButton","path":"objects/obj_TurnBlockButton/obj_TurnBlockButton.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
                   ],"flexDirection":0,"height":{"unit":3,"value":48.0,},"justifyContent":1,"name":"TurnPanel","nodeColour":4288672328,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":3,"value":96.0,},},
                 {"$GMRSpriteGraphic":"v1","%Name":"graphic_74292E44","animationSpeed":1.0,"colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":0,"resourceType":"InstanceFlexProps","stretchHeight":true,"stretchWidth":true,},"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_74292E44","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_BlockContainer","path":"sprites/spr_BlockContainer/spr_BlockContainer.yy",},"x":0.0,"y":0.0,},
-              ],"flexDirection":2,"gapColumn":20.0,"height":{"unit":2,"value":30.0,},"justifyContent":1,"name":"BlockBank","nodeColour":4282934514,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
+              ],"flexDirection":2,"gapColumn":80.0,"height":{"unit":2,"value":30.0,},"justifyContent":1,"name":"BlockBank","nodeColour":4282934514,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
           ],"flexDirection":0,"height":{"unit":2,"value":100.0,},"justifyContent":1,"name":"Editor","nodeColour":4294097480,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":60.0,},},
       ],"flexDirection":2,"gridX":32,"gridY":32,"justifyContent":1,"name":"GameInterface","nodeColour":4287121650,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
   ],

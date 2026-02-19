@@ -1,3 +1,3 @@
 owner = noone;
-isEmpty = true;
 type = SlotType.SEQUENCE;
+isEmpty = true;

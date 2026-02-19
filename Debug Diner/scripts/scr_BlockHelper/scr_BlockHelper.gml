@@ -5,3 +5,9 @@ function CreateBlock(xx, yy, type) {
 	
 	return block;
 }
+
+function CreateArgument(xx, yy, type) {
+	var arg = instance_create_layer(xx, yy, "GameInterface", obj_BlockArgument);
+	arg.type = type;
+	arg.SetupType();
+}

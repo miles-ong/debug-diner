@@ -27,3 +27,10 @@ enum SlotType {
 	BODY,
 	END
 }
+
+enum ArgumentType {
+	INT,
+	BOOL,
+	TEXT,
+	DROPDOWN
+}

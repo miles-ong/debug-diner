@@ -36,6 +36,7 @@
   "resources":[
     {"id":{"name":"fo_basic","path":"fonts/fo_basic/fo_basic.yy",},},
     {"id":{"name":"obj_Block","path":"objects/obj_Block/obj_Block.yy",},},
+    {"id":{"name":"obj_BlockArgument","path":"objects/obj_BlockArgument/obj_BlockArgument.yy",},},
     {"id":{"name":"obj_BlockButton","path":"objects/obj_BlockButton/obj_BlockButton.yy",},},
     {"id":{"name":"obj_BlockSlot","path":"objects/obj_BlockSlot/obj_BlockSlot.yy",},},
     {"id":{"name":"obj_MoveBlockButton","path":"objects/obj_MoveBlockButton/obj_MoveBlockButton.yy",},},
@@ -54,6 +55,7 @@
     {"id":{"name":"scr_Globals","path":"scripts/scr_Globals/scr_Globals.yy",},},
     {"id":{"name":"scr_Macros","path":"scripts/scr_Macros/scr_Macros.yy",},},
     {"id":{"name":"scr_UIHelper","path":"scripts/scr_UIHelper/scr_UIHelper.yy",},},
+    {"id":{"name":"spr_BlockArgument","path":"sprites/spr_BlockArgument/spr_BlockArgument.yy",},},
     {"id":{"name":"spr_BlockContainer","path":"sprites/spr_BlockContainer/spr_BlockContainer.yy",},},
     {"id":{"name":"spr_BlockSlot","path":"sprites/spr_BlockSlot/spr_BlockSlot.yy",},},
     {"id":{"name":"spr_MoveBlock","path":"sprites/spr_MoveBlock/spr_MoveBlock.yy",},},

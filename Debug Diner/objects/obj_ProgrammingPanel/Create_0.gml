@@ -48,5 +48,9 @@ function Clear() {
 		instance_destroy();
 	}
 	
+	with(obj_BlockArgument) {
+		instance_destroy();
+	}
+	
 	programBlock = noone;
 }
