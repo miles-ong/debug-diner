@@ -1,4 +1,4 @@
-if(!global.isDraggingBlock) return;
+if(global.isDraggingBlock) return;
 
 global.isDraggingBlock = true;
 obj_MainMenuBlock.Disconnect();

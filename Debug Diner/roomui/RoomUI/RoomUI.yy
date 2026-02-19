@@ -38,7 +38,7 @@
     {"$GMRUILayer":"v1","%Name":"MainMenuInterface","alignItems":2,"children":[
         {"$GMRFlexPanel":"","%Name":"Editor","alignItems":2,"children":[
             {"$GMRFlexPanel":"","%Name":"Code","alignItems":2,"children":[
-                {"$GMRInstance":"v4","%Name":"inst_2C1E8346","colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":0,"resourceType":"InstanceFlexProps","stretchHeight":true,"stretchWidth":true,},"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2C1E8346","objectId":{"name":"obj_ProgrammingPanel","path":"objects/obj_ProgrammingPanel/obj_ProgrammingPanel.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+                {"$GMRInstance":"v4","%Name":"inst_3977F6C6","colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":0,"resourceType":"InstanceFlexProps",},"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3977F6C6","objectId":{"name":"obj_MainMenuBlock","path":"objects/obj_MainMenuBlock/obj_MainMenuBlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
               ],"flexDirection":0,"height":{"unit":2,"value":70.0,},"justifyContent":1,"name":"Code","nodeColour":4293937394,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
             {"$GMRFlexPanel":"","%Name":"Palette","alignItems":2,"children":[
                 {"$GMRFlexPanel":"","%Name":"RunButton","alignItems":2,"children":[
@@ -50,6 +50,7 @@
               ],"flexDirection":0,"height":{"unit":2,"value":30.0,},"justifyContent":1,"name":"Palette","nodeColour":4282970814,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
           ],"flexDirection":0,"height":{"unit":2,"value":100.0,},"justifyContent":1,"name":"Editor","nodeColour":4294085960,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":40.0,},},
         {"$GMRFlexPanel":"","%Name":"Viewport","alignItems":2,"children":[],"flexDirection":0,"height":{"unit":2,"value":100.0,},"justifyContent":1,"name":"Viewport","nodeColour":4284172530,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":60.0,},},
+        {"$GMRInstance":"v4","%Name":"inst_2BCDACB1","colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":0,"resourceType":"InstanceFlexProps",},"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2BCDACB1","objectId":{"name":"obj_MenuBlock","path":"objects/obj_MenuBlock/obj_MenuBlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":40.0,"y":200.0,},
       ],"flexDirection":2,"gridX":32,"gridY":32,"justifyContent":1,"name":"MainMenuInterface","nodeColour":4284936776,"resourceType":"GMRUILayer","resourceVersion":"2.0","visible":false,},
   ],
   "locked":false,

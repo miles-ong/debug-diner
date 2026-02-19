@@ -1,6 +1,6 @@
-if(global.gameState == State.RUNNING) return;
+if(global.gameState == GameState.RUNNING) return;
 
 with(obj_Programmable) currentBlock = 0;
 with(obj_ProgrammingPanel) SaveSelectedProgram();
 
-global.gameState = State.RUNNING;
+global.gameState = GameState.RUNNING;

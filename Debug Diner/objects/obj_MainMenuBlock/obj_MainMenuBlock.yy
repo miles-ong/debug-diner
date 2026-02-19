@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_NextLevelBlock",
+    "path":"sprites/spr_NextLevelBlock/spr_NextLevelBlock.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

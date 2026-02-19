@@ -30,7 +30,7 @@ if(global.gameState == GameState.RUNNING) {
 				}
 			}
 			
-			if(programComplete) global.gameState = State.PROGRAMMING;
+			if(programComplete) global.gameState = GameState.PROGRAMMING;
 			
 			timer = global.stepBuffer;
 		}
