@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_PixlBlockSlot",
-    "path":"sprites/spr_PixlBlockSlot/spr_PixlBlockSlot.yy",
+    "name":"spr_BlockSlot",
+    "path":"sprites/spr_BlockSlot/spr_BlockSlot.yy",
   },
   "spriteMaskId":null,
   "visible":true,

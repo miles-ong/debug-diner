@@ -136,8 +136,8 @@
     {"name":"inst_3298EB0","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_7CDA722","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_7CC61C34","path":"roomui/RoomUI/RoomUI.yy",},
-    {"name":"inst_3977F6C6","path":"roomui/RoomUI/RoomUI.yy",},
-    {"name":"inst_2BCDACB1","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_13BCD3E0","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_31D441D0","path":"roomui/RoomUI/RoomUI.yy",},
   ],
   "isDnd":false,
   "layers":[

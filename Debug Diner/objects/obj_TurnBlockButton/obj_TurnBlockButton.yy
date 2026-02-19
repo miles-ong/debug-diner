@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_PixlTurnBlock",
-    "path":"sprites/spr_PixlTurnBlock/spr_PixlTurnBlock.yy",
+    "name":"spr_TurnBlock",
+    "path":"sprites/spr_TurnBlock/spr_TurnBlock.yy",
   },
   "spriteMaskId":null,
   "visible":true,
