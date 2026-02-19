@@ -30,9 +30,6 @@ function SetupType() {
 			
 		case BlockType.MOVE:
 			sprite_index = spr_MoveBlock;
-			hasArguments = true;
-			tiles = 1;
-			AddArgument(ArgumentType.INT);
 			break;
 			
 		case BlockType.TURN:
@@ -108,7 +105,6 @@ function AddArgument(argType, options = []) {
 function OnArgumentChanged() {
 	switch(type) {
 		case BlockType.MOVE:
-			tiles = args[0].value;
 			break;
 			
 		case BlockType.TURN:
@@ -116,6 +112,11 @@ function OnArgumentChanged() {
 			break;
 	}
 	
+	Stretch();
+	RefreshChain();
+}
+
+function Stretch() {
 	var slice = sprite_get_nineslice(sprite_index);
 	var offsetX = slice.left;
 	
@@ -123,14 +124,13 @@ function OnArgumentChanged() {
 		var arg = args[i];
 		arg.offsetX = offsetX;
 		arg.offsetY = (sprite_height - arg.sprite_height) / 2;
-		arg.image_xscale = arg.GetValueWidth() / arg.sprite_width;
-		offsetX += arg.GetValueWidth();
+		var argWidth = arg.GetValueWidth();
+		arg.image_xscale = argWidth / BLOCK_ARGUMENT_BASE_WIDTH;
+		offsetX += argWidth;
 	}
 	
-	var totalWidth = max(sprite_width, offsetX + slice.right);
-	image_xscale = totalWidth / sprite_width;
-	
-	RefreshChain();
+	var totalWidth = max(sprite_get_width(sprite_index), offsetX + slice.right);
+	image_xscale = totalWidth / sprite_get_width(sprite_index);
 }
 
 function RefreshChain() {	
@@ -218,7 +218,6 @@ function Serialize() {
 	
 	switch(type) {
 		case BlockType.MOVE:
-			node.args.tiles = tiles;
 			break;
 			
 		case BlockType.TURN:
@@ -244,8 +243,6 @@ function Deserialize(node) {
 	
 	switch(type) {
 		case BlockType.MOVE:
-			tiles = node.args.tiles;
-			args[0].value = tiles;
 			break;
 			
 		case BlockType.TURN:
@@ -253,6 +250,8 @@ function Deserialize(node) {
 			args[0].value = turnDirection;
 			break;
 	}
+	
+	if(hasArguments) Stretch();
 	
 	var previousBlock = noone;
 	

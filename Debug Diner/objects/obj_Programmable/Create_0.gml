@@ -10,13 +10,12 @@ endX = x;
 endY = y;
 isMoving = false;
 moveProgress = 0;
+remainingTiles = 0;
 program = [];
 currentBlock = 0;
 
 function MoveForward() {
-	if(isMoving) {
-		return;
-	}
+	if(isMoving) return;
 	
 	switch(facing) {
 		case Direction.NORTH: targetGridY = gridY - 1; break;

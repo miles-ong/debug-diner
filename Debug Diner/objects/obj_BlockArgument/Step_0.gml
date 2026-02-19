@@ -1,7 +1,7 @@
 if(isEditing) {
 	switch(type) {
 		case ArgumentType.INT:
-			value = real(keyboard_string);
+			value = keyboard_string == "" ? 0 : real(keyboard_string);
 			break;
 			
 		case ArgumentType.TEXT:
@@ -9,7 +9,9 @@ if(isEditing) {
 			break;
 	}
 	
-	if(keyboard_check_presed(vk_enter)) {
+	owner.Stretch();
+	
+	if(keyboard_check_pressed(vk_enter)) {
 		isEditing = false;
 		owner.OnArgumentChanged();
 	}
