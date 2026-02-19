@@ -6,7 +6,7 @@ if(instance_number(obj_GameController) > 1) {
 persistent = true;
 
 levels = [
-	instance_create_layer(0, 0, "Controllers", obj_Level1_1);
+	instance_create_layer(0, 0, "Controllers", obj_Level1_1)
 ];
 
 currentLevel = 0;
