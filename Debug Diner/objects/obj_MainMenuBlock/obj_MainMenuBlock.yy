@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_NextLevelBlock",
-    "path":"sprites/spr_NextLevelBlock/spr_NextLevelBlock.yy",
+    "name":"spr_MainMenuBlock",
+    "path":"sprites/spr_MainMenuBlock/spr_MainMenuBlock.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -2,7 +2,7 @@ unlocked = false;
 completed = false;
 task1 = noone;
 task2 = noone;
-room = noone;
+targetRoom = noone;
 
 persistent = true;
 

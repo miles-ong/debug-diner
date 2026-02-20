@@ -23,7 +23,8 @@ enum BlockType {
 }
 
 enum MenuBlockType {
-	NEXTLEVEL
+	NEXTLEVEL,
+	SETTINGS
 }
 
 enum SlotType {

@@ -19,7 +19,7 @@
   "height":96,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"186b3984-ac0b-434f-9510-e7b013ad0b73","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"186b3984-ac0b-434f-9510-e7b013ad0b73","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"2dedbce2-7e74-44f0-8063-0001bbfb9c41","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"2dedbce2-7e74-44f0-8063-0001bbfb9c41","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"b6e4f0b5-f976-4ab3-b89f-3c6263a94d99","blendMode":0,"displayName":"default","isLocked":false,"name":"b6e4f0b5-f976-4ab3-b89f-3c6263a94d99","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_NextLevelBlock",
