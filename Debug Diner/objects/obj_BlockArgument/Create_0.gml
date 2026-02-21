@@ -6,6 +6,11 @@ isEditing = false;
 offsetX = 0;
 offsetY = 0;
 
+opacity = 0.2;
+hoverOpacity = 0.3;
+
+image_alpha = opacity;
+
 function SetupType() {
 	switch(type) {
 		case ArgumentType.INT:
@@ -51,10 +56,15 @@ function OnClick() {
 }
 
 function GetValueWidth() {
+	var width = 0;
+	draw_set_font(fo_basic);
+	
 	switch(type) {
-		case ArgumentType.INT: return string_width(string(value)) + BLOCK_ARGUMENT_PADDING;
-		case ArgumentType.BOOL: return 16; // unfinished
-		case ArgumentType.TEXT: return string_width(value);
-		case ArgumentType.DROPDOWN: return string_width(options[value]) + BLOCK_ARGUMENT_PADDING;
+		case ArgumentType.INT: width = string_width(string(value)); break;
+		case ArgumentType.BOOL: width = string_width(value ? "True" : "False"); break;
+		case ArgumentType.TEXT: width = string_width(value); break;
+		case ArgumentType.DROPDOWN: width = string_width(options[value]); break;
 	}
+	
+	return width + BLOCK_ARGUMENT_PADDING * 2;
 }

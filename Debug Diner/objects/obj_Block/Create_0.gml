@@ -1,4 +1,5 @@
 type = BlockType.MOVE;
+name = "";
 parentBlock = noone;
 nextBlock = noone;
 childBlock = noone;
@@ -9,7 +10,12 @@ hasBody = false;
 hasArguments = false;
 nextSlot = noone;
 childSlot = noone;
+hoveredSlot = noone;
 args = [];
+
+hoverStrength = 0.2;
+
+image_speed = 0;
 
 function SetupType() {
 	if(nextSlot != noone) {
@@ -25,15 +31,18 @@ function SetupType() {
 	
 	switch(type) {
 		case BlockType.PROGRAM:
+			name = "Program";
 			sprite_index = spr_ProgramBlock;
 			isDraggable = false;
 			break;
 			
 		case BlockType.MOVE:
+			name = "Move Forward";
 			sprite_index = spr_MoveBlock;
 			break;
 			
 		case BlockType.TURN:
+			name = "Turn";
 			sprite_index = spr_TurnBlock;
 			hasArguments = true;
 			turnDirection = TurnDirection.LEFT;
@@ -41,11 +50,14 @@ function SetupType() {
 			break;
 			
 		case BlockType.IF:
+			name = "If";
 			hasArguments = true;
 			hasBody = true;
 			condition = "";
 			break;
 	}
+	
+	Stretch();
 	
 	if(hasArguments) OnArgumentChanged();
 	
@@ -65,6 +77,9 @@ function SetupType() {
 function LinkToSlot(slot) {
 	if(slot == noone || !slot.isEmpty) return false;
 	
+	audio_play_sound(sfx_BlockConnect, 0, false);
+	slot.image_index = SlotSprite.CANNOTCONNECT;
+	hoveredSlot = noone;
 	parentBlock = slot.owner;
 		
 	if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
@@ -73,12 +88,15 @@ function LinkToSlot(slot) {
 	slot.isEmpty = false;
 	x = slot.x;
 	y = slot.y;
+	image_index = BlockSprite.CONNECTED;
 		
 	return true;
 }
 
 function UnlinkFromSlot() {
 	if(parentBlock == noone) return;
+	
+	audio_play_sound(sfx_BlockDisconnect, 0, false);
 	
 	if(parentBlock.nextBlock == id) {
 		parentBlock.nextBlock = noone;
@@ -93,6 +111,7 @@ function UnlinkFromSlot() {
 	}
 	
 	parentBlock = noone;
+	image_index = BlockSprite.DISCONNECTED;
 }
 
 function AddArgument(argType, options = []) {
@@ -122,14 +141,15 @@ function OnArgumentChanged() {
 
 function Stretch() {
 	var slice = sprite_get_nineslice(sprite_index);
-	var offsetX = slice.left;
+	draw_set_font(fo_basic);
+	var offsetX = string_width(name) + BLOCK_PADDING * 2;
 	
 	for(var i = 0; i < array_length(args); i++) {
 		var arg = args[i];
 		arg.offsetX = offsetX;
-		arg.offsetY = (sprite_height - arg.sprite_height) / 2;
+		arg.offsetY = (BLOCK_HEIGHT - arg.sprite_height) / 2;
 		var argWidth = arg.GetValueWidth();
-		arg.image_xscale = argWidth / BLOCK_ARGUMENT_BASE_WIDTH;
+		arg.image_xscale = argWidth / sprite_get_width(arg.sprite_index);
 		offsetX += argWidth;
 	}
 	
@@ -255,7 +275,7 @@ function Deserialize(node) {
 			break;
 	}
 	
-	if(hasArguments) Stretch();
+	Stretch();
 	
 	var previousBlock = noone;
 	

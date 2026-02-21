@@ -22,6 +22,16 @@ enum BlockType {
 	IF
 }
 
+enum BlockSprite {
+	DISCONNECTED = 0,
+	CONNECTED = 1,
+}
+
+enum SlotSprite {
+	CANNOTCONNECT = 0,
+	CANCONNECT = 1
+}
+
 enum MenuBlockType {
 	NEXTLEVEL,
 	SETTINGS

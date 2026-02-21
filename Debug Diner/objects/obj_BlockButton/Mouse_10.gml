@@ -1,3 +1,1 @@
-if(global.gameState == GameState.PROGRAMMING) {
-	EnterButton();
-}
+image_alpha = 0.7;

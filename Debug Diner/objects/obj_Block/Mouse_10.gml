@@ -1,0 +1,1 @@
+if(!isDragging && isDraggable) EnterHover(hoverStrength);

@@ -1,1 +1,1 @@
-ExitButton();
+image_alpha = 1;
