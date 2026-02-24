@@ -1,16 +1,18 @@
-gridX = round(x / CELL_SIZE);
-gridY = round(y / CELL_SIZE);
-x = gridX * CELL_SIZE;
-y = gridY * CELL_SIZE;
+var gridPos = obj_GridController.WorldToGrid(x, y);
+gridX = gridPos.gridX;
+gridY = gridPos.gridY;
+
 targetGridX = gridX;
 targetGridY = gridY;
+
 startX = x;
 startY = y;
 endX = x;
 endY = y;
+
 isMoving = false;
 moveProgress = 0;
-remainingTiles = 0;
+
 program = [];
 programStack = [];
 
@@ -37,16 +39,21 @@ function MoveForward() {
 	targetGridY = targetY;
 	startX = x;
 	startY = y;
-	endX = targetGridX * CELL_SIZE;
-	endY = targetGridY * CELL_SIZE;
+	var worldPos = obj_GridController.GridToWorld(targetGridX, targetGridY);
+	endX = worldPos.xx;
+	endY = worldPos.yy;
 	moveProgress = 0;
 	isMoving = true;
+	
+	show_debug_message("Moving Forward");
 }
 
 function Turn(dir) {
 	var d = dir == TurnDirection.LEFT ? -1 : 1
 	facing = (facing + d + 4) % 4;
 	isMoving = true;
+	
+	show_debug_message("Turning");
 }
 
 function MakeFrame(nodes, index) {

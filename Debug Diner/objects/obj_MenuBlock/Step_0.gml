@@ -1,4 +1,4 @@
-var bounds = obj_MenuBlockBounds.GetBounds();
+var bounds = obj_MainMenuBlockBounds.GetBounds();
 
 if(isDragging) {
 	flingX = mouse_x - prevMouseX;

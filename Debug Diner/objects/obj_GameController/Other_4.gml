@@ -1,5 +1,5 @@
 if(room == rm_MainMenu) {
-	var bounds = obj_MenuBlockBounds.GetBounds();
+	var bounds = obj_Bounds.GetBounds();
 	
 	instance_create_layer(bounds.left + 50, bounds.top + 50, "MenuBlockLayer", obj_MainMenuBlock);
 	

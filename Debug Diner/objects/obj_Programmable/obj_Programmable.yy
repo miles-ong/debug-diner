@@ -30,7 +30,12 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"facing","filters":[],"listItems":[],"multiselect":false,"name":"facing","rangeEnabled":false,"rangeMax":3.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"2","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"facing","filters":[],"listItems":[
+        "Direction.NORTH",
+        "Direction.EAST",
+        "Direction.SOUTH",
+        "Direction.WEST",
+      ],"multiselect":false,"name":"facing","rangeEnabled":false,"rangeMax":3.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"Direction.NORTH","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
