@@ -137,6 +137,7 @@
     {"name":"inst_3FD8D6AD","path":"roomui/RoomUI/RoomUI.yy",},
     {"name":"inst_6207BBF0","path":"roomui/RoomUI/RoomUI.yy",},
     {"name":"inst_6B98A022","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_2D980154","path":"roomui/RoomUI/RoomUI.yy",},
   ],
   "isDnd":false,
   "layers":[

@@ -49,6 +49,15 @@ function SetupType() {
 			AddArgument(ArgumentType.DROPDOWN, ["Left", "Right"]);
 			break;
 			
+		case BlockType.LOOP:
+			name = "Loop";
+			SetBlockColor(BlockColor.RED);
+			hasArguments = true;
+			hasBody = true;
+			count = 1;
+			AddArgument(ArgumentType.INT);
+			break;
+			
 		case BlockType.IF:
 			name = "If";
 			SetBlockColor(BlockColor.WHITE);
@@ -57,6 +66,8 @@ function SetupType() {
 			condition = "";
 			break;
 	}
+	
+	sprite_index = hasBody ? spr_BlockBody : spr_Block;
 	
 	Stretch();
 	
@@ -87,6 +98,8 @@ function LinkToSlot(slot) {
 	slot.isEmpty = false;
 	x = slot.x;
 	y = slot.y;
+	
+	StretchParents();
 		
 	return true;
 }
@@ -107,6 +120,8 @@ function UnlinkFromSlot() {
 		
 		if(parentBlock.childSlot != noone) parentBlock.childSlot.isEmpty = true;
 	}
+	
+	StretchParents();
 	
 	parentBlock = noone;
 }
@@ -130,6 +145,10 @@ function OnArgumentChanged() {
 		case BlockType.TURN:
 			turnDirection = args[0].value;
 			break;
+		
+		case BlockType.LOOP:
+			count = args[0].value;
+			break;
 	}
 	
 	Stretch();
@@ -150,8 +169,35 @@ function Stretch() {
 		offsetX += argWidth;
 	}
 	
-	var stretchLength = offsetX + BLOCK_CONTENT_PADDING + BLOCK_PADDING + BLOCK_EDGE_LENGTH;	
-	image_xscale = stretchLength / sprite_get_width(sprite_index);
+	var blockWidth = offsetX + BLOCK_CONTENT_PADDING + BLOCK_PADDING + BLOCK_EDGE_LENGTH;	
+	image_xscale = blockWidth / sprite_get_width(sprite_index);
+	
+	if(hasBody) {
+		var bodyHeight = 0;
+		
+		if(childBlock != noone) {
+			var currentBlock = childBlock;
+			
+			while(currentBlock != noone) {
+				bodyHeight += currentBlock.sprite_height;
+				currentBlock = currentBlock.nextBlock;
+			}
+		}
+		
+		image_yscale = (bodyHeight + sprite_get_height(spr_BlockBody)) / sprite_get_height(sprite_index);
+	}
+	
+	RefreshChain();
+}
+
+function StretchParents() {
+	var current = parentBlock;
+	
+	while(current != noone) {
+		if(current.hasBody) current.Stretch();
+		
+		current = current.parentBlock;
+	}
 }
 
 function RefreshChain() {	
@@ -181,12 +227,6 @@ function RefreshChain() {
 		childBlock.y = y + BLOCK_HEIGHT;
 		childBlock.RefreshChain();
 	}
-}
-
-function MoveChain(xx, yy) {
-	x = xx;
-	y = yy;
-	RefreshChain();
 }
 
 function DestroyChain() {
@@ -244,6 +284,10 @@ function Serialize() {
 		case BlockType.TURN:
 			node.args.turnDirection = turnDirection;
 			break;
+			
+		case BlockType.LOOP:
+			node.args.count = count;
+			break;
 	}
 	
 	if(hasBody) {
@@ -269,6 +313,11 @@ function Deserialize(node) {
 		case BlockType.TURN:
 			turnDirection = node.args.turnDirection;
 			args[0].value = turnDirection;
+			break;
+			
+		case BlockType.LOOP:
+			count = node.args.count;
+			args[0].value = count;
 			break;
 	}
 	

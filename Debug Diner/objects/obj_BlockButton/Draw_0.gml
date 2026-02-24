@@ -1,4 +1,4 @@
-draw_sprite_ext(spr_Block, 0, x, y, image_xscale, image_yscale, 0, color, 1);
+draw_sprite_ext(sprite_index, 0, x, y, image_xscale, image_yscale, 0, color, 1);
 
 var height = BLOCK_HEIGHT * image_yscale;
 var paddingX = BLOCK_EDGE_LENGTH + BLOCK_PADDING + BLOCK_CONTENT_PADDING;

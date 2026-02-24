@@ -12,7 +12,7 @@ isMoving = false;
 moveProgress = 0;
 remainingTiles = 0;
 program = [];
-currentBlock = 0;
+programStack = [];
 
 canCollide = true;
 
@@ -46,4 +46,9 @@ function MoveForward() {
 function Turn(dir) {
 	var d = dir == TurnDirection.LEFT ? -1 : 1
 	facing = (facing + d + 4) % 4;
+	isMoving = true;
+}
+
+function MakeFrame(nodes, index) {
+	return { nodes : nodes, index : index };
 }
