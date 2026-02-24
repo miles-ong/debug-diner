@@ -142,10 +142,11 @@ function OnArgumentChanged() {
 function Stretch() {
 	var slice = sprite_get_nineslice(sprite_index);
 	draw_set_font(fo_basic);
-	var offsetX = string_width(name) + BLOCK_PADDING * 2;
+	var offsetX = BLOCK_PADDING + string_width(name);
 	
 	for(var i = 0; i < array_length(args); i++) {
 		var arg = args[i];
+		offsetX += BLOCK_ARGUMENT_PADDING;
 		arg.offsetX = offsetX;
 		arg.offsetY = (BLOCK_HEIGHT - arg.sprite_height) / 2;
 		var argWidth = arg.GetValueWidth();
@@ -153,7 +154,8 @@ function Stretch() {
 		offsetX += argWidth;
 	}
 	
-	var totalWidth = max(sprite_get_width(sprite_index), offsetX + slice.right);
+	var stretchLength = offsetX + BLOCK_PADDING + slice.right;	
+	var totalWidth = max(sprite_get_width(sprite_index), stretchLength);
 	image_xscale = totalWidth / sprite_get_width(sprite_index);
 }
 
