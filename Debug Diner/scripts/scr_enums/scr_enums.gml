@@ -22,6 +22,18 @@ enum BlockType {
 	IF
 }
 
+enum BlockColor {
+	WHITE,
+	RED,
+	ORANGE,
+	YELLOW,
+	GREEN,
+	TEAL,
+	BLUE,
+	PURPLE,
+	PINK
+}
+
 enum BlockSprite {
 	DISCONNECTED = 0,
 	CONNECTED = 1,

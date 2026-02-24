@@ -1,3 +1,5 @@
+image_alpha = global.hoveredArgument == id ? interactOpacity : opacity;
+
 if(isEditing) {
 	switch(type) {
 		case ArgumentType.INT:

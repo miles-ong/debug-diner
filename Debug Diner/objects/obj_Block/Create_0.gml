@@ -1,21 +1,20 @@
 type = BlockType.MOVE;
 name = "";
+color = BlockColor.WHITE;
 parentBlock = noone;
 nextBlock = noone;
 childBlock = noone;
 isDragging = false;
 isDraggable = true;
+isSource = false;
 hasSequence = true;
 hasBody = false;
 hasArguments = false;
 nextSlot = noone;
 childSlot = noone;
-hoveredSlot = noone;
 args = [];
 
-hoverStrength = 0.2;
-
-image_speed = 0;
+hoverStrength = 0.15;
 
 function SetupType() {
 	if(nextSlot != noone) {
@@ -32,18 +31,19 @@ function SetupType() {
 	switch(type) {
 		case BlockType.PROGRAM:
 			name = "Program";
-			sprite_index = spr_ProgramBlock;
+			SetBlockColor(BlockColor.PURPLE);
 			isDraggable = false;
+			isSource = true;
 			break;
 			
 		case BlockType.MOVE:
 			name = "Move Forward";
-			sprite_index = spr_MoveBlock;
+			SetBlockColor(BlockColor.BLUE);
 			break;
 			
 		case BlockType.TURN:
 			name = "Turn";
-			sprite_index = spr_TurnBlock;
+			SetBlockColor(BlockColor.ORANGE);
 			hasArguments = true;
 			turnDirection = TurnDirection.LEFT;
 			AddArgument(ArgumentType.DROPDOWN, ["Left", "Right"]);
@@ -51,6 +51,7 @@ function SetupType() {
 			
 		case BlockType.IF:
 			name = "If";
+			SetBlockColor(BlockColor.WHITE);
 			hasArguments = true;
 			hasBody = true;
 			condition = "";
@@ -78,8 +79,6 @@ function LinkToSlot(slot) {
 	if(slot == noone || !slot.isEmpty) return false;
 	
 	audio_play_sound(sfx_BlockConnect, 0, false);
-	slot.image_index = SlotSprite.CANNOTCONNECT;
-	hoveredSlot = noone;
 	parentBlock = slot.owner;
 		
 	if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
@@ -88,7 +87,6 @@ function LinkToSlot(slot) {
 	slot.isEmpty = false;
 	x = slot.x;
 	y = slot.y;
-	image_index = BlockSprite.CONNECTED;
 		
 	return true;
 }
@@ -111,7 +109,6 @@ function UnlinkFromSlot() {
 	}
 	
 	parentBlock = noone;
-	image_index = BlockSprite.DISCONNECTED;
 }
 
 function AddArgument(argType, options = []) {
@@ -140,13 +137,12 @@ function OnArgumentChanged() {
 }
 
 function Stretch() {
-	var slice = sprite_get_nineslice(sprite_index);
 	draw_set_font(fo_basic);
-	var offsetX = BLOCK_PADDING + string_width(name);
+	var offsetX = BLOCK_EDGE_LENGTH + BLOCK_PADDING + sprite_get_width(spr_BlockLightConnected) + BLOCK_CONTENT_PADDING + string_width(name);
 	
 	for(var i = 0; i < array_length(args); i++) {
 		var arg = args[i];
-		offsetX += BLOCK_ARGUMENT_PADDING;
+		offsetX += BLOCK_CONTENT_PADDING;
 		arg.offsetX = offsetX;
 		arg.offsetY = (BLOCK_HEIGHT - arg.sprite_height) / 2;
 		var argWidth = arg.GetValueWidth();
@@ -154,9 +150,8 @@ function Stretch() {
 		offsetX += argWidth;
 	}
 	
-	var stretchLength = offsetX + BLOCK_PADDING + slice.right;	
-	var totalWidth = max(sprite_get_width(sprite_index), stretchLength);
-	image_xscale = totalWidth / sprite_get_width(sprite_index);
+	var stretchLength = offsetX + BLOCK_CONTENT_PADDING + BLOCK_PADDING + BLOCK_EDGE_LENGTH;	
+	image_xscale = stretchLength / sprite_get_width(sprite_index);
 }
 
 function RefreshChain() {	

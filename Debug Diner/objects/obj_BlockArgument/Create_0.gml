@@ -7,7 +7,7 @@ offsetX = 0;
 offsetY = 0;
 
 opacity = 0.2;
-hoverOpacity = 0.3;
+interactOpacity = 0.3;
 
 image_alpha = opacity;
 

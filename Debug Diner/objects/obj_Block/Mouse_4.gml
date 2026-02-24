@@ -12,5 +12,4 @@ for(var i = 0; i < array_length(args); i++) {
 global.isDraggingBlock = true;
 UnlinkFromSlot();
 BringToDraggingLayer();
-ExitHover();
 isDragging = true;

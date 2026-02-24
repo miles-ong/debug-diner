@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_MoveBlock",
-    "path":"sprites/spr_MoveBlock/spr_MoveBlock.yy",
+    "name":"spr_Block",
+    "path":"sprites/spr_Block/spr_Block.yy",
   },
   "spriteMaskId":null,
   "visible":true,
