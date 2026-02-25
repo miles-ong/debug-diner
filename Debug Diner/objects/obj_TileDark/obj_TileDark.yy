@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_WhiteTile",
+  "%Name":"obj_TileDark",
   "eventList":[],
   "managed":true,
-  "name":"obj_WhiteTile",
+  "name":"obj_TileDark",
   "overriddenProperties":[],
   "parent":{
     "name":"Floor",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_WhiteTile",
-    "path":"sprites/spr_WhiteTile/spr_WhiteTile.yy",
+    "name":"spr_TileDark",
+    "path":"sprites/spr_TileDark/spr_TileDark.yy",
   },
   "spriteMaskId":null,
   "visible":true,

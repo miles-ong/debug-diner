@@ -31,9 +31,13 @@ function MoveForward() {
 		case Direction.WEST: targetX = gridX - 1; break;
 	}
 	
-	var cell = obj_GridController.Get(GridLevel.FLOOR, targetX, targetY);
+	var floorTile = obj_GridController.Get(GridLevel.FLOOR, targetX, targetY);
 	
-	if(cell == noone || !cell.walkable) return;
+	if(floorTile == noone || !floorTile.walkable) return;
+	
+	var baseTile = obj_GridController.Get(GridLevel.BASE, targetX, targetY);
+	
+	if(baseTile != noone && baseTile.collision == true) return;
 	
 	targetGridX = targetX;
 	targetGridY = targetY;

@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_BlockContainer",
-    "path":"sprites/spr_BlockContainer/spr_BlockContainer.yy",
+    "name":"spr_ProgrammingPanel",
+    "path":"sprites/spr_ProgrammingPanel/spr_ProgrammingPanel.yy",
   },
   "spriteMaskId":null,
   "visible":true,

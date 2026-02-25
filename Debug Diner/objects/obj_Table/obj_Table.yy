@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_MainViewportBounds",
+  "%Name":"obj_Table",
   "eventList":[],
   "managed":true,
-  "name":"obj_MainViewportBounds",
+  "name":"obj_Table",
   "overriddenProperties":[],
   "parent":{
-    "name":"Helper",
-    "path":"folders/Objects/Helper.yy",
+    "name":"Base",
+    "path":"folders/Objects/Base.yy",
   },
   "parentObjectId":{
-    "name":"obj_Bounds",
-    "path":"objects/obj_Bounds/obj_Bounds.yy",
+    "name":"obj_Base",
+    "path":"objects/obj_Base/obj_Base.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -30,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_Empty",
-    "path":"sprites/spr_Empty/spr_Empty.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
