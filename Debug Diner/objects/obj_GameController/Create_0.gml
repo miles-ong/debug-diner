@@ -9,8 +9,17 @@ levels = [
 
 function GoToLevel(index) {
 	if(index < 0 || index > array_length(levels) - 1) return;
-
-	room_goto(levels[index].targetRoom);
+	
+	var level = { targetRoom : levels[index].targetRoom };
+	
+	obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, true, method(level, function() {
+		room_goto(targetRoom);
+		obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, false));
+		layer_destroy_instances(layer_get_id("MenuBlockLayer"));
+		layer_destroy_instances(layer_get_id("MenuBlockDraggingLayer"));
+		layer_set_visible("MainMenuInterface", false);
+		layer_set_visible("LevelInterface", true);
+	})));
 }
 
 function ReturnToMainMenu() {

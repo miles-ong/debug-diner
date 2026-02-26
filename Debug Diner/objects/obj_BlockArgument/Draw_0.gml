@@ -1,7 +1,7 @@
 draw_self();
 
 var paddingX = BLOCK_ARGUMENT_PADDING;
-var paddingY = (sprite_height - string_height("A")) / 2;
+var paddingY = ((sprite_height + BLOCK_EDGE_LENGTH) - string_height("A")) / 2;
 draw_set_color(c_black);
 draw_set_font(fo_basic);
 	

@@ -7,6 +7,13 @@
   "inheritLayers":false,
   "instanceCreationOrder":[
     {"name":"inst_57724C0D","path":"rooms/rm_MainMenu/rm_MainMenu.yy",},
+    {"name":"inst_6FD96D2","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_3DC5223D","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_17552DE7","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_3FD8D6AD","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_2D980154","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_76CA5F43","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_C2C4458","path":"roomui/RoomUI/RoomUI.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -32,10 +39,10 @@
   "resourceType":"GMRoom",
   "resourceVersion":"2.0",
   "roomSettings":{
-    "Height":768,
+    "Height":1080,
     "inheritRoomSettings":false,
     "persistent":false,
-    "Width":1366,
+    "Width":1920,
   },
   "sequenceId":null,
   "views":[

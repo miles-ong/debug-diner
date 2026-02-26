@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"obj_Waiter",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_Waiter",
   "overriddenProperties":[
@@ -33,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_Waiter",
-    "path":"sprites/spr_Waiter/spr_Waiter.yy",
+    "name":"spr_WaiterSouth",
+    "path":"sprites/spr_WaiterSouth/spr_WaiterSouth.yy",
   },
   "spriteMaskId":null,
   "visible":true,

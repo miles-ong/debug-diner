@@ -3,6 +3,7 @@ if(room == rm_MainMenu) {
 	
 	instance_create_layer(bounds.left + 50, bounds.top + 50, "MenuBlockLayer", obj_MainMenuBlock);
 	
-	CreateMenuBlock(MenuBlockType.NEXTLEVEL, bounds);
+	CreateMenuBlock(MenuBlockType.LEVELSELECT, bounds);
+	CreateMenuBlock(MenuBlockType.CONTINUE, bounds);
 	CreateMenuBlock(MenuBlockType.SETTINGS, bounds);
 }

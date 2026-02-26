@@ -1,4 +1,5 @@
-type = MenuBlockType.NEXTLEVEL;
+type = MenuBlockType.LEVELSELECT;
+name = "";
 isDragging = false;
 isConnected = false;
 wanderSpeed = 2;
@@ -12,8 +13,9 @@ flingY = 0;
 
 function SetupType() {
 	switch(type) {
-		case MenuBlockType.NEXTLEVEL: sprite_index = spr_NextLevelBlock; break;
-		case MenuBlockType.SETTINGS: sprite_index = spr_SettingsBlock; break;
+		case MenuBlockType.LEVELSELECT: name = "Level Select"; break;
+		case MenuBlockType.CONTINUE: name = "Continue"; break;
+		case MenuBlockType.SETTINGS: name = "Settings"; break;
 	}
 }
 

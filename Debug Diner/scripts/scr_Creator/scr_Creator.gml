@@ -13,15 +13,9 @@ function CreateTask(type) {
 function CreateMenuBlock(type, bounds) {
 	var boundsX;
 	var boundsY;
-	var spriteWidth = 0;
-	
-	switch(type) {
-		case MenuBlockType.NEXTLEVEL: spriteWidth = sprite_get_width(spr_NextLevelBlock); break;
-		case MenuBlockType.SETTINGS: spriteWidth = sprite_get_width(spr_SettingsBlock); break;
-	}
 	
 	do {
-		boundsX = random_range(bounds.left, bounds.right - spriteWidth);
+		boundsX = random_range(bounds.left, bounds.right - sprite_get_width(spr_MenuBlock));
 		boundsY = random_range(bounds.top, bounds.bottom - MENU_BLOCK_HEIGHT);
 	}
 	until(instance_place(x, y, obj_MenuBlock) == noone && instance_place(x, y, obj_MainMenuBlock) == noone)
