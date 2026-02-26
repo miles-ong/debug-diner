@@ -1,33 +1,26 @@
 type = BlockType.MOVE;
 name = "";
 color = BlockColor.WHITE;
+
 parentBlock = noone;
 nextBlock = noone;
 childBlock = noone;
-isDragging = false;
+
+nextSlot = noone;
+childSlot = noone;
+
 isDraggable = true;
 isSource = false;
 hasSequence = true;
 hasBody = false;
-hasArguments = false;
-nextSlot = noone;
-childSlot = noone;
-args = [];
+
+isDragging = false;
+
+contents = [];
 
 hoverStrength = 0.15;
 
-function SetupType() {
-	if(nextSlot != noone) {
-		instance_destroy(nextSlot);
-	}
-	
-	if(childSlot != noone) {
-		instance_destroy(childSlot);
-	}
-	
-	nextSlot = noone;
-	childSlot = noone;
-	
+function Initialize() {
 	switch(type) {
 		case BlockType.PROGRAM:
 			name = "Program";
@@ -44,52 +37,59 @@ function SetupType() {
 		case BlockType.TURN:
 			name = "Turn";
 			SetBlockColor(BlockColor.ORANGE);
-			hasArguments = true;
-			turnDirection = TurnDirection.LEFT;
-			AddArgument(ArgumentType.DROPDOWN, ["Left", "Right"]);
+			argDirection = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.CYCLE, "", ["Left", "Right"]);
 			break;
 			
 		case BlockType.LOOP:
 			name = "Loop";
 			SetBlockColor(BlockColor.RED);
-			hasArguments = true;
 			hasBody = true;
-			count = 1;
-			AddArgument(ArgumentType.INT);
+			
+			AddContent(BlockContentType.BUTTON, BlockArgumentType.NONE, "-", [], function() {
+				argCount.value = max(0, argCount.value - 1);
+				OnArgumentChanged();
+			});
+			
+			argCount = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.INT);
+			
+			AddContent(BlockContentType.BUTTON, BlockArgumentType.NONE, "+", [], function() {
+				argCount.value += 1;
+				OnArgumentChanged();
+			});
+			
+			AddContent(BlockContentType.DISPLAY, BlockArgumentType.NONE, "Times");
+			
 			break;
 			
 		case BlockType.IF:
 			name = "If";
 			SetBlockColor(BlockColor.WHITE);
-			hasArguments = true;
 			hasBody = true;
 			condition = "";
 			break;
 	}
 	
 	sprite_index = hasBody ? spr_BlockBody : spr_Block;
-	
 	Stretch();
 	
-	if(hasArguments) OnArgumentChanged();
-	
 	if(hasSequence) {
-		nextSlot = instance_create_layer(x, y + sprite_height, "SlotLayer", obj_BlockSlot);
+		nextSlot = instance_create_layer(x, y + sprite_height, "BlockSlot", obj_BlockSlot);
 		nextSlot.owner = id;
 		nextSlot.type = SlotType.SEQUENCE;
 	}
 	
 	if(hasBody) {
-		childSlot = instance_create_layer(x + BLOCK_BODY_WIDTH, y + BLOCK_HEIGHT, "SlotLayer", obj_BlockSlot);
+		childSlot = instance_create_layer(x + BLOCK_BODY_WIDTH, y + BLOCK_HEIGHT, "BlockSlot", obj_BlockSlot);
 		childSlot.owner = id;
 		childSlot.type = SlotType.BODY;
 	}
 }
 
-function LinkToSlot(slot) {
+function LinkToSlot(slot, mute = false) {
 	if(slot == noone || !slot.isEmpty) return false;
 	
-	audio_play_sound(sfx_BlockConnect, 0, false);
+	if(!mute) audio_play_sound(sfx_BlockConnect, 0, false);
+	
 	parentBlock = slot.owner;
 		
 	if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
@@ -126,15 +126,20 @@ function UnlinkFromSlot() {
 	parentBlock = noone;
 }
 
-function AddArgument(argType, options = []) {
-	var arg = instance_create_layer(x, y, "ArgumentsLayer", obj_BlockArgument);
-	arg.owner = id;
-	arg.type = argType;
-	arg.options = options;
-	arg.SetupType();
-	array_push(args, arg);
+function AddContent(_contentType, _argumentType = BlockArgumentType.NONE, _text = "", _options = [], _action = undefined) {
+	var content = instance_create_layer(x, y, "BlockContent", obj_BlockContent);
 	
-	return arg;
+	content.owner = id;
+	content.contentType = _contentType;
+	content.argumentType = _argumentType;
+	content.options = _options;
+	content.action = _action;
+	
+	content.Initialize(_text);
+	
+	array_push(contents, content);
+	
+	return content;
 }
 
 function OnArgumentChanged() {
@@ -143,11 +148,11 @@ function OnArgumentChanged() {
 			break;
 			
 		case BlockType.TURN:
-			turnDirection = args[0].value;
+			turnDirection = argDirection.value;
 			break;
 		
 		case BlockType.LOOP:
-			count = args[0].value;
+			count = argCount.value;
 			break;
 	}
 	
@@ -159,14 +164,16 @@ function Stretch() {
 	draw_set_font(fo_basic);
 	var offsetX = BLOCK_EDGE_LENGTH + BLOCK_PADDING + sprite_get_width(spr_BlockLightConnected) + BLOCK_CONTENT_PADDING + string_width(name);
 	
-	for(var i = 0; i < array_length(args); i++) {
-		var arg = args[i];
+	for(var i = 0; i < array_length(contents); i++) {
+		var content = contents[i];
 		offsetX += BLOCK_CONTENT_PADDING;
-		arg.offsetX = offsetX;
-		arg.offsetY = (BLOCK_HEIGHT - arg.sprite_height) / 2;
-		var argWidth = arg.GetValueWidth();
-		arg.image_xscale = argWidth / sprite_get_width(arg.sprite_index);
-		offsetX += argWidth;
+		content.offsetX = offsetX;
+		content.offsetY = (BLOCK_HEIGHT - BLOCK_CONTENT_HEIGHT) / 2;
+		var contentWidth = content.GetValueWidth();
+		
+		if(content.contentType != BlockContentType.DISPLAY) content.image_xscale = contentWidth / BLOCK_CONTENT_WIDTH;
+		
+		offsetX += contentWidth;
 	}
 	
 	var blockWidth = offsetX + BLOCK_CONTENT_PADDING + BLOCK_PADDING + BLOCK_EDGE_LENGTH;	
@@ -201,9 +208,9 @@ function StretchParents() {
 }
 
 function RefreshChain() {	
-	for(var i = 0; i < array_length(args); i++) {
-		args[i].x = x + args[i].offsetX;
-		args[i].y = y + args[i].offsetY;
+	for(var i = 0; i < array_length(contents); i++) {
+		contents[i].x = x + contents[i].offsetX;
+		contents[i].y = y + contents[i].offsetY;
 	}
 	
 	if(nextSlot != noone) {
@@ -230,8 +237,8 @@ function RefreshChain() {
 }
 
 function DestroyChain() {
-	for(var i = 0; i < array_length(args); i++) {
-		instance_destroy(args[i]);
+	for(var i = 0; i < array_length(contents); i++) {
+		instance_destroy(contents[i]);
 	}
 	
 	if(childBlock != noone) childBlock.DestroyChain();
@@ -243,29 +250,27 @@ function DestroyChain() {
 }
 
 function BringToDraggingLayer() {
-	layer = layer_get_id("BlockDraggingLayer");
+	layer = layer_get_id("BlockDragging");
 	
-	if(nextSlot != noone) nextSlot.layer = layer_get_id("SlotDraggingLayer");
-	if(childSlot != noone) childSlot.layer = layer_get_id("SlotDraggingLayer");
-	
-	for(var i = 0; i < array_length(args); i++) {
-		args[i].layer = layer_get_id("ArgumentsDraggingLayer");
+	for(var i = 0; i < array_length(contents); i++) {
+		contents[i].layer = layer_get_id("BlockContentDragging");
 	}
 	
+	if(nextSlot != noone) nextSlot.layer = layer_get_id("BlockSlotDragging");
+	if(childSlot != noone) childSlot.layer = layer_get_id("BlockSlotDragging");
 	if(nextBlock != noone) nextBlock.BringToDraggingLayer();
 	if(childBlock != noone) childBlock.BringToDraggingLayer();
 }
 
 function BringToBaseLayer() {
-	layer = layer_get_id("BlockLayer");
+	layer = layer_get_id("Block");
 	
-	if(nextSlot != noone) nextSlot.layer = layer_get_id("SlotLayer");
-	if(childSlot != noone) childSlot.layer = layer_get_id("SlotLayer");
-	
-	for(var i = 0; i < array_length(args); i++) {
-		args[i].layer = layer_get_id("ArgumentsLayer");
+	for(var i = 0; i < array_length(contents); i++) {
+		contents[i].layer = layer_get_id("BlockContent");
 	}
 	
+	if(nextSlot != noone) nextSlot.layer = layer_get_id("BlockSlot");
+	if(childSlot != noone) childSlot.layer = layer_get_id("BlockSlot");
 	if(nextBlock != noone) nextBlock.BringToBaseLayer();
 	if(childBlock != noone) childBlock.BringToBaseLayer();
 }
@@ -282,11 +287,11 @@ function Serialize() {
 			break;
 			
 		case BlockType.TURN:
-			node.args.turnDirection = turnDirection;
+			node.args.turnDirection = argDirection.value;
 			break;
 			
 		case BlockType.LOOP:
-			node.args.count = count;
+			node.args.count = argCount.value;
 			break;
 	}
 	
@@ -304,7 +309,7 @@ function Serialize() {
 
 function Deserialize(node) {
 	type = node.type;
-	SetupType();
+	Initialize();
 	
 	switch(type) {
 		case BlockType.MOVE:
@@ -312,12 +317,12 @@ function Deserialize(node) {
 			
 		case BlockType.TURN:
 			turnDirection = node.args.turnDirection;
-			args[0].value = turnDirection;
+			argDirection.value = turnDirection;
 			break;
 			
 		case BlockType.LOOP:
 			count = node.args.count;
-			args[0].value = count;
+			argCount.value = count;
 			break;
 	}
 	
@@ -326,11 +331,11 @@ function Deserialize(node) {
 	var previousBlock = noone;
 	
 	for(var i = 0; i < array_length(node.body); i++) {
-		var child = instance_create_layer(childSlot.x, childSlot.y, "BlockLayer", obj_Block);
+		var child = instance_create_layer(childSlot.x, childSlot.y, "Block", obj_Block);
 		child.Deserialize(node.body[i]);
 		
-		if(previousBlock == noone) child.LinkToSlot(childSlot);
-		else child.LinkToSlot(previousBlock.nextSlot);
+		if(previousBlock == noone) child.LinkToSlot(childSlot, true);
+		else child.LinkToSlot(previousBlock.nextSlot, true);
 		
 		previousBlock = child;
 	}

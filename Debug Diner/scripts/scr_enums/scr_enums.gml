@@ -46,11 +46,18 @@ enum SlotType {
 	BODY
 }
 
-enum ArgumentType {
+enum BlockContentType {
+	ARGUMENT,
+	BUTTON,
+	DISPLAY
+}
+
+enum BlockArgumentType {
 	INT,
 	BOOL,
 	TEXT,
-	DROPDOWN
+	CYCLE,
+	NONE
 }
 
 enum TaskType {

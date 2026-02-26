@@ -6,6 +6,7 @@ if(global.gameState == GameState.RUNNING) {
 	return;
 }
 
+if(global.editingArgument != noone) global.editingArgument.owner.OnArgumentChanged();
 with(obj_ProgrammingPanel) SaveSelectedProgram();
 with(obj_Programmable) programStack = [MakeFrame(program, 0)];
 

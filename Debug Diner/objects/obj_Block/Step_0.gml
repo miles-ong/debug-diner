@@ -12,7 +12,7 @@ if(isDragging) {
 		if(!LinkToSlot(slot)) {
 			var panel = instance_position(x, y, obj_ProgrammingPanel);
 			
-			if(panel != noone) {
+			if(panel != noone && panel.visible) {
 				panel.SnapToGrid(id);
 				RefreshChain();
 			}

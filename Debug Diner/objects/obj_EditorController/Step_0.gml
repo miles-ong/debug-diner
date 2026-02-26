@@ -6,7 +6,7 @@ if(global.isDraggingBlock) {
 	return;
 }
 
-var hArg = collision_point(mouse_x, mouse_y, obj_BlockArgument, true, true);
+var hArg = collision_point(mouse_x, mouse_y, obj_BlockContent, true, true);
 
 if(hArg != noone) {
 	global.hoveredArgument = hArg;

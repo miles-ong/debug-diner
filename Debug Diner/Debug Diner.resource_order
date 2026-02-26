@@ -29,8 +29,8 @@
   ],
   "ResourceOrderSettings":[
     {"name":"fo_MenuBlock","order":1,"path":"fonts/fo_MenuBlock/fo_MenuBlock.yy",},
-    {"name":"obj_BlockArgument","order":1,"path":"objects/obj_BlockArgument/obj_BlockArgument.yy",},
     {"name":"obj_BlockButton","order":2,"path":"objects/obj_BlockButton/obj_BlockButton.yy",},
+    {"name":"obj_BlockContent","order":1,"path":"objects/obj_BlockContent/obj_BlockContent.yy",},
     {"name":"obj_BlockSlot","order":3,"path":"objects/obj_BlockSlot/obj_BlockSlot.yy",},
     {"name":"obj_Counter","order":3,"path":"objects/obj_Counter/obj_Counter.yy",},
     {"name":"obj_CounterLeft","order":5,"path":"objects/obj_CounterLeft/obj_CounterLeft.yy",},
@@ -75,6 +75,7 @@
     {"name":"spr_Block","order":3,"path":"sprites/spr_Block/spr_Block.yy",},
     {"name":"spr_BlockBody","order":6,"path":"sprites/spr_BlockBody/spr_BlockBody.yy",},
     {"name":"spr_BlockContainer","order":3,"path":"sprites/spr_BlockContainer/spr_BlockContainer.yy",},
+    {"name":"spr_BlockContentButton","order":8,"path":"sprites/spr_BlockContentButton/spr_BlockContentButton.yy",},
     {"name":"spr_BlockLightConnected","order":4,"path":"sprites/spr_BlockLightConnected/spr_BlockLightConnected.yy",},
     {"name":"spr_BlockLightDisconnected","order":5,"path":"sprites/spr_BlockLightDisconnected/spr_BlockLightDisconnected.yy",},
     {"name":"spr_BlockSlot","order":1,"path":"sprites/spr_BlockSlot/spr_BlockSlot.yy",},

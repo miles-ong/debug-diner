@@ -4,8 +4,8 @@ if(global.isDraggingBlock == true) {
 
 global.isDraggingBlock = true;
 
-var block = instance_create_layer(mouse_x, mouse_y, "BlockDraggingLayer", obj_Block);
+var block = instance_create_layer(mouse_x, mouse_y, "BlockDragging", obj_Block);
 block.type = type;
-block.SetupType();
+block.Initialize();
 block.BringToDraggingLayer();
 block.isDragging = true;

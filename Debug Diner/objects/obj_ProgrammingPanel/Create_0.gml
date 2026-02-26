@@ -14,14 +14,14 @@ function LoadSelectedProgram() {
 	
 	Clear();
 	
-	programBlock = instance_create_layer(x + BLOCK_HEIGHT, y + BLOCK_HEIGHT, "BlockLayer", obj_Block);
+	programBlock = instance_create_layer(x + BLOCK_HEIGHT, y + BLOCK_HEIGHT, "Block", obj_Block);
 	programBlock.type = BlockType.PROGRAM;
-	programBlock.SetupType();
+	programBlock.Initialize();
 	
 	var previousBlock = programBlock;
 	
 	for(var i = 0; i < array_length(currentProgram.program); i++) {
-		var block = instance_create_layer(previousBlock.nextSlot.x, previousBlock.nextSlot.y, "BlockLayer", obj_Block);
+		var block = instance_create_layer(previousBlock.nextSlot.x, previousBlock.nextSlot.y, "Block", obj_Block);
 		block.Deserialize(currentProgram.program[i]);
 		previousBlock.nextBlock = block;
 		block.parentBlock = previousBlock;
@@ -52,7 +52,7 @@ function Clear() {
 		instance_destroy();
 	}
 	
-	with(obj_BlockArgument) {
+	with(obj_BlockContent) {
 		instance_destroy();
 	}
 	
