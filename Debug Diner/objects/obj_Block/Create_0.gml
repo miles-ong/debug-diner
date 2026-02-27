@@ -161,12 +161,14 @@ function OnArgumentChanged() {
 }
 
 function Stretch() {
-	draw_set_font(fo_basic);
+	draw_set_font(fo_UISmall);
 	var offsetX = BLOCK_EDGE_LENGTH + BLOCK_PADDING + sprite_get_width(spr_BlockLightConnected) + BLOCK_CONTENT_PADDING + string_width(name);
 	
 	for(var i = 0; i < array_length(contents); i++) {
 		var content = contents[i];
-		offsetX += BLOCK_CONTENT_PADDING;
+		
+		if(content.contentType != BlockContentType.DISPLAY) offsetX += BLOCK_CONTENT_PADDING;
+		
 		content.offsetX = offsetX;
 		content.offsetY = (BLOCK_HEIGHT - BLOCK_CONTENT_HEIGHT) / 2;
 		var contentWidth = content.GetValueWidth();

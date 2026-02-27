@@ -2,8 +2,8 @@ if(contentType != BlockContentType.DISPLAY) draw_self();
 
 var paddingX = BLOCK_CONTENT_PADDING;
 var paddingY = ((BLOCK_CONTENT_HEIGHT + BLOCK_EDGE_LENGTH) - string_height("A")) / 2;
-draw_set_color(global.editingArgument == id ? c_white : c_black);
-draw_set_font(fo_basic);
+draw_set_color(global.editingBlockContent == id ? c_white : c_black);
+draw_set_font(fo_UISmall);
 var displayText = "";
 
 switch(contentType) {

@@ -4,5 +4,5 @@ global.isDraggingBlock = true;
 
 if(isConnected) obj_MainMenuBlock.Disconnect();
 
-layer = layer_get_id("MenuBlockDraggingLayer");
+layer = layer_get_id("MenuBlockDragging");
 isDragging = true;

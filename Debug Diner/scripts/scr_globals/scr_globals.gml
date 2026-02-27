@@ -6,7 +6,11 @@ global.selectedProgram = noone;
 
 global.isDraggingBlock = false;
 global.isEditingArgument = false;
-global.editingArgument = noone;
+global.editingBlockContent = noone;
+global.editingProgrammable = noone;
 global.hoveredBlock = noone;
-global.hoveredArgument = noone;
-global.hoveredSlot = noone;
+global.hoveredBlockContent = noone;
+global.hoveredBlockSlot = noone;
+global.hoveredProgrammable = noone;
+
+global.currentLevel = noone;

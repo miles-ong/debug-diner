@@ -47,7 +47,7 @@ function OnClick() {
 			
 			switch(argumentType) {
 				case BlockArgumentType.INT:	
-					global.editingArgument = id;
+					global.editingBlockContent = id;
 					keyboard_string = string(value);
 					break;
 				
@@ -57,7 +57,7 @@ function OnClick() {
 					break;
 				
 				case BlockArgumentType.TEXT:
-					global.editingArgument = id;
+					global.editingBlockContent = id;
 					keyboard_string = value;
 					break;
 				
@@ -84,7 +84,7 @@ function OnClick() {
 
 function GetValueWidth() {
 	var width = 0;
-	draw_set_font(fo_basic);
+	draw_set_font(fo_UISmall);
 	
 	switch(contentType) {
 		case BlockContentType.ARGUMENT:
@@ -101,8 +101,7 @@ function GetValueWidth() {
 			break;
 		
 		case BlockContentType.DISPLAY:
-			width = string_width(text);
-			break;
+			return string_width(text) + BLOCK_CONTENT_PADDING;
 	}
 	
 	return width + BLOCK_CONTENT_PADDING * 2;

@@ -15,6 +15,11 @@ enum TurnDirection {
 	RIGHT = 1
 }
 
+enum ProgrammableSprite {
+	UNSELECTED = 0,
+	SELECTED = 1
+}
+
 enum BlockType {
 	PROGRAM,
 	MOVE,
@@ -69,7 +74,20 @@ enum GridLevel {
 	BASE
 }
 
-enum CellType {
-	FLOOR,
-	SOLID
+//enum CellType {
+//	FLOOR,
+//	SOLID
+//}
+
+enum LevelRegion {
+	NORTHAMERICA,
+	SOUTHAMERICA,
+	EUROPE,
+	ASIA,
+	AFRICA,
+	AUSTRALIA
+}
+
+enum ButtonLayer {
+	LEVELSELECT
 }

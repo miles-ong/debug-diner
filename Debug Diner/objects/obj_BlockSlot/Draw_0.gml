@@ -1,4 +1,4 @@
-if(isEmpty && global.hoveredSlot == id) {
+if(isEmpty && global.hoveredBlockSlot == id) {
 	draw_sprite(spr_BlockSlotHovered, 0, x, y);
 	
 	return;

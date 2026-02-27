@@ -13,7 +13,7 @@ if(isDragging) {
 	if(!mouse_check_button(mb_left)) {
 		global.isDraggingBlock = false;
 		isDragging = false;
-		layer = layer_get_id("MenuBlockLayer");
+		layer = layer_get_id("MenuBlock");
 		
 		velocityX = flingX;
 		velocityY = flingY;

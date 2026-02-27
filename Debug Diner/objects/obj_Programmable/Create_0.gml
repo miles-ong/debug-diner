@@ -18,6 +18,12 @@ programStack = [];
 
 canCollide = true;
 
+clickSoundEffects = [];
+hoverScale = 0.9;
+scaleSpeed = 0.4;
+
+image_speed = 0;
+
 function MoveForward() {
 	if(isMoving) return;
 	

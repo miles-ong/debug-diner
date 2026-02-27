@@ -14,7 +14,7 @@ function CreateMenuBlock(type, bounds) {
 	}
 	until(instance_place(x, y, obj_MenuBlock) == noone && instance_place(x, y, obj_MainMenuBlock) == noone)
 	
-	var block = instance_create_layer(boundsX, boundsY, "MenuBlockLayer", obj_MenuBlock);
+	var block = instance_create_layer(boundsX, boundsY, "MenuBlock", obj_MenuBlock);
 	block.type = type;
 	block.SetupType();
 }

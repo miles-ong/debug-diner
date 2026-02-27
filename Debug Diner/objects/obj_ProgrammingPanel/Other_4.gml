@@ -1,0 +1,2 @@
+programBlock = noone;
+currentProgram = noone;

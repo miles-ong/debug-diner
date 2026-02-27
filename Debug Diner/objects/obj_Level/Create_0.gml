@@ -1,3 +1,5 @@
+name = "";
+trophy = noone;
 unlocked = false;
 completed = false;
 task1 = noone;

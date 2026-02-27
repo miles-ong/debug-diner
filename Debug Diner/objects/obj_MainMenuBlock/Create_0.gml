@@ -10,7 +10,7 @@ function Connect(block) {
 	
 	switch(connectedBlock.type) {
 		case MenuBlockType.LEVELSELECT:
-			// call level select function here
+			layer_set_visible("LevelSelectInterface", true);
 			break;
 			
 		case MenuBlockType.CONTINUE:
@@ -33,7 +33,18 @@ function Disconnect() {
 	if(connectedBlock != noone) connectedBlock.isConnected = false;
 	
 	audio_play_sound(sfx_BlockDisconnect, 0, false);
-	connectedBlock = noone;
 	
-	// close side menu function here
+	switch(connectedBlock.type) {
+		case MenuBlockType.LEVELSELECT:
+			layer_set_visible("LevelSelectInterface", false);
+			break;
+			
+		case MenuBlockType.CONTINUE:
+			break;
+		
+		case MenuBlockType.SETTINGS:
+			break;
+	}
+	
+	connectedBlock = noone;
 }

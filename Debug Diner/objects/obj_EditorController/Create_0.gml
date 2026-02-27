@@ -1,0 +1,1 @@
+hoverClearRadius = 0.7;

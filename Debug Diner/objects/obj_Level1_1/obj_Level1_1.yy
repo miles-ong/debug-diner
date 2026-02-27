@@ -8,8 +8,8 @@
   "name":"obj_Level1_1",
   "overriddenProperties":[],
   "parent":{
-    "name":"Level",
-    "path":"folders/Objects/Level.yy",
+    "name":"World 1",
+    "path":"folders/Objects/Level/World 1.yy",
   },
   "parentObjectId":{
     "name":"obj_Level",
