@@ -1,4 +1,6 @@
 enum GameState {
+	MENUS,
+	TRANSITIONING,
 	PROGRAMMING,
 	RUNNING
 }
@@ -66,6 +68,9 @@ enum BlockArgumentType {
 }
 
 enum TaskType {
+	GUIDETOTABLE,
+	COMPLETEORDERS,
+	COMPLETEBONUSORDERS,
 	LESSTHANBLOCKS
 }
 

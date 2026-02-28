@@ -6,11 +6,11 @@ if(instance_number(obj_GameController) > 1) {
 levels = [];
 
 northAmericaLevels = [
-	instance_create_layer(0, 0, "Controllers", obj_Level1_1),
-	instance_create_layer(0, 0, "Controllers", obj_Level1_2),
-	instance_create_layer(0, 0, "Controllers", obj_Level1_3),
-	instance_create_layer(0, 0, "Controllers", obj_Level1_4),
-	instance_create_layer(0, 0, "Controllers", obj_Level1_5),
+	instance_create_layer(0, 0, "Levels", obj_Level1_1),
+	instance_create_layer(0, 0, "Levels", obj_Level1_2),
+	instance_create_layer(0, 0, "Levels", obj_Level1_3),
+	instance_create_layer(0, 0, "Levels", obj_Level1_4),
+	instance_create_layer(0, 0, "Levels", obj_Level1_5),
 ];
 southAmericaLevels = [];
 europeLevels = [];

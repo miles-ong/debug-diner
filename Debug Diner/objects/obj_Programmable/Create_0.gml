@@ -39,11 +39,11 @@ function MoveForward() {
 	
 	var floorTile = obj_GridController.Get(GridLevel.FLOOR, targetX, targetY);
 	
-	if(floorTile == noone || !floorTile.walkable) return;
+	if(floorTile == noone || !floorTile.isWalkable) return;
 	
 	var baseTile = obj_GridController.Get(GridLevel.BASE, targetX, targetY);
 	
-	if(baseTile != noone && baseTile.collision == true) return;
+	if(baseTile != noone && baseTile.canCollide == true) return;
 	
 	targetGridX = targetX;
 	targetGridY = targetY;

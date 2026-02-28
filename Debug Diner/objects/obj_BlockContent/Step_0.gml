@@ -4,8 +4,9 @@ else image_alpha = opacity;
 if(global.editingBlockContent == id) {
 	switch(argumentType) {
 		case BlockArgumentType.INT:
-			value = keyboard_string == "" ? 0 : real(keyboard_string);
-			break;
+		    keyboard_string = string_digits(keyboard_string);
+		    value = keyboard_string == "" ? 0 : real(keyboard_string);
+		    break;
 			
 		case BlockArgumentType.TEXT:
 			value = keyboard_string;
