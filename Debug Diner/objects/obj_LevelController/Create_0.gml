@@ -5,9 +5,9 @@ if(instance_exists(obj_LevelController) > 1) {
 
 totalBlocksUsed = 0;
 
-mainTask = noone;
-bonusTask1 = noone;
-bonusTask2 = noone;
+mainTask = undefined;
+bonusTask1 = undefined;
+bonusTask2 = undefined;
 
 prevBonusTask1Completion = false;
 prevBonusTask2Completion = false;
@@ -21,13 +21,13 @@ function StartLevel() {
 	
 	mainTask = currLevel.mainTask;
 	
-	if(mainTask == noone) return;
+	if(mainTask == undefined) return;
 	
 	bonusTask1 = currLevel.bonusTask1;
 	bonusTask2 = currLevel.bonusTask2;
 	
-	if(bonusTask1 != noone) prevBonusTask1Completion = bonusTask1.isCompleted;
-	if(bonusTask2 != noone) prevBonusTask2Completion = bonusTask2.isCompleted;
+	if(bonusTask1 != undefined) prevBonusTask1Completion = bonusTask1.isCompleted;
+	if(bonusTask2 != undefined) prevBonusTask2Completion = bonusTask2.isCompleted;
 	
 	global.gameState = GameState.PROGRAMMING;
 }
@@ -48,39 +48,45 @@ function CheckTasksCompletion() {
 	var completedBT1 = undefined;
 	var completedBT2 = undefined;
 	
-	if(bonusTask1 != noone) {
+	if(bonusTask1 != undefined) {
 		completedBT1 = EvaluateTask(bonusTask1);
 		totalTasks++;
 	}
 	
-	if(bonusTask2 != noone) {
+	if(bonusTask2 != undefined) {
 		completedBT2 = EvaluateTask(bonusTask2);
 		totalTasks++;
 	}
 	
-	show_debug_message("Completed Main Task: " + string(completedMT));
-	if(completedBT1 != undefined) show_debug_message("Completed Bonus Task 1: " + string(completedBT1));
-	if(completedBT2 != undefined) show_debug_message("Completed Bonus Task 2: " + string(completedBT2));
+	show_debug_message("Completed Main Task: " + (completedMT ? "True" : "False"));
+	if(completedBT1 != undefined) show_debug_message("Completed Bonus Task 1: " + (completedBT1 ? "True" : "False"));
+	if(completedBT2 != undefined) show_debug_message("Completed Bonus Task 2: " + (completedBT2 ? "True" : "False"));
 }
 
 function EvaluateTask(task) {
-	switch(task) {
+	switch(task.type) {
 		case TaskType.GUIDETOTABLE:
-			var tablesCovered = true;
+			var tablesSatisfied = true;
 			
 			with(obj_Table) {
+				var needed = task.waitersPerTable;
+				var found = 0;
 				var proximity = obj_GridController.GetInProximity(GridLevel.BASE, gridX, gridY);
 				
 				for(var i = 0; i < array_length(proximity); i++) {
 					var inst = proximity[i];
 					
-					if(instance_exists(inst) && inst == obj_Waiter) {
-						// fix this stuff
+					if(instance_exists(inst) && inst.object_index == obj_Waiter) {
+						if(obj_GridController.ObjectFacingObject(inst, id)) found++;
 					}
 				}
+				
+				show_debug_message("Found: " + string(found));
+				
+				if(found < needed) tablesSatisfied = false;
 			}
 			
-			return true;
+			return tablesSatisfied;
 			
 		case TaskType.COMPLETEORDERS:
 			break;
@@ -92,16 +98,3 @@ function EvaluateTask(task) {
 			break;
 	}
 }
-
-//type = TaskType.LESSTHANBLOCKS;
-//threshold = 0;
-//description = "";
-//isCompleted = false;
-
-//name = "";
-//trophy = noone;
-//unlocked = false;
-//completeTask = noone;
-//bonusTask1 = noone;
-//bonusTask2 = noone;
-//targetRoom = noone;

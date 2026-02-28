@@ -1,9 +1,3 @@
-function CreateTask(type) {
-	var task = instance_create_layer(x, y, "Controllers", obj_LevelTask);
-	task.type = type;
-	task.SetupType();
-}
-
 function CreateMenuBlock(type, bounds) {
 	var boundsX;
 	var boundsY;

@@ -6,11 +6,8 @@ if(instance_number(obj_GameController) > 1) {
 levels = [];
 
 northAmericaLevels = [
-	instance_create_layer(0, 0, "Levels", obj_Level1_1),
-	instance_create_layer(0, 0, "Levels", obj_Level1_2),
-	instance_create_layer(0, 0, "Levels", obj_Level1_3),
-	instance_create_layer(0, 0, "Levels", obj_Level1_4),
-	instance_create_layer(0, 0, "Levels", obj_Level1_5),
+	CreateLevel("Level 1-1", spr_TrophyBurger, true, CreateTask(TaskType.GUIDETOTABLE), undefined, undefined, rm_Level1_1),
+	CreateLevel("Level 1-2", spr_TrophyHotDog, false, CreateTask(TaskType.GUIDETOTABLE), undefined, undefined, rm_Level1_2)
 ];
 southAmericaLevels = [];
 europeLevels = [];

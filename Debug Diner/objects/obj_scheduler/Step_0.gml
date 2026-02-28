@@ -63,7 +63,10 @@ if(global.gameState == GameState.RUNNING) {
 				}
 			}
 			
-			if(programComplete) global.gameState = GameState.PROGRAMMING;
+			if(programComplete) {
+				obj_LevelController.CheckTasksCompletion();
+				global.gameState = GameState.PROGRAMMING;
+			}
 		}
 	}
 }

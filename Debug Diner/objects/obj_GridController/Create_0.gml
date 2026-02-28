@@ -44,7 +44,7 @@ function GetInProximity(level, gridX, gridY) {
 	var proximity = [];
 	
 	for(var dir = Direction.NORTH; dir <= Direction.WEST; dir++) {
-		array_push(proximity, GetInDirection(level, gridX, gridY, dir));
+		array_push(proximity, GetInDirection(level, gridX, gridY, dir)); 
 	}
 	
 	return proximity;
@@ -78,4 +78,19 @@ function GridToWorld(gridX, gridY) {
 		xx : (gridX * BOARD_TILE_SIZE) + BOARD_PADDING + BOARD_TILE_SIZE / 2,
 		yy : (gridY * BOARD_TILE_SIZE) + BOARD_PADDING + BOARD_TILE_SIZE / 2
 	};
+}
+
+function ObjectFacingObject(o1, o2) {
+	if(!variable_instance_exists(o1, "facing")) return false;
+	
+	var dirToO2;
+	
+	if(o1.gridX < o2.gridX) dirToO2 = Direction.EAST;
+	else if(o1.gridX > o2.gridX) dirToO2 = Direction.WEST;
+	else if(o1.gridY < o2.gridY) dirToO2 = Direction.SOUTH;
+	else if(o1.gridY > o2.gridY) dirToO2 = Direction.NORTH;
+	
+	show_debug_message("Facing Dir: " + string(dirToO2));
+	
+	return o1.facing == dirToO2;
 }
