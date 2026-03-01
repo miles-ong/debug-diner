@@ -90,7 +90,5 @@ function ObjectFacingObject(o1, o2) {
 	else if(o1.gridY < o2.gridY) dirToO2 = Direction.SOUTH;
 	else if(o1.gridY > o2.gridY) dirToO2 = Direction.NORTH;
 	
-	show_debug_message("Facing Dir: " + string(dirToO2));
-	
 	return o1.facing == dirToO2;
 }

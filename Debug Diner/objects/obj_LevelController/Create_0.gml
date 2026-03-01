@@ -81,8 +81,6 @@ function EvaluateTask(task) {
 					}
 				}
 				
-				show_debug_message("Found: " + string(found));
-				
 				if(found < needed) tablesSatisfied = false;
 			}
 			
