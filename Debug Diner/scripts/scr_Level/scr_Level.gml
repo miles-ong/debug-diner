@@ -10,14 +10,14 @@ function CreateLevel(n, t, u, mt, bt1, bt2, tr) {
 	};
 }
 
-function CreateTask(taskType, threshold = 1) {
+function CreateTask(taskType, param = 1) {
 	switch(taskType) {
 		case TaskType.GUIDETOTABLE: 
 			return {
 				type : taskType,
 				isCompleted : false,
-				description : "Guide waiters such that each table has at least " + string(threshold) + " facing it.",
-				waitersPerTable : threshold
+				description : "Guide waiters such that each table has at least " + string(param) + " facing it.",
+				waitersPerTable : param
 			};
 			
 		case TaskType.COMPLETEORDERS:
@@ -38,8 +38,24 @@ function CreateTask(taskType, threshold = 1) {
 			return {
 				type : taskType,
 				isCompleted : false,
-				description : "Use fewer than " + string(threshold) + " blocks.",
-				blocks : threshold
+				description : "Use fewer than " + string(param) + " blocks.",
+				blocks : param
+			};
+			
+		case TaskType.USEBLOCK:
+			return {
+				type : taskType,
+				isCompleted : false,
+				description : "Use a " + BlockTypeToString(param) + " block.",
+				block : param
+			};
+			
+		case TaskType.NOTUSEBLOCK:
+			return {
+				type : taskType,
+				isCompleted : false,
+				description : "Do not use a " + BlockTypeToString(param) + " block.",
+				block : param
 			};
 	}
 }

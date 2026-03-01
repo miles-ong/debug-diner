@@ -129,6 +129,19 @@ function CountBlocks(nodes) {
     return count;
 }
 
+function CollectBlockTypes(nodes, map = undefined) {
+	var blockTypesUsed = map == undefined ? ds_map_create() : map;
+	
+	for(var i = 0; i < array_length(nodes); i++) {
+		var type = nodes[i].type;
+		
+		if(!ds_map_exists(blockTypesUsed, type)) ds_map_add(blockTypesUsed, type, true);
+		if(array_length(nodes[i].body) > 0) CollectBlockTypes(nodes[i].body, blockTypesUsed);
+	}
+	
+	return blockTypesUsed;
+}
+
 function MakeFrame(nodes, index) {
 	return { nodes : nodes, index : index };
 }

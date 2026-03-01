@@ -17,7 +17,7 @@ northAmericaLevels = [
 	),
 	CreateLevel(
 		"Level 1-2", 
-		spr_TrophyHotDog, 
+		noone, 
 		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		CreateTask(TaskType.LESSTHANBLOCKS, 3), 
@@ -26,11 +26,11 @@ northAmericaLevels = [
 	),
 	CreateLevel(
 		"Level 1-3",
-		spr_TrophyBurger,
+		noone,
 		false,
-		CreateTask(TaskType.GUIDETOTABLE),
-		undefined,
-		undefined,
+		CreateTask(TaskType.GUIDETOTABLE, 2),
+		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
+		CreateTask(TaskType.LESSTHANBLOCKS, 8),
 		rm_Level1_3
 	),
 ];

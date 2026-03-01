@@ -22,12 +22,38 @@ enum ProgrammableSprite {
 	SELECTED = 1
 }
 
+enum TrophySprite {
+	EMPTY = 0,
+	BRONZE = 1,
+	SILVER = 2,
+	GOLD = 3
+}
+
 enum BlockType {
 	PROGRAM,
 	MOVE,
 	TURN,
 	LOOP,
 	IF
+}
+	
+enum BlockContentType {
+	ARGUMENT,
+	BUTTON,
+	DISPLAY
+}
+
+enum BlockArgumentType {
+	INT,
+	BOOL,
+	TEXT,
+	CYCLE,
+	NONE
+}
+
+enum SlotType {
+	SEQUENCE,
+	BODY
 }
 
 enum BlockColor {
@@ -48,30 +74,13 @@ enum MenuBlockType {
 	SETTINGS
 }
 
-enum SlotType {
-	SEQUENCE,
-	BODY
-}
-
-enum BlockContentType {
-	ARGUMENT,
-	BUTTON,
-	DISPLAY
-}
-
-enum BlockArgumentType {
-	INT,
-	BOOL,
-	TEXT,
-	CYCLE,
-	NONE
-}
-
 enum TaskType {
 	GUIDETOTABLE,
 	COMPLETEORDERS,
 	COMPLETEBONUSORDERS,
-	LESSTHANBLOCKS
+	LESSTHANBLOCKS,
+	USEBLOCK,
+	NOTUSEBLOCK
 }
 
 enum GridLevel {
@@ -91,4 +100,14 @@ enum LevelRegion {
 enum ButtonLayer {
 	LEVELSELECT,
 	LEVELRESULT,
+}
+
+function BlockTypeToString(type) {
+	switch(type) {
+		case BlockType.PROGRAM: return "Program";
+		case BlockType.MOVE: return "Move Forward";
+		case BlockType.TURN: return "Turn";
+		case BlockType.LOOP: return "Loop";
+		case BlockType.IF: return "If";
+	}
 }

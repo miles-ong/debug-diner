@@ -5,6 +5,7 @@ if(instance_exists(obj_LevelController) > 1) {
 
 crashed = false;
 totalBlocksUsed = 0;
+blockTypesUsed = ds_map_create();
 
 mainTask = undefined;
 bonusTask1 = undefined;
@@ -16,6 +17,7 @@ prevBonusTask2Completion = false;
 function StartLevel() {
 	crashed = false;
 	totalBlocksUsed = 0;
+	ds_map_clear(blockTypesUsed);
 	
 	var currLevel = global.currentLevel;
 	
@@ -58,6 +60,7 @@ function LoadExecutionData() {
 	
 	with(obj_Waiter) {
 		other.totalBlocksUsed += CountBlocks(program);
+		CollectBlockTypes(program, other.blockTypesUsed);
 	}
 	
 	show_debug_message("Total Blocks Used: " + string(totalBlocksUsed));
@@ -125,5 +128,11 @@ function EvaluateTask(task) {
 			
 		case TaskType.LESSTHANBLOCKS:
 			return totalBlocksUsed < task.blocks;
-	}
+			
+		case TaskType.USEBLOCK:
+			return ds_map_exists(blockTypesUsed, task.block); 
+			
+		case TaskType.NOTUSEBLOCK:
+			return !ds_map_exists(blockTypesUsed, task.block);
+	}		
 }

@@ -38,9 +38,7 @@ function Flash(_spd, _color, _targetAlpha, _callback = undefined) constructor {
 		alpha = reversing ? alpha - spd : alpha + spd;
 		alpha = clamp(alpha, 0, targetAlpha);
 		
-		if(alpha >= targetAlpha) {
-			reversing = true;
-		}
+		if(alpha >= targetAlpha) reversing = true;
 		
 		if(alpha <= 0) {
 			finished = true;
