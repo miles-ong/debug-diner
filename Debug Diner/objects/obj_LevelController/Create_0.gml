@@ -32,11 +32,17 @@ function StartLevel() {
 	global.gameState = GameState.PROGRAMMING;
 }
 
-function GetExecutionData() {
+function FinalizeLevel() {
+	global.gameState = GameState.MENUS;
+	CheckTasksCompletion();
+	layer_set_visible("LevelResult", true);
+}
+
+function LoadExecutionData() {
 	totalBlocksUsed = 0;
 	
 	with(obj_Waiter) {
-		totalBlocksUsed += array_length(program);
+		other.totalBlocksUsed += array_length(program);
 	}
 	
 	show_debug_message("Total Blocks Used: " + string(totalBlocksUsed));
@@ -58,9 +64,17 @@ function CheckTasksCompletion() {
 		totalTasks++;
 	}
 	
-	show_debug_message("Completed Main Task: " + (completedMT ? "True" : "False"));
-	if(completedBT1 != undefined) show_debug_message("Completed Bonus Task 1: " + (completedBT1 ? "True" : "False"));
-	if(completedBT2 != undefined) show_debug_message("Completed Bonus Task 2: " + (completedBT2 ? "True" : "False"));
+	if(completedMT) {
+		mainTask.isCompleted = true;
+		
+		if(completedBT1 != undefined) {
+			bonusTask1.isCompleted = completedBT1;
+		}
+		
+		if(completedBT2 != undefined) {
+			bonusTask2.isCompleted = completedBT2;
+		}
+	}
 }
 
 function EvaluateTask(task) {
@@ -93,6 +107,6 @@ function EvaluateTask(task) {
 			break;
 			
 		case TaskType.LESSTHANBLOCKS:
-			break;
+			return totalBlocksUsed < task.blocks;
 	}
 }

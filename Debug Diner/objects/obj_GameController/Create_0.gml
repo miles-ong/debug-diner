@@ -6,8 +6,24 @@ if(instance_number(obj_GameController) > 1) {
 levels = [];
 
 northAmericaLevels = [
-	CreateLevel("Level 1-1", spr_TrophyBurger, true, CreateTask(TaskType.GUIDETOTABLE), undefined, undefined, rm_Level1_1),
-	CreateLevel("Level 1-2", spr_TrophyHotDog, false, CreateTask(TaskType.GUIDETOTABLE), undefined, undefined, rm_Level1_2)
+	CreateLevel(
+		"Level 1-1", 
+		spr_TrophyBurger, 
+		true, 
+		CreateTask(TaskType.GUIDETOTABLE), 
+		undefined, 
+		undefined, 
+		rm_Level1_1
+	),
+	CreateLevel(
+		"Level 1-2", 
+		spr_TrophyHotDog, 
+		false, 
+		CreateTask(TaskType.GUIDETOTABLE), 
+		CreateTask(TaskType.LESSTHANBLOCKS, 3), 
+		undefined, 
+		rm_Level1_2
+	),
 ];
 southAmericaLevels = [];
 europeLevels = [];
@@ -82,6 +98,7 @@ function GoToCurrentLevel() {
 
 function ReturnToMainMenu() {
 	layer_set_visible("LevelInterface", false);
+	layer_set_visible("LevelResult", false);
 	layer_set_visible("MainMenuInterface", true);
 	
 	room_goto(rm_MainMenu);

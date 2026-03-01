@@ -9,16 +9,28 @@ global.hoveredBlockSlot = noone;
 global.hoveredProgrammable = noone;
 
 if(room == rm_MainMenu) {
-	global.gameState = GameState.MENUS;
-	var bounds = obj_Bounds.GetBounds();
-	
-	instance_create_layer(bounds.left + 50, bounds.top + 50, "MenuBlock", obj_MainMenuBlock);
-	
-	CreateMenuBlock(MenuBlockType.LEVELSELECT, bounds);
-	CreateMenuBlock(MenuBlockType.CONTINUE, bounds);
-	CreateMenuBlock(MenuBlockType.SETTINGS, bounds);
-	
-	return;
+    global.gameState = GameState.MENUS;
+    var bounds = obj_Bounds.GetBounds();
+    
+    var mainBlock = instance_create_layer(bounds.left + 50, bounds.top + 50, "MenuBlock", obj_MainMenuBlock);
+    
+    var mainWidth = sprite_get_width(mainBlock.sprite_index);
+    var mainHeight = sprite_get_height(mainBlock.sprite_index);
+    var mainXOffset = sprite_get_xoffset(mainBlock.sprite_index);
+    var mainYOffset = sprite_get_yoffset(mainBlock.sprite_index);
+    
+    var placedRects = [{
+        x1: mainBlock.x - mainXOffset,
+        y1: mainBlock.y - mainYOffset,
+        x2: mainBlock.x + (mainWidth - mainXOffset),
+        y2: mainBlock.y + (mainWidth - mainYOffset)
+    }];
+    
+    CreateMenuBlock(MenuBlockType.LEVELSELECT, bounds, placedRects);
+    CreateMenuBlock(MenuBlockType.CONTINUE, bounds, placedRects);
+    CreateMenuBlock(MenuBlockType.SETTINGS, bounds, placedRects);
+    
+    return;
 }
 
 obj_LevelController.StartLevel();

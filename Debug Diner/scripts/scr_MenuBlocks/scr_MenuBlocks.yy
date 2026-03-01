@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_Creator",
+  "%Name":"scr_MenuBlocks",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_Creator",
+  "name":"scr_MenuBlocks",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

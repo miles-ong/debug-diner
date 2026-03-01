@@ -79,11 +79,6 @@ enum GridLevel {
 	BASE
 }
 
-//enum CellType {
-//	FLOOR,
-//	SOLID
-//}
-
 enum LevelRegion {
 	NORTHAMERICA,
 	SOUTHAMERICA,
@@ -94,5 +89,6 @@ enum LevelRegion {
 }
 
 enum ButtonLayer {
-	LEVELSELECT
+	LEVELSELECT,
+	LEVELRESULT,
 }

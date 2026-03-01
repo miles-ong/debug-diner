@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_TileLight",
+  "%Name":"obj_TileWhite",
   "eventList":[],
   "managed":true,
-  "name":"obj_TileLight",
+  "name":"obj_TileWhite",
   "overriddenProperties":[],
   "parent":{
     "name":"Floor",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_TileLight",
-    "path":"sprites/spr_TileLight/spr_TileLight.yy",
+    "name":"spr_TileWhite",
+    "path":"sprites/spr_TileWhite/spr_TileWhite.yy",
   },
   "spriteMaskId":null,
   "visible":true,

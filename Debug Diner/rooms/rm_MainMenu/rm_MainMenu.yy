@@ -25,6 +25,10 @@
     {"name":"inst_19C25DDC","path":"rooms/rm_MainMenu/rm_MainMenu.yy",},
     {"name":"inst_3BF9E507","path":"rooms/rm_MainMenu/rm_MainMenu.yy",},
     {"name":"inst_5BF59AB","path":"rooms/rm_MainMenu/rm_MainMenu.yy",},
+    {"name":"inst_6A83A841","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_52457D5D","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_2A5A84CD","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_12DEB796","path":"roomui/RoomUI/RoomUI.yy",},
   ],
   "isDnd":false,
   "layers":[

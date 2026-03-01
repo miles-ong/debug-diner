@@ -11,7 +11,9 @@ prevMouseY = 0;
 flingX = 0;
 flingY = 0;
 
-function SetupType() {
+function Initialize(_type) {
+	type = _type;
+	
 	switch(type) {
 		case MenuBlockType.LEVELSELECT: name = "Level Select"; break;
 		case MenuBlockType.CONTINUE: name = "Continue"; break;

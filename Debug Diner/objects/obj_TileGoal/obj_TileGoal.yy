@@ -30,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_TileGoal",
-    "path":"sprites/spr_TileGoal/spr_TileGoal.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

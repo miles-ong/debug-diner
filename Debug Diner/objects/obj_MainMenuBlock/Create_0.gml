@@ -14,7 +14,7 @@ function Connect(block) {
 			break;
 			
 		case MenuBlockType.CONTINUE:
-			obj_GameController.GoToLevel(0);
+			obj_GameController.GoToCurrentLevel();
 			
 			break;
 			

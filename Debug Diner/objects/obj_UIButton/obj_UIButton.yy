@@ -30,9 +30,17 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
+    {"$GMObjectProperty":"v2","%Name":"text","filters":[],"listItems":[],"multiselect":false,"name":"text","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
+    {"$GMObjectProperty":"v2","%Name":"textFont","filters":[
+        "GMFont",
+      ],"listItems":[],"multiselect":false,"name":"textFont","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"spriteIndex","filters":[
+        "GMSprite",
+      ],"listItems":[],"multiselect":false,"name":"spriteIndex","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"buttonID","filters":[],"listItems":[],"multiselect":false,"name":"buttonID","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"buttonLayer","filters":[],"listItems":[
         "ButtonLayer.LEVELSELECT",
+        "ButtonLayer.LEVELRESULT",
       ],"multiselect":false,"name":"buttonLayer","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"ButtonLayer.LEVELSELECT","varType":6,},
   ],
   "resourceType":"GMObject",

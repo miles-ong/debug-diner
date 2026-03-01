@@ -23,5 +23,16 @@ function HandleButtonPress(_id, _layer) {
 					if(nextLevelIndex != noone) obj_GameController.SetCurrentLevel(nextLevelIndex);
 					break;
 			}
+			break;
+			
+		case ButtonLayer.LEVELRESULT:
+			switch(_id) {
+				case 0:
+					obj_GameController.ReturnToMainMenu();
+					break;
+				
+				case 1:
+					break;
+			}
 	}
 }
