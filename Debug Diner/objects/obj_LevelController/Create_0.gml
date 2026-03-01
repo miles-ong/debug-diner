@@ -3,6 +3,7 @@ if(instance_exists(obj_LevelController) > 1) {
 	return;
 }
 
+crashed = false;
 totalBlocksUsed = 0;
 
 mainTask = undefined;
@@ -13,6 +14,7 @@ prevBonusTask1Completion = false;
 prevBonusTask2Completion = false;
 
 function StartLevel() {
+	crashed = false;
 	totalBlocksUsed = 0;
 	
 	var currLevel = global.currentLevel;
@@ -29,7 +31,20 @@ function StartLevel() {
 	if(bonusTask1 != undefined) prevBonusTask1Completion = bonusTask1.isCompleted;
 	if(bonusTask2 != undefined) prevBonusTask2Completion = bonusTask2.isCompleted;
 	
+	obj_GridController.Fill();
 	global.gameState = GameState.PROGRAMMING;
+}
+
+function OnCrash() {
+	if(crashed) return;
+	
+	crashed = true;
+	global.gameState = GameState.MENUS;
+	audio_play_sound(sfx_RobotCrash, 1, 0);
+	
+	obj_ScreenFilter.AddFilter(new Flash(0.05, c_red, 0.5, function() {
+		obj_LevelController.FinalizeLevel();
+	}));
 }
 
 function FinalizeLevel() {
@@ -78,6 +93,8 @@ function CheckTasksCompletion() {
 }
 
 function EvaluateTask(task) {
+	if(crashed) return false;
+	
 	switch(task.type) {
 		case TaskType.GUIDETOTABLE:
 			var tablesSatisfied = true;

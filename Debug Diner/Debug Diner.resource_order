@@ -30,6 +30,7 @@
     {"name":"Timelines","order":13,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"cu_CrashFallback","order":1,"path":"animcurves/cu_CrashFallback/cu_CrashFallback.yy",},
     {"name":"fo_UILarge","order":2,"path":"fonts/fo_UILarge/fo_UILarge.yy",},
     {"name":"fo_UIMedium","order":1,"path":"fonts/fo_UIMedium/fo_UIMedium.yy",},
     {"name":"obj_BlockButton","order":2,"path":"objects/obj_BlockButton/obj_BlockButton.yy",},
@@ -84,6 +85,7 @@
     {"name":"sfx_BlockDisconnect","order":4,"path":"sounds/sfx_BlockDisconnect/sfx_BlockDisconnect.yy",},
     {"name":"sfx_RobotBeep1","order":5,"path":"sounds/sfx_RobotBeep1/sfx_RobotBeep1.yy",},
     {"name":"sfx_RobotBeep2","order":6,"path":"sounds/sfx_RobotBeep2/sfx_RobotBeep2.yy",},
+    {"name":"sfx_RobotCrash","order":7,"path":"sounds/sfx_RobotCrash/sfx_RobotCrash.yy",},
     {"name":"sfx_Something","order":1,"path":"sounds/sfx_Something/sfx_Something.yy",},
     {"name":"spr_ArrowLeft","order":1,"path":"sprites/spr_ArrowLeft/spr_ArrowLeft.yy",},
     {"name":"spr_Block","order":3,"path":"sprites/spr_Block/spr_Block.yy",},

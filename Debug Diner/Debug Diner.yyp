@@ -50,6 +50,7 @@
   "name":"Debug Diner",
   "resources":[
     {"id":{"name":"cu_ButtonClick","path":"animcurves/cu_ButtonClick/cu_ButtonClick.yy",},},
+    {"id":{"name":"cu_CrashFallback","path":"animcurves/cu_CrashFallback/cu_CrashFallback.yy",},},
     {"id":{"name":"fo_UILarge","path":"fonts/fo_UILarge/fo_UILarge.yy",},},
     {"id":{"name":"fo_UIMedium","path":"fonts/fo_UIMedium/fo_UIMedium.yy",},},
     {"id":{"name":"fo_UISmall","path":"fonts/fo_UISmall/fo_UISmall.yy",},},
@@ -114,6 +115,7 @@
     {"id":{"name":"sfx_BlockDisconnect","path":"sounds/sfx_BlockDisconnect/sfx_BlockDisconnect.yy",},},
     {"id":{"name":"sfx_RobotBeep1","path":"sounds/sfx_RobotBeep1/sfx_RobotBeep1.yy",},},
     {"id":{"name":"sfx_RobotBeep2","path":"sounds/sfx_RobotBeep2/sfx_RobotBeep2.yy",},},
+    {"id":{"name":"sfx_RobotCrash","path":"sounds/sfx_RobotCrash/sfx_RobotCrash.yy",},},
     {"id":{"name":"sfx_Something","path":"sounds/sfx_Something/sfx_Something.yy",},},
     {"id":{"name":"spr_ArrowLeft","path":"sprites/spr_ArrowLeft/spr_ArrowLeft.yy",},},
     {"id":{"name":"spr_ArrowRight","path":"sprites/spr_ArrowRight/spr_ArrowRight.yy",},},

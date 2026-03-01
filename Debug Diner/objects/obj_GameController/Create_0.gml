@@ -24,6 +24,15 @@ northAmericaLevels = [
 		undefined, 
 		rm_Level1_2
 	),
+	CreateLevel(
+		"Level 1-3",
+		spr_TrophyBurger,
+		false,
+		CreateTask(TaskType.GUIDETOTABLE),
+		undefined,
+		undefined,
+		rm_Level1_3
+	),
 ];
 southAmericaLevels = [];
 europeLevels = [];

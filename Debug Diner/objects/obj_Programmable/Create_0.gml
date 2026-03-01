@@ -12,6 +12,12 @@ endY = y;
 
 isMoving = false;
 moveProgress = 0;
+isCrashing = false;
+crashProgress = 0;
+crashPhase = 0;
+crashDuration = 40;
+crashRotation = 0;
+crashBlend = 0;
 
 program = [];
 programStack = [];
@@ -41,9 +47,36 @@ function MoveForward() {
 	
 	if(floorTile == noone || !floorTile.isWalkable) return;
 	
-	var baseTile = obj_GridController.Get(GridLevel.BASE, targetX, targetY);
-	
-	if(baseTile != noone && baseTile.canCollide == true) return;
+	with(obj_Programmable) {
+		if(id == other.id || !canCollide || !other.canCollide) continue;
+		
+		var sameTarget = (targetX == targetGridX && targetY == targetGridY);
+		var headOn = (targetX == gridX && targetY == gridY && targetGridX == other.gridX && targetGridY == other.gridY);
+		
+		if(sameTarget || headOn) {
+			var worldPos = obj_GridController.GridToWorld(targetX, targetY);
+			Crash(worldPos.xx, worldPos.yy);
+			
+			if(headOn) {
+				var otherWorldPos = obj_GridController.GridToWorld(other.targetGridX, other.targetGridY);
+				Crash(otherWorldPos.xx, otherWorldPos.yy);
+			}
+			else {
+				var awayX = other.gridX;
+				var awayY = other.gridY;
+				
+				switch(facing) {
+					case Direction.NORTH: awayY += 1; break;
+					case Direction.EAST: awayX -= 1; break;
+					case Direction.SOUTH: awayY -= 1; break;
+					case Direction.WEST: awayX += 1; break;
+				}
+				
+				var otherWorldPos = obj_GridController.GridToWorld(awayX, awayY);
+				other.Crash(otherWorldPos.xx, otherWorldPos.yy);
+			}
+		}
+	}
 	
 	targetGridX = targetX;
 	targetGridY = targetY;
@@ -64,6 +97,24 @@ function Turn(dir) {
 	isMoving = true;
 	
 	show_debug_message("Turning");
+}
+
+function Crash(targetWorldX, targetWorldY) {
+	isCrashing = true;
+	crashProgress = 0;
+	startX = x;
+	startY = y;
+	endX = targetWorldX
+	endY = targetWorldY
+	
+	var backDir = (facing + 2) % 4;
+	
+	switch(backDir) {
+		case Direction.NORTH: crashRotation = 45; break;
+		case Direction.EAST: crashRotation = -90; break;
+		case Direction.SOUTH: crashRotation = -45; break;
+		case Direction.WEST: crashRotation = 90; break;
+	}
 }
 
 function CountBlocks(nodes) {
