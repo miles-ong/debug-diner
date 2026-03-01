@@ -42,7 +42,7 @@ function LoadExecutionData() {
 	totalBlocksUsed = 0;
 	
 	with(obj_Waiter) {
-		other.totalBlocksUsed += array_length(program);
+		other.totalBlocksUsed += CountBlocks(program);
 	}
 	
 	show_debug_message("Total Blocks Used: " + string(totalBlocksUsed));

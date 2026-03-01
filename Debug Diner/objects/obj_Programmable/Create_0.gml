@@ -66,6 +66,18 @@ function Turn(dir) {
 	show_debug_message("Turning");
 }
 
+function CountBlocks(nodes) {
+    var count = 0;
+	
+    for(var i = 0; i < array_length(nodes); i++) {
+        count++;
+		
+        if(array_length(nodes[i].body) > 0) count += CountBlocks(nodes[i].body);
+    }
+	
+    return count;
+}
+
 function MakeFrame(nodes, index) {
 	return { nodes : nodes, index : index };
 }
