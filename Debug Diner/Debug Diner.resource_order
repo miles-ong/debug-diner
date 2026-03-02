@@ -1,5 +1,10 @@
 {
   "FolderOrderSettings":[
+    {"name":"Dialogue","order":15,"path":"folders/Dialogue.yy",},
+    {"name":"Data","order":4,"path":"folders/Dialogue/Data.yy",},
+    {"name":"Objects","order":1,"path":"folders/Dialogue/Objects.yy",},
+    {"name":"Scripts","order":2,"path":"folders/Dialogue/Scripts.yy",},
+    {"name":"Sprites","order":3,"path":"folders/Dialogue/Sprites.yy",},
     {"name":"Extensions","order":1,"path":"folders/Extensions.yy",},
     {"name":"Fonts","order":2,"path":"folders/Fonts.yy",},
     {"name":"Notes","order":3,"path":"folders/Notes.yy",},
@@ -66,6 +71,7 @@
     {"name":"obj_UILevelTasks","order":6,"path":"objects/obj_UILevelTasks/obj_UILevelTasks.yy",},
     {"name":"obj_UILevelTrophy","order":1,"path":"objects/obj_UILevelTrophy/obj_UILevelTrophy.yy",},
     {"name":"obj_Waiter","order":1,"path":"objects/obj_Waiter/obj_Waiter.yy",},
+    {"name":"rm_DialogTest","order":5,"path":"rooms/rm_DialogTest/rm_DialogTest.yy",},
     {"name":"rm_Level1_1","order":2,"path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
     {"name":"rm_Level1_2","order":4,"path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
     {"name":"rm_Level1_3","order":5,"path":"rooms/rm_Level1_3/rm_Level1_3.yy",},
