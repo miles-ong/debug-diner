@@ -3,7 +3,6 @@
   "%Name":"obj_Programmable",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
@@ -12,9 +11,12 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Programmable",
-    "path":"folders/Objects/Programmable.yy",
+    "path":"folders/Objects/Base/Programmable.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_Base",
+    "path":"objects/obj_Base/obj_Base.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,14 +30,7 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v2","%Name":"facing","filters":[],"listItems":[
-        "Direction.NORTH",
-        "Direction.EAST",
-        "Direction.SOUTH",
-        "Direction.WEST",
-      ],"multiselect":false,"name":"facing","rangeEnabled":false,"rangeMax":3.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"Direction.NORTH","varType":6,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

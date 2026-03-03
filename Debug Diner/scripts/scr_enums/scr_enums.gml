@@ -2,7 +2,8 @@ enum GameState {
 	MENUS,
 	TRANSITIONING,
 	PROGRAMMING,
-	RUNNING
+	EXECUTING,
+	WAITING
 }
 
 enum Direction {

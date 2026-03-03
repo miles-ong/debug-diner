@@ -1,4 +1,5 @@
 grid = {};
+plannedMoves = {};
 
 function Fill() {
 	grid = {};
@@ -66,6 +67,16 @@ function Key(level, gridX, gridY) {
 	return string(level) + "_" + string(gridX) + "_" + string(gridY);
 }
 
+function ParseKey(key) {
+	var parts = string_split(key, "_");
+	
+	return {
+		level : real(parts[0]),
+		xx : real(parts[1]),
+		yy : real(parts[2])
+	};
+}
+
 function WorldToGrid(xx, yy) {	
 	return {
 		gridX : floor((xx - BOARD_PADDING) / BOARD_TILE_SIZE),
@@ -78,6 +89,96 @@ function GridToWorld(gridX, gridY) {
 		xx : (gridX * BOARD_TILE_SIZE) + BOARD_PADDING + BOARD_TILE_SIZE / 2,
 		yy : (gridY * BOARD_TILE_SIZE) + BOARD_PADDING + BOARD_TILE_SIZE / 2
 	};
+}
+
+function ClearPlans() {
+	plannedMoves = {};
+}
+
+function PlanMove(_inst, _startX, _startY, _targetX, _targetY) {
+	var key = Key(GridLevel.BASE, _targetX, _targetY);
+	
+	if(!variable_struct_exists(plannedMoves, key)) plannedMoves[$ key] = [];
+	
+	array_push(plannedMoves[$ key], {
+		inst : _inst,
+		startX : _startX,
+		startY : _startY,
+		targetX : _targetX,
+		targetY : _targetY
+	});
+}
+
+function ResolvePlans() {
+	var keys = variable_struct_get_names(plannedMoves);
+	
+	for(var i = 0; i < array_length(keys); i++) {
+		var key = keys[i];
+		var parsed = ParseKey(key);
+		var moves = plannedMoves[$ key];
+		
+		if(array_length(moves) > 1) {
+			for(var j = 0; j < array_length(moves); j++) {
+				var m = moves[j];
+				m.inst.targetGridX = parsed.xx;
+				m.inst.targetGridY = parsed.yy;
+				m.inst.OnCollision(GetMoveDirection(m.startX, m.startY, parsed.xx, parsed.yy));
+			}
+			continue;
+		}
+		
+		var move = moves[0];
+		var inst = move.inst;
+		var occupant = Get(parsed.level, parsed.xx, parsed.yy);
+		
+		if(occupant != noone) {
+			inst.targetGridX = parsed.xx;
+			inst.targetGridY = parsed.yy;
+			var dir = GetMoveDirection(move.startX, move.startY, parsed.xx, parsed.yy);
+			inst.OnCollision(dir);
+			occupant.OnCollision(GetOppositeDirection(dir));
+			continue;
+		}
+		
+		ExecuteMove(inst, parsed.xx, parsed.yy);
+	}
+	
+	ClearPlans();
+}
+
+function ExecuteMove(inst, targetX, targetY) {
+	Remove(GridLevel.BASE, inst.gridX, inst.gridY);
+	
+	inst.targetGridX = targetX;
+	inst.targetGridY = targetY;
+	
+	var worldPos = GridToWorld(targetX, targetY);
+	inst.startX = inst.x;
+	inst.startY = inst.y;
+	inst.endX = worldPos.xx;
+	inst.endY = worldPos.yy;
+	inst.moveProgress = 0;
+	inst.isMoving = true;
+	
+	Set(GridLevel.BASE, targetX, targetY, inst);
+}
+
+function GetMoveDirection(_startX, _startY, _targetX, _targetY) {
+	if(_startX > _targetX) return Direction.WEST;
+	if(_startX < _targetX) return Direction.EAST;
+	if(_startY > _targetY) return Direction.NORTH;
+	if(_startY < _targetY) return Direction.SOUTH;
+	
+	return undefined;
+}
+
+function GetOppositeDirection(_direction) {
+	switch(_direction) {
+		case Direction.NORTH: return Direction.SOUTH;
+		case Direction.SOUTH: return Direction.NORTH;
+		case Direction.EAST: return Direction.WEST;
+		case Direction.WEST: return Direction.EAST;
+	}
 }
 
 function ObjectFacingObject(o1, o2) {

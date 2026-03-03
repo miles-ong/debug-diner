@@ -1,4 +1,4 @@
-if(global.gameState == GameState.RUNNING) {
+if(global.gameState == GameState.EXECUTING) {
 	var anyMoving = false;
 	
 	with(obj_Programmable) {
@@ -15,24 +15,31 @@ if(global.gameState == GameState.RUNNING) {
 			with(obj_Programmable) {
 				if(array_length(programStack) > 0) {
 					programComplete = false;
-					var top = programStack[array_length(programStack) - 1];
+					var actionTaken = false;
 					
-					while(top.index >= array_length(top.nodes)) {
-						if(variable_struct_exists(top, "isLoop") && top.remaining > 0) {
-							top.index = 0;
-							top.remaining -= 1;
+					while(!actionTaken) {
+						var top = programStack[array_length(programStack) - 1];
+						
+						while(top.index >= array_length(top.nodes)) {
+							if(variable_struct_exists(top, "isLoop") && top.remaining > 0) {
+								top.index = 0;
+								top.remaining -= 1;
+								break;
+							}
+							else {
+								array_pop(programStack);
+								
+								if(array_length(programStack) == 0) break;
+								
+								top = programStack[array_length(programStack) - 1];
+							}
+						}
+						
+						if(array_length(programStack) == 0) {
+							actionTaken = true;
 							break;
 						}
-						else {
-							array_pop(programStack);
-							
-							if(array_length(programStack) == 0) break;
-							
-							top = programStack[array_length(programStack) - 1];
-						}
-					}
-					
-					if(array_length(programStack) > 0) {
+						
 						top = programStack[array_length(programStack) - 1];
 						
 						if(top.index < array_length(top.nodes)) {
@@ -41,11 +48,13 @@ if(global.gameState == GameState.RUNNING) {
 							
 							switch(node.type) {
 								case BlockType.MOVE:
-									MoveForward();
+									PlanMove();
+									actionTaken = true;
 									break;
 									
 								case BlockType.TURN:
 									Turn(node.args.turnDirection);
+									actionTaken = true;
 									break;
 								
 								case BlockType.LOOP:
@@ -55,13 +64,14 @@ if(global.gameState == GameState.RUNNING) {
 										frame.remaining = node.args.count - 1;
 										array_push(programStack, frame);
 									}
-									
 									break;
 							}
 						}
 					}
 				}
 			}
+			
+			obj_GridController.ResolvePlans();
 			
 			if(programComplete) {
 				obj_LevelController.FinalizeLevel();

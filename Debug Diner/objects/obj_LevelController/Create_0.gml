@@ -3,7 +3,7 @@ if(instance_exists(obj_LevelController) > 1) {
 	return;
 }
 
-crashed = false;
+collided = false;
 totalBlocksUsed = 0;
 blockTypesUsed = ds_map_create();
 
@@ -15,7 +15,7 @@ prevBonusTask1Completion = false;
 prevBonusTask2Completion = false;
 
 function StartLevel() {
-	crashed = false;
+	collided = false;
 	totalBlocksUsed = 0;
 	ds_map_clear(blockTypesUsed);
 	
@@ -37,16 +37,11 @@ function StartLevel() {
 	global.gameState = GameState.PROGRAMMING;
 }
 
-function OnCrash() {
-	if(crashed) return;
+function OnCollision() {
+	if(collided) return;
 	
-	crashed = true;
-	global.gameState = GameState.MENUS;
+	collided = true;
 	audio_play_sound(sfx_RobotCrash, 1, 0);
-	
-	obj_ScreenFilter.AddFilter(new Flash(0.05, c_red, 0.5, function() {
-		obj_LevelController.FinalizeLevel();
-	}));
 }
 
 function FinalizeLevel() {
@@ -96,7 +91,7 @@ function CheckTasksCompletion() {
 }
 
 function EvaluateTask(task) {
-	if(crashed) return false;
+	if(collided) return false;
 	
 	switch(task.type) {
 		case TaskType.GUIDETOTABLE:

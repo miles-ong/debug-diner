@@ -8,11 +8,11 @@
   "managed":true,
   "name":"obj_Waiter",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Programmable","path":"objects/obj_Programmable/obj_Programmable.yy",},"propertyId":{"name":"facing","path":"objects/obj_Programmable/obj_Programmable.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Direction.NORTH",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Base","path":"objects/obj_Base/obj_Base.yy",},"propertyId":{"name":"facing","path":"objects/obj_Base/obj_Base.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"undefined",},
   ],
   "parent":{
     "name":"Programmable",
-    "path":"folders/Objects/Programmable.yy",
+    "path":"folders/Objects/Base/Programmable.yy",
   },
   "parentObjectId":{
     "name":"obj_Programmable",
