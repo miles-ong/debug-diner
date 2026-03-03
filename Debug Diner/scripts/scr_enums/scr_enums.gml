@@ -103,6 +103,13 @@ enum ButtonLayer {
 	LEVELRESULT,
 }
 
+enum CustomerTrait {
+	MESSY,
+	VIP,
+	FORMAL,
+	NONE
+}
+
 function BlockTypeToString(type) {
 	switch(type) {
 		case BlockType.PROGRAM: return "Program";
