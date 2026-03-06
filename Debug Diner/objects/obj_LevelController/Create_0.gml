@@ -4,7 +4,10 @@ if(instance_exists(obj_LevelController) > 1) {
 }
 
 collided = false;
+customersSatisfied = false;
+bonusOrdersSatisfied = false;
 totalBlocksUsed = 0;
+ordersCompleted = 0;
 blockTypesUsed = ds_map_create();
 
 mainTask = undefined;
