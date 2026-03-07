@@ -1,4 +1,4 @@
-function CreateLevel(n, t, u, mt, bt1, bt2, tr) {
+function CreateLevel(n, t, u, mt, bt1, bt2, tr, c = undefined) {
 	return {
 		name : n,
 		trophy : t,
@@ -6,7 +6,8 @@ function CreateLevel(n, t, u, mt, bt1, bt2, tr) {
 		mainTask : mt,
 		bonusTask1 : bt1,
 		bonusTask2 : bt2,
-		targetRoom : tr
+		targetRoom : tr,
+		customers : c
 	};
 }
 

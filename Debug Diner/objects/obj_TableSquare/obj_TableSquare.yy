@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_TableSquare",
-    "path":"sprites/spr_TableSquare/spr_TableSquare.yy",
+    "name":"spr_HologramTable",
+    "path":"sprites/spr_HologramTable/spr_HologramTable.yy",
   },
   "spriteMaskId":null,
   "visible":true,

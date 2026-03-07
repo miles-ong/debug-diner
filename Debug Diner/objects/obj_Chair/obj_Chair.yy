@@ -29,12 +29,15 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"id","filters":[],"listItems":[],"multiselect":false,"name":"id","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"undefined","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"uniqueId","filters":[],"listItems":[],"multiselect":false,"name":"uniqueId","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"undefined","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_ChairLeft",
+    "path":"sprites/spr_ChairLeft/spr_ChairLeft.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

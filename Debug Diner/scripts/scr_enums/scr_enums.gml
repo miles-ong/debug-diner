@@ -1,23 +1,3 @@
-enum GameState {
-	MENUS,
-	TRANSITIONING,
-	PROGRAMMING,
-	EXECUTING,
-	WAITING
-}
-
-enum Direction {
-	NORTH = 0,
-	EAST = 1,
-	SOUTH = 2,
-	WEST = 3
-}
-
-enum TurnDirection {
-	LEFT = 0,
-	RIGHT = 1
-}
-
 enum ProgrammableSprite {
 	UNSELECTED = 0,
 	SELECTED = 1
@@ -108,6 +88,13 @@ enum CustomerTrait {
 	VIP,
 	FORMAL,
 	NONE
+}
+
+function GridLevelToString(_gridLevel) {
+	switch(_gridLevel) {
+		case GridLevel.FLOOR: return "Floor";
+		case GridLevel.BASE: return "Base";
+	}
 }
 
 function BlockTypeToString(type) {

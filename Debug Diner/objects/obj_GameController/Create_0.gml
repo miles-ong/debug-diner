@@ -3,6 +3,7 @@ if(instance_number(obj_GameController) > 1) {
 	return;
 }
 
+debugLabel = "[obj_GameController]";
 levels = [];
 
 northAmericaLevels = [
