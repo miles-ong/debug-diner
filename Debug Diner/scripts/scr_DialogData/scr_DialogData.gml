@@ -1,7 +1,9 @@
-function DialogLine(_name, _text) {
+function DialogLine(_side, _name, _text, _sprite) {
     return {
-        name : _name,
-        text : _text
+        side   : _side,    
+        name   : _name,
+        text   : _text,
+        sprite : _sprite
     };
 }
 

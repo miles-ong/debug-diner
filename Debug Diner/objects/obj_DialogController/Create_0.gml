@@ -34,11 +34,11 @@ function Finish() {
 
 // ====== 测试模式 ======
 if (room == rm_DialogTest) {
-    var testDialog = [
-        DialogLine("Chef", "这是对话测试房间。"),
-        DialogLine("Waiter", "现在我们正在测试对话框系统。"),
-        DialogLine("Chef", "如果能正常翻页，说明系统正常运行。")
-    ];
+	var testDialog = [
+		DialogLine("L", "Chef", "这是左边角色的测试对话。", spr_Portrait_Left),
+		DialogLine("R", "Waiter", "这是右边角色的测试对话。", spr_Portrait_Right),
+		DialogLine("L", "Chef", "现在对话框会切换回左边。", spr_Portrait_Left)
+	];
 
     Setup(testDialog, function() {
         show_debug_message("Dialog Finished!");
