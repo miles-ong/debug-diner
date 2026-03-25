@@ -1,7 +1,11 @@
+// --- Setup ---
 debugLabel = "[obj_GridController]";
+
+// --- Grids ---
 floorGrid = {};
 baseGrid = {};
 
+/// @description Clears floor and base grids and fills them with all entities present in the room
 function Initialize() {
 	floorGrid = {};
 	baseGrid = {};
@@ -14,12 +18,20 @@ function Initialize() {
 	show_debug_message($"{debugLabel} Initialized");
 }
 
-function Set(_gx, _gy, _inst) {
+/// @description Sets an entity to a grid coordinate
+/// @param _gx X coordinate in grid
+/// @param _gy Y coordinate in grid
+/// @param _entity The entity to be set
+function Set(_gx, _gy, _entity) {
 	var grid = _inst.gridLevel == GridLevel.FLOOR ? floorGrid : baseGrid;
-	grid[$ Key(_gx, _gy)] = _inst;
-	show_debug_message($"{debugLabel} Set {GridLevelToString(_inst.gridLevel)} '{_inst.label}' at ({_gx}, {_gy})");
+	grid[$ Key(_gx, _gy)] = _entity;
+	show_debug_message($"{debugLabel} Set {GridLevelToString(_inst.gridLevel)} '{_entity.label}' at ({_gx}, {_gy})");
 }
 
+/// @description Gets an entity from given grid coordinates. Returns noone if no entity is found
+/// @param _gx X coordinate in grid
+/// @param _gy Y coordinate in grid
+/// @param _level Grid level to check
 function Get(_gx, _gy, _level) {
 	var grid = _level == GridLevel.FLOOR ? floorGrid : baseGrid;
 	
@@ -31,6 +43,10 @@ function Get(_gx, _gy, _level) {
 	return grid[$ Key(_gx, _gy)];
 }
 
+/// @description Removes an entity from specified grid coordinates
+/// @param _gx X coordinate in grid
+/// @param _gy Y coordinate in grid
+/// @param _level Grid level to check
 function Remove(_gx, _gy, _level) {
 	var grid = _level == GridLevel.FLOOR ? floorGrid : baseGrid;
 	var key = Key(_gx, _gy);
@@ -41,6 +57,12 @@ function Remove(_gx, _gy, _level) {
 	}
 }
 
+/// @description Gets an entity a certain amount of tiles in the direction of given grid coordinates. Returns noone if no entity is found
+/// @param _gx X coordinate in grid
+/// @param _gy Y coordinate in grid
+/// @param _level Grid level to check
+/// @param _direction Direction from coordinates to check
+/// @param _distance The number of tiles away to check
 function GetInDirection(_gx, _gy, _level, _direction, _distance = 1) {
 	var dirCoords = GetGridCoordinatesInDirection(_gx, _gy, _direction, _distance);
 	show_debug_message($"{debugLabel} Getting {GridLevelToString(_level)} entity {string(_distance)} tiles {DirectionToString(_direction)} of ({_gx}, {_gy})");
@@ -48,6 +70,10 @@ function GetInDirection(_gx, _gy, _level, _direction, _distance = 1) {
 	return Get(dirCoords.gx, dirCoords.gy, _level);
 }
 
+/// @description Gets all entities north, east, south, and west of given grid coordinates
+/// @param _gx X coordinate in grid
+/// @param _gy Y coordinate in grid
+/// @param _level Grid level to check
 function GetInProximity(_gx, _gy, _level) {
 	var prox = [];
 	
@@ -62,6 +88,9 @@ function GetInProximity(_gx, _gy, _level) {
 	return prox;
 }
 
+/// @description Checks if an entity is facing another entity 1 tile away
+/// @param _e1 The entity to face the other entity
+/// @param _e2 The entity to be faced
 function IsEntityFacingEntity(_e1, _e2) {
 	if(_e1.facing == undefined) {
 		show_debug_message($"{debugLabel} '{_e1.label}' does have a specified direction it is facing");
@@ -73,10 +102,16 @@ function IsEntityFacingEntity(_e1, _e2) {
 	return false;
 }
 
+/// @description Helper to parse grid coordinates into keys for grid maps
+/// @param _gx X coordinate in grid
+/// @param _gy Y coordinate in grid
 function Key(_gx, _gy) {
 	return string(_gx) + "_" + string(_gy);
 }
 
+/// @description Converts world coordinates to grid coordinates
+/// @param _x X coordinate in world
+/// @param _y Y coordinate in world
 function WorldToGrid(_x, _y) {	
 	return {
 		gx : floor((_x - BOARD_PADDING) / BOARD_TILE_SIZE),
@@ -84,6 +119,9 @@ function WorldToGrid(_x, _y) {
 	};
 }
 
+/// @description Converts grid coordinates to world coordinates
+/// @param _gx X coordinate in grid
+/// @param _gy Y coordinate in grid
 function GridToWorld(_gx, _gy) {
 	return {
 		xx : (_gx * BOARD_TILE_SIZE) + BOARD_PADDING + BOARD_TILE_SIZE / 2,

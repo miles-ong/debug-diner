@@ -53,6 +53,9 @@ function SetupEntity(
 	collisionRotation = _collisionRotation;
 }
 
+/// @description Adds a move to the step controller upon program execution
+/// @param _direction The direction to move
+/// @param _distance The amount of tiles to move
 function PlanMove(_direction = undefined, _distance = 1) {
 	if(global.gameState != GameState.READING) {
 		show_debug_message($"{debugLabel} '{label}' cannot plan move while the game state is not set to READING");
@@ -96,6 +99,8 @@ function PlanMove(_direction = undefined, _distance = 1) {
 	moving = true;
 }
 
+/// @description Change facing to a different direction
+/// @param _turnDirection New direction to face
 function Turn(_turnDirection) {
 	if(facing == undefined) {
 		show_debug_message($"{debugLabel} '{label}' cannot turn if facing is undefined");
@@ -107,6 +112,8 @@ function Turn(_turnDirection) {
 	show_debug_message($"{debugLabel} '{label}' turned to the {TurnDirectionToString(_turnDirection)}");
 }
 
+/// @description Sets collision values for animation
+/// @param _moveDirection The direction the entity was moving upon collision
 function HandleCollision(_moveDirection) {
 	if(!collision) return;
 	

@@ -1,15 +1,19 @@
 event_inherited();
 
+// --- Settings ---
+hoverScale = 0.9;
+scaleSpeed = 0.4;
+clickSoundEffects = [];
+
+// --- Program ---
 program = [];
 programStack = [];
 
-clickSoundEffects = [];
-hoverScale = 0.9;
-scaleSpeed = 0.4;
-
+// --- Setup ---
 image_speed = 0;
-layer = layer_get_id("Entity");
 
+/// @description Returns the number of blocks used in the program
+/// @param nodes Recursive code blocks within parent blocks
 function CountBlocks(nodes) {
     var count = 0;
 	
@@ -22,6 +26,9 @@ function CountBlocks(nodes) {
     return count;
 }
 
+/// @description Returns an array containing all block types used in the program
+/// @param nodes Recursive code blocks within parent blocks
+/// @param map Map to load block types into, if left undefined, map will be created on its own
 function CollectBlockTypes(nodes, map = undefined) {
 	var blockTypesUsed = map == undefined ? ds_map_create() : map;
 	
@@ -35,6 +42,9 @@ function CollectBlockTypes(nodes, map = undefined) {
 	return blockTypesUsed;
 }
 
+/// @description Creates a section of code blocks from the program for the step controller to iterate over
+/// @param nodes Section of code blocks
+/// @param index Current index within the section
 function MakeFrame(nodes, index) {
 	return { nodes : nodes, index : index };
 }
