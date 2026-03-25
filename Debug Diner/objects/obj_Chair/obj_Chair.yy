@@ -34,10 +34,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_ChairLeft",
-    "path":"sprites/spr_ChairLeft/spr_ChairLeft.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

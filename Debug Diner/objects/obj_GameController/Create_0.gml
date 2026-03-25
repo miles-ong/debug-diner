@@ -16,8 +16,54 @@ northAmericaLevels = [
 		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
-		rm_Level1_1
-	)
+		rm_Level1_1,
+		undefined,
+		[ BlockType.MOVE ]
+	),
+	CreateLevel(
+		"Level 1-2",
+		spr_TrophyBurger,
+		false,
+		CreateTask(TaskType.GUIDETOTABLE),
+		undefined,
+		undefined,
+		rm_Level1_2,
+		undefined,
+		[ BlockType.MOVE ]
+	),
+	CreateLevel(
+		"Level 1-3",
+		spr_TrophyBurger,
+		false,
+		CreateTask(TaskType.GUIDETOTABLE),
+		CreateTask(TaskType.USEBLOCK, BlockType.TURN),
+		undefined,
+		rm_Level1_3,
+		undefined,
+		[ BlockType.MOVE, BlockType.TURN ]
+	),
+	CreateLevel(
+		"Level 1-4",
+		spr_TrophyBurger,
+		false,
+		CreateTask(TaskType.GUIDETOTABLE),
+		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
+		CreateTask(TaskType.LESSTHANBLOCKS, 5),
+		rm_Level1_4,
+		undefined,
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP ]
+	),
+	CreateLevel(
+		"Level 1-5",
+		spr_TrophyBurger,
+		false,
+		CreateTask(TaskType.GUIDETOTABLE),
+		undefined,
+		undefined,
+		rm_Level1_5,
+		undefined,
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP ]
+	),
 ];
 #endregion
 #region Regions

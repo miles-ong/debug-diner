@@ -46,6 +46,7 @@ function StartLevel() {
 		ChangeGameState(GameState.DIALOGUE);
 
 		var dlg = instance_create_layer(0, 0, "Base", obj_DialogController);
+		
 		dlg.Setup(levelDialog, function() {
 			ChangeGameState(GameState.PROGRAMMING);
 		});
@@ -53,6 +54,21 @@ function StartLevel() {
 	else {
 		ChangeGameState(GameState.PROGRAMMING);
 	}
+	
+	var enabledBlocks;
+	
+	if(currLevel.enabledBlocks == undefined) {
+		enabledBlocks = [
+			BlockType.MOVE,
+			BlockType.TURN,
+			BlockType.LOOP
+		];
+	}
+	else {
+		enabledBlocks = currLevel.enabledBlocks;
+	}
+	
+	obj_BlockBank.Initialize(enabledBlocks);
 }
 
 function OnCollision() {
