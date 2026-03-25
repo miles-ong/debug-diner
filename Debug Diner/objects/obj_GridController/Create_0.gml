@@ -23,9 +23,9 @@ function Initialize() {
 /// @param _gy Y coordinate in grid
 /// @param _entity The entity to be set
 function Set(_gx, _gy, _entity) {
-	var grid = _inst.gridLevel == GridLevel.FLOOR ? floorGrid : baseGrid;
+	var grid = _entity.gridLevel == GridLevel.FLOOR ? floorGrid : baseGrid;
 	grid[$ Key(_gx, _gy)] = _entity;
-	show_debug_message($"{debugLabel} Set {GridLevelToString(_inst.gridLevel)} '{_entity.label}' at ({_gx}, {_gy})");
+	show_debug_message($"{debugLabel} Set {GridLevelToString(_entity.gridLevel)} '{_entity.label}' at ({_gx}, {_gy})");
 }
 
 /// @description Gets an entity from given grid coordinates. Returns noone if no entity is found

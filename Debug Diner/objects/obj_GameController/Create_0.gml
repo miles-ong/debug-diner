@@ -7,7 +7,7 @@ if(instance_number(obj_GameController) > 1) {
 debugLabel = "[obj_GameController]";
 levels = [];
 
-// --- Levels ---
+#region Levels
 northAmericaLevels = [
 	CreateLevel(
 		"Level 1-1", 
@@ -17,33 +17,16 @@ northAmericaLevels = [
 		undefined, 
 		undefined, 
 		rm_Level1_1
-	),
-	CreateLevel(
-		"Level 1-2", 
-		noone, 
-		false, 
-		CreateTask(TaskType.GUIDETOTABLE), 
-		CreateTask(TaskType.LESSTHANBLOCKS, 3), 
-		undefined, 
-		rm_Level1_2
-	),
-	CreateLevel(
-		"Level 1-3",
-		noone,
-		false,
-		CreateTask(TaskType.GUIDETOTABLE, 2),
-		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
-		CreateTask(TaskType.LESSTHANBLOCKS, 8),
-		rm_Level1_3
-	),
+	)
 ];
-
-// --- Regions ---
+#endregion
+#region Regions
 southAmericaLevels = [];
 europeLevels = [];
 asiaLevels = [];
 africaLevels = [];
 australiaLevels = [];
+#endregion
 
 // --- Tracking ---
 currentRegion = LevelRegion.NORTHAMERICA;

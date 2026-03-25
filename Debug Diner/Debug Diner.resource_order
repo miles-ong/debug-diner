@@ -121,7 +121,6 @@
     {"name":"spr_ProgrammingPanel","order":3,"path":"sprites/spr_ProgrammingPanel/spr_ProgrammingPanel.yy",},
     {"name":"spr_SettingsBlock","order":18,"path":"sprites/spr_SettingsBlock/spr_SettingsBlock.yy",},
     {"name":"spr_TileDark","order":1,"path":"sprites/spr_TileDark/spr_TileDark.yy",},
-    {"name":"spr_TrophyHotDog","order":1,"path":"sprites/spr_TrophyHotDog/spr_TrophyHotDog.yy",},
     {"name":"spr_UIBorder","order":1,"path":"sprites/spr_UIBorder/spr_UIBorder.yy",},
     {"name":"spr_UIButton","order":4,"path":"sprites/spr_UIButton/spr_UIButton.yy",},
     {"name":"spr_UIContainer","order":2,"path":"sprites/spr_UIContainer/spr_UIContainer.yy",},
