@@ -1,5 +1,5 @@
 connectedBlock = noone;
-slotOffset = 50;
+slotOffset = 58.5;
 
 function Connect(block) {
 	if(connectedBlock != noone) return false;

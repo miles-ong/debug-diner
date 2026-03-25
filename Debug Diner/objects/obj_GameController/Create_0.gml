@@ -135,10 +135,14 @@ function GoToLevel(index) {
 	if(index < 0 || index > array_length(levels) - 1) return;
 	
 	var level = { targetRoom : levels[index].targetRoom };
+	ChangeGameState(GameState.TRANSITIONING);
 	
 	obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, true, method(level, function() {
 		room_goto(targetRoom);
-		obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, false));
+		obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, false, function() {
+			obj_LevelController.StartLevel();
+		}));
+		layer_set_visible("GameStartInterface", false);
 		layer_set_visible("LevelSelectInterface", false);
 		layer_set_visible("MainMenuInterface", false);
 		layer_set_visible("LevelInterface", true);
@@ -152,11 +156,18 @@ function GoToCurrentLevel() {
 
 /// @description Goes back to the main menu room
 function ReturnToMainMenu() {
-	layer_set_visible("LevelInterface", false);
-	layer_set_visible("LevelResult", false);
-	layer_set_visible("MainMenuInterface", true);
+	ChangeGameState(GameState.TRANSITIONING);
 	
-	room_goto(rm_MainMenu);
+	obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, true, function() {
+		room_goto(rm_MainMenu);
+		obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, false, function() {
+			ChangeGameState(GameState.MENUS);
+		}));
+		layer_set_visible("GameStartInterface", false);
+		layer_set_visible("LevelInterface", false);
+		layer_set_visible("LevelResult", false);
+		layer_set_visible("MainMenuInterface", true);
+	}));
 }
 
 /// @description Clears all instances from potentially persistent layers

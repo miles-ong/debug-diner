@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_MainMenuBlock",
-    "path":"sprites/spr_MainMenuBlock/spr_MainMenuBlock.yy",
+    "name":"spr_TitleMenuBlock",
+    "path":"sprites/spr_TitleMenuBlock/spr_TitleMenuBlock.yy",
   },
   "spriteMaskId":null,
   "visible":true,

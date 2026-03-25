@@ -35,12 +35,12 @@ function Finish() {
 // ====== 测试模式 ======
 if (room == rm_DialogTest) {
 	var testDialog = [
-		DialogLine("L", "Chef", "这是左边角色的测试对话。", spr_Portrait_Left),
-		DialogLine("R", "Waiter", "这是右边角色的测试对话。", spr_Portrait_Right),
-		DialogLine("L", "Chef", "现在对话框会切换回左边。", spr_Portrait_Left)
+		DialogLine("L", "Player", "Uh...", spr_Portrait_Left),
+		DialogLine("R", "???", "?", spr_Portrait_Right),
+		DialogLine("L", "Player", "", spr_Portrait_Left)
 	];
 
     Setup(testDialog, function() {
-        show_debug_message("Dialog Finished!");
+        show_debug_message("Dialogue Finished!");
     });
 }

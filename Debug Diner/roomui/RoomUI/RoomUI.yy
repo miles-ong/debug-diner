@@ -125,7 +125,17 @@
                 {"$GMRSpriteGraphic":"v1","%Name":"graphic_4CE69CC0","animationSpeed":1.0,"colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":0,"resourceType":"InstanceFlexProps","stretchHeight":true,"stretchWidth":true,},"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_4CE69CC0","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_ProgrammingPanel","path":"sprites/spr_ProgrammingPanel/spr_ProgrammingPanel.yy",},"x":0.0,"y":0.0,},
               ],"flexDirection":0,"height":{"unit":2,"value":20.0,},"justifyContent":1,"name":"FlexPanel_3","nodeColour":4290769480,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
           ],"flexDirection":0,"height":{"unit":2,"value":100.0,},"justifyContent":1,"name":"Viewport","nodeColour":4284172530,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":50.0,},},
-      ],"flexDirection":2,"gridX":32,"gridY":32,"justifyContent":1,"name":"MainMenuInterface","nodeColour":4284936776,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
+      ],"flexDirection":2,"gridX":32,"gridY":32,"justifyContent":1,"name":"MainMenuInterface","nodeColour":4284936776,"resourceType":"GMRUILayer","resourceVersion":"2.0","visible":false,},
+    {"$GMRUILayer":"v1","%Name":"GameStartInterface","alignItems":2,"children":[
+        {"$GMRFlexPanel":"","%Name":"Title","alignItems":2,"children":[
+            {"$GMRInstance":"v4","%Name":"inst_608F8932","colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":4,"resourceType":"InstanceFlexProps",},"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_608F8932","objectId":{"name":"obj_GameTitle","path":"objects/obj_GameTitle/obj_GameTitle.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+          ],"flexDirection":0,"height":{"unit":2,"value":60.0,},"justifyContent":1,"name":"Title","nodeColour":4294083656,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
+        {"$GMRFlexPanel":"","%Name":"Text","alignItems":2,"children":[
+            {"$GMRFlexPanel":"","%Name":"FlexPanel","alignItems":2,"children":[
+                {"$GMRTextItem":"v3","%Name":"text_1B2DF405","alignment":0,"charSpacing":0.0,"colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":0,"resourceType":"InstanceFlexProps",},"fontId":{"name":"fo_UIMedium","path":"fonts/fo_UIMedium/fo_UIMedium.yy",},"frameH":0.0,"frameW":0.0,"frozen":false,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"lineSpacing":0.0,"name":"text_1B2DF405","paragraphSpacing":0.0,"resourceType":"GMRTextItem","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"text":"[ Click to start ]","wrap":false,"x":0.0,"y":0.0,},
+              ],"flexDirection":0,"height":{"unit":3,"value":47.0,},"justifyContent":1,"name":"FlexPanel","nodeColour":4293347570,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":3,"value":249.0,},},
+          ],"flexDirection":0,"height":{"unit":2,"value":20.0,},"justifyContent":1,"name":"Text","nodeColour":4283648242,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
+      ],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"GameStartInterface","nodeColour":4294107208,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
   ],
   "locked":false,
   "name":"RoomUI",

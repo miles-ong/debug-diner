@@ -8,8 +8,12 @@ global.hoveredBlockContent = noone;
 global.hoveredBlockSlot = noone;
 global.hoveredProgrammable = noone;
 
+if(room == rm_StartRoom) {
+	ChangeGameState(GameState.MENUS);
+	return;
+}
+
 if(room == rm_MainMenu) {
-    ChangeGameState(GameState.MENUS);
     var bounds = obj_Bounds.GetBounds();
     
     var mainBlock = instance_create_layer(bounds.left + 50, bounds.top + 50, "MenuBlock", obj_MainMenuBlock);
@@ -32,5 +36,3 @@ if(room == rm_MainMenu) {
     
     return;
 }
-
-obj_LevelController.StartLevel();
