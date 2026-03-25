@@ -1,3 +1,5 @@
+if(global.gameState != GameState.PROGRAMMING) exit;
+
 if(global.isDraggingBlock == true) {
 	return false;
 }

@@ -1,3 +1,28 @@
+enum TaskType {
+	GUIDETOTABLE,
+	COMPLETEORDERS,
+	COMPLETEBONUSORDERS,
+	LESSTHANBLOCKS,
+	USEBLOCK,
+	NOTUSEBLOCK
+}
+
+enum TrophySprite {
+	EMPTY = 0,
+	BRONZE = 1,
+	SILVER = 2,
+	GOLD = 3
+}
+
+enum LevelRegion {
+	NORTHAMERICA,
+	SOUTHAMERICA,
+	EUROPE,
+	ASIA,
+	AFRICA,
+	AUSTRALIA
+}
+
 function CreateLevel(n, t, u, mt, bt1, bt2, tr, c = undefined) {
 	return {
 		name : n,

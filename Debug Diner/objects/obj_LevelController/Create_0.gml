@@ -38,7 +38,10 @@ function StartLevel() {
 	
 	obj_GridController.Initialize();
 	obj_StepController.Initialize();
-	global.gameState = GameState.PROGRAMMING;
+	
+	// DO DIALOG HOOKUP HERE (USE NEW GameState.DIALOGUE)
+	
+	ChangeGameState(GameState.PROGRAMMING);
 }
 
 function OnCollision() {
@@ -49,7 +52,7 @@ function OnCollision() {
 }
 
 function FinalizeLevel() {
-	global.gameState = GameState.MENUS;
+	ChangeGameState(GameState.MENUS)
 	CheckTasksCompletion();
 	layer_set_visible("LevelResult", true);
 }

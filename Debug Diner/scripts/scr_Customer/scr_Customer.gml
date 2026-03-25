@@ -1,3 +1,10 @@
+enum CustomerTrait {
+	MESSY,
+	VIP,
+	FORMAL,
+	NONE
+}
+
 function Customer(_chairId, _orders, _trait = CustomerTrait.NONE) constructor {
 	chairId = _chairId;
 	orders = _orders;

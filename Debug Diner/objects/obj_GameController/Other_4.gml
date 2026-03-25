@@ -9,7 +9,7 @@ global.hoveredBlockSlot = noone;
 global.hoveredProgrammable = noone;
 
 if(room == rm_MainMenu) {
-    global.gameState = GameState.MENUS;
+    ChangeGameState(GameState.MENUS);
     var bounds = obj_Bounds.GetBounds();
     
     var mainBlock = instance_create_layer(bounds.left + 50, bounds.top + 50, "MenuBlock", obj_MainMenuBlock);
