@@ -118,6 +118,7 @@
     {"name":"spr_MenuBlock","order":7,"path":"sprites/spr_MenuBlock/spr_MenuBlock.yy",},
     {"name":"spr_MenuHologram","order":6,"path":"sprites/spr_MenuHologram/spr_MenuHologram.yy",},
     {"name":"spr_NextLevelBlock","order":11,"path":"sprites/spr_NextLevelBlock/spr_NextLevelBlock.yy",},
+    {"name":"spr_Portrait_Right","order":1,"path":"sprites/spr_Portrait_Right/spr_Portrait_Right.yy",},
     {"name":"spr_ProgrammingPanel","order":3,"path":"sprites/spr_ProgrammingPanel/spr_ProgrammingPanel.yy",},
     {"name":"spr_SettingsBlock","order":18,"path":"sprites/spr_SettingsBlock/spr_SettingsBlock.yy",},
     {"name":"spr_TileDark","order":1,"path":"sprites/spr_TileDark/spr_TileDark.yy",},
