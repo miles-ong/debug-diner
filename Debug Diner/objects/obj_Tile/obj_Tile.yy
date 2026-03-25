@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Floor",
-    "path":"folders/Objects/Floor.yy",
+    "path":"folders/Objects/Entity/Floor.yy",
   },
   "parentObjectId":{
     "name":"obj_Floor",

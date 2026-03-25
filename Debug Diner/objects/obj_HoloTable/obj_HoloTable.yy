@@ -1,17 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Goal",
-  "eventList":[],
+  "%Name":"obj_HoloTable",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_Goal",
+  "name":"obj_HoloTable",
   "overriddenProperties":[],
   "parent":{
-    "name":"Floor",
-    "path":"folders/Objects/Floor.yy",
+    "name":"Table",
+    "path":"folders/Objects/Entity/Base/Table.yy",
   },
   "parentObjectId":{
-    "name":"obj_Floor",
-    "path":"objects/obj_Floor/obj_Floor.yy",
+    "name":"obj_Table",
+    "path":"objects/obj_Table/obj_Table.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -30,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_HologramTable",
+    "path":"sprites/spr_HologramTable/spr_HologramTable.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

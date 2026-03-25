@@ -11,18 +11,21 @@ enum TurnDirection {
 	RIGHT = 1
 }
 
-function GetGridCoordinatesInDirection(_gx, _gy, _direction, _distance = 1) {
+function GetGridCoordinatesInDirection(_gx, _gy, _direction, _distance) {
+	var gxx = _gx;
+	var gyy = _gy;
+	
 	switch(_direction) {
-		case Direction.NORTH: _gy -= _distance; break;
-		case Direction.EAST: _gx += _distance; break;
-		case Direction.SOUTH: _gy += _distance; break;
-		case Direction.WEST: _gx -= _distance; break;
+		case Direction.NORTH: gyy -= _distance; break;
+		case Direction.EAST: gxx += _distance; break;
+		case Direction.SOUTH: gyy += _distance; break;
+		case Direction.WEST: gxx -= _distance; break;
 	}
 	
 	return {
-		gx : _gx,
-		gy : _gy
-	};
+		gx : gxx,
+		gy : gyy,
+	}
 }
 
 /// @description Gets the direction an entity is moving using world or grid coordinates

@@ -10,8 +10,8 @@ collisionKnockback = 0;
 collisionRotation = 0;
 
 // --- Grid Position ---
-gridX = obj_GridController.WorldToGrid(x, y);
-gridY = obj_GridController.WorldToGrid(x, y);
+gridX = obj_GridController.WorldToGrid(x, y).gx;
+gridY = obj_GridController.WorldToGrid(x, y).gy;
 targetGridX = gridX;
 targetGridY = gridY;
 
@@ -49,8 +49,8 @@ function SetupEntity(
 	gridLevel = _gridLevel;
 	collision = _collision;
 	animateCollision = _animateCollision;
-	collisionKnockback = 0;
-	collisionRotation = 0;
+	collisionKnockback = _collisionKnockback;
+	collisionRotation = _collisionRotation;
 }
 
 function PlanMove(_direction = undefined, _distance = 1) {
@@ -69,6 +69,25 @@ function PlanMove(_direction = undefined, _distance = 1) {
 	var dirCoords = GetGridCoordinatesInDirection(gridX, gridY, dir, _distance);
 	targetGridX = dirCoords.gx;
 	targetGridY = dirCoords.gy;
+	var floorTile = obj_GridController.Get(targetGridX, targetGridY, GridLevel.FLOOR);
+	
+	if(floorTile != noone) {
+		if(!floorTile.isWalkable) {
+			show_debug_message($"{debugLabel} '{label}' cannot move to ({targetGridX}, {targetGridY}) because the floor tile is not walkable");
+			targetGridX = gridX;
+			targetGridY = gridY;
+			return;
+		}
+	}
+	else {
+		show_debug_message($"{debugLabel} '{label}' cannot move to ({targetGridX}, {targetGridY}) because no floor tile exists");
+		targetGridX = gridX;
+		targetGridY = gridY;
+		return;
+	}
+	
+	startX = x;
+	startY = y;
 	var worldCoords = obj_GridController.GridToWorld(targetGridX, targetGridY);
 	endX = worldCoords.xx;
 	endY = worldCoords.yy;
@@ -101,7 +120,7 @@ function HandleCollision(_moveDirection) {
 	endX = worldPos.xx;
 	endY = worldPos.yy;
 	
-	switch(_impactDirection) {
+	switch(_moveDirection) {
 		case Direction.NORTH:
 			collisionRotation = -45;
 			knockbackY = collisionKnockback;

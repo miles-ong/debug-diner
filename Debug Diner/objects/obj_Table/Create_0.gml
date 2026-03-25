@@ -1,2 +1,2 @@
 event_inherited();
-SetupCollision(true, true, 5);
+SetupEntity(GridLevel.BASE, true, true, 5, 90);

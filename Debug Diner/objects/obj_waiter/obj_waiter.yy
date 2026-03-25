@@ -7,12 +7,10 @@
   ],
   "managed":true,
   "name":"obj_Waiter",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Base","path":"objects/obj_Base/obj_Base.yy",},"propertyId":{"name":"facing","path":"objects/obj_Base/obj_Base.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"undefined",},
-  ],
+  "overriddenProperties":[],
   "parent":{
     "name":"Programmable",
-    "path":"folders/Objects/Base/Programmable.yy",
+    "path":"folders/Objects/Entity/Base/Programmable.yy",
   },
   "parentObjectId":{
     "name":"obj_Programmable",

@@ -10,12 +10,12 @@
   "name":"obj_Programmable",
   "overriddenProperties":[],
   "parent":{
-    "name":"Programmable",
-    "path":"folders/Objects/Base/Programmable.yy",
+    "name":"Entity",
+    "path":"folders/Objects/Entity.yy",
   },
   "parentObjectId":{
-    "name":"obj_Base",
-    "path":"objects/obj_Base/obj_Base.yy",
+    "name":"obj_Entity",
+    "path":"objects/obj_Entity/obj_Entity.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

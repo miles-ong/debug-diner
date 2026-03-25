@@ -1,4 +1,4 @@
-if(global.gameState != GameState.READING || global.gameState != GameState.EXECUTING) exit;
+if(global.gameState != GameState.READING && global.gameState != GameState.EXECUTING) exit;
 
 var anyMoving = false;
 

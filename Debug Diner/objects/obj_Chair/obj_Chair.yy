@@ -9,11 +9,11 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Base",
-    "path":"folders/Objects/Base.yy",
+    "path":"folders/Objects/Entity/Base.yy",
   },
   "parentObjectId":{
-    "name":"obj_Base",
-    "path":"objects/obj_Base/obj_Base.yy",
+    "name":"obj_Entity",
+    "path":"objects/obj_Entity/obj_Entity.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

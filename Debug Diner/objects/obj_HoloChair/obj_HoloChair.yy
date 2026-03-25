@@ -1,17 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_TableSquare",
-  "eventList":[],
+  "%Name":"obj_HoloChair",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_TableSquare",
+  "name":"obj_HoloChair",
   "overriddenProperties":[],
   "parent":{
-    "name":"Base",
-    "path":"folders/Objects/Base.yy",
+    "name":"Chair",
+    "path":"folders/Objects/Entity/Base/Chair.yy",
   },
   "parentObjectId":{
-    "name":"obj_Table",
-    "path":"objects/obj_Table/obj_Table.yy",
+    "name":"obj_Chair",
+    "path":"objects/obj_Chair/obj_Chair.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_HologramTable",
-    "path":"sprites/spr_HologramTable/spr_HologramTable.yy",
+    "name":"spr_ChairLeft",
+    "path":"sprites/spr_ChairLeft/spr_ChairLeft.yy",
   },
   "spriteMaskId":null,
   "visible":true,

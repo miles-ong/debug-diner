@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
   "%Name":"obj_CounterSolo",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_CounterSolo",
   "overriddenProperties":[],
   "parent":{
-    "name":"Base",
-    "path":"folders/Objects/Base.yy",
+    "name":"Counter",
+    "path":"folders/Objects/Entity/Base/Counter.yy",
   },
   "parentObjectId":{
     "name":"obj_Counter",

@@ -36,7 +36,8 @@ function StartLevel() {
 	if(bonusTask1 != undefined) prevBonusTask1Completion = bonusTask1.isCompleted;
 	if(bonusTask2 != undefined) prevBonusTask2Completion = bonusTask2.isCompleted;
 	
-	obj_GridController.Fill();
+	obj_GridController.Initialize();
+	obj_StepController.Initialize();
 	global.gameState = GameState.PROGRAMMING;
 }
 
@@ -103,13 +104,13 @@ function EvaluateTask(task) {
 			with(obj_Table) {
 				var needed = task.waitersPerTable;
 				var found = 0;
-				var proximity = obj_GridController.GetInProximity(GridLevel.BASE, gridX, gridY);
+				var proximity = obj_GridController.GetInProximity(gridX, gridY, GridLevel.BASE);
 				
 				for(var i = 0; i < array_length(proximity); i++) {
 					var inst = proximity[i];
 					
 					if(instance_exists(inst) && inst.object_index == obj_Waiter) {
-						if(obj_GridController.ObjectFacingObject(inst, id)) found++;
+						if(obj_GridController.IsEntityFacingEntity(inst, id)) found++;
 					}
 				}
 				

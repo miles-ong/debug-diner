@@ -8,7 +8,8 @@ enum GameState {
 
 function ChangeGameState(_newState, suppressEqualWarning = false) {
 	if(global.gameState == _newState) {
-		show_debug_message($"[scr_GameState] Game state is already {GameStateToString(newState)}");
+		if(!suppressEqualWarning) show_debug_message($"[scr_GameState] Game state is already {GameStateToString(_newState)}");
+		
 		return;
 	}
 	

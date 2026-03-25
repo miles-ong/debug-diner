@@ -58,6 +58,7 @@ else if(moving) {
 		y = endY;
 		moving = false;
 		moveProgress = 0;
-		// handle grid swapping here
+		obj_GridController.Remove(oldX, oldY, gridLevel);
+		obj_GridController.Set(gridX, gridY, id);
 	}
 }

@@ -1,17 +1,19 @@
 {
   "$GMObject":"",
   "%Name":"obj_Counter",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_Counter",
   "overriddenProperties":[],
   "parent":{
     "name":"Base",
-    "path":"folders/Objects/Base.yy",
+    "path":"folders/Objects/Entity/Base.yy",
   },
   "parentObjectId":{
-    "name":"obj_Base",
-    "path":"objects/obj_Base/obj_Base.yy",
+    "name":"obj_Entity",
+    "path":"objects/obj_Entity/obj_Entity.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

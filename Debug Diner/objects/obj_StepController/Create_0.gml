@@ -1,5 +1,5 @@
 // --- Setup ---
-debugLabel = "[obj_ExecuteController]";
+debugLabel = "[obj_StepController]";
 floorPlannedSteps = {};
 basePlannedSteps = {};
 timer = 0;
@@ -21,13 +21,15 @@ function LoadStep(_entity) {
 	
 	if(!variable_struct_exists(steps, key)) steps[$ key] = [];
 	
-	array_push(steps[$ key], { entity : _entity });
+	array_push(steps[$ key], _entity);
 	show_debug_message($"{debugLabel} Loaded step for {_entity.label}");
 }
 
 function ResolveSteps() {
 	CheckCollisions(floorPlannedSteps);
 	CheckCollisions(basePlannedSteps);
+	floorPlannedSteps = {};
+	basePlannedSteps = {};
 	ChangeGameState(GameState.EXECUTING);
 }
 
@@ -39,6 +41,8 @@ function CheckCollisions(_steps) {
 	for(var i = 0; i < array_length(keys); i++) {
 		var key = keys[i];
 		var gCoords = ParseKey(key);
+		var tx = gCoords.gx;
+		var ty = gCoords.gy;
 		var entities = _steps[$ key];
 		var entitiesLen = array_length(entities);
 		var e;
@@ -57,7 +61,8 @@ function CheckCollisions(_steps) {
 			
 			if(collisionsLen > 1) {
 				for(var c = 0; c < collisionsLen; c++) {
-					collisions[c].HandleCollision(GetMoveDirection(c.gridX, c.gridY, c.targetGridX, c.targetGridY));
+					var co = collisions[c];
+					co.HandleCollision(GetMoveDirection(co.gridX, co.gridY, co.targetGridX, co.targetGridY));
 				}
 				
 				show_debug_message($"{debugLabel} {string(collisionsLen)} {GridLevelToString(level)} entities colliding on ({tx}, {ty})");
@@ -87,7 +92,7 @@ function ReadPrograms() {
 	show_debug_message($"{debugLabel} Reading programs");
 	
 	with(obj_Programmable) {
-		if(array_length(programStack > 0)) {
+		if(array_length(programStack) > 0) {
 			show_debug_message($"{debugLabel} Reading '{label}''s program");
 			programComplete = false;
 			var consumeStep = false;

@@ -1,4 +1,5 @@
-isWalkable = true;
-isDeadly = false;
+event_inherited();
 
-layer = layer_get_id("Floor");
+isWalkable = true;
+
+SetupEntity(GridLevel.FLOOR, false);
