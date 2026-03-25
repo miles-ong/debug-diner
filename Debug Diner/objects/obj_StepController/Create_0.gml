@@ -13,6 +13,8 @@ function Initialize() {
 }
 
 #region Planning
+/// @description Adds an entity to be evaluated during the next execution phase
+/// @param _entity The entity to be evaluated
 function LoadStep(_entity) {
 	var steps = _entity.gridLevel == GridLevel.FLOOR ? floorPlannedSteps : basePlannedSteps;
 	var tx = _entity.targetGridX;
@@ -25,6 +27,7 @@ function LoadStep(_entity) {
 	show_debug_message($"{debugLabel} Loaded step for {_entity.label}");
 }
 
+/// @description Evaluates all entities' plans before execution. Handles collision if plans overlap
 function ResolveSteps() {
 	CheckCollisions(floorPlannedSteps);
 	CheckCollisions(basePlannedSteps);
@@ -33,6 +36,8 @@ function ResolveSteps() {
 	ChangeGameState(GameState.EXECUTING);
 }
 
+/// @description Checks for potential collisions from the outcomes of entities' planned steps
+/// @param _steps The step map to check
 function CheckCollisions(_steps) {
 	var keys = variable_struct_get_names(_steps);
 	var level = _steps == floorPlannedSteps ? GridLevel.FLOOR : GridLevel.BASE;
@@ -87,6 +92,7 @@ function CheckCollisions(_steps) {
 #endregion
 
 #region Reading
+/// @description Reads programmables and plans operations for each programmed entity
 function ReadPrograms() {
 	var programComplete = true;
 	show_debug_message($"{debugLabel} Reading programs");
@@ -156,9 +162,9 @@ function ReadPrograms() {
 #endregion
 
 #region Helpers
-/// @description Creates a string key representing grid coordinates
-/// @param _gx X coordinate of grid
-/// @param _gy Y coordinate of grid
+/// @description Helper to parse grid coordinates into keys for grid maps
+/// @param _gx X coordinate in grid
+/// @param _gy Y coordinate in grid
 function Key(_gx, _gy) {
 	return $"{_gx}_{_gy}";
 }
