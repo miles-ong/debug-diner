@@ -57,7 +57,7 @@ northAmericaLevels = [
 		"Level 1-5",
 		spr_TrophyBurger,
 		false,
-		CreateTask(TaskType.GUIDETOTABLE),
+		CreateTask(TaskType.GUIDETOTABLE, 2),
 		undefined,
 		undefined,
 		rm_Level1_5,
