@@ -39,9 +39,20 @@ function StartLevel() {
 	obj_GridController.Initialize();
 	obj_StepController.Initialize();
 	
-	// DO DIALOG HOOKUP HERE (USE NEW GameState.DIALOGUE)
-	
-	ChangeGameState(GameState.PROGRAMMING);
+	// Dialog hookup
+	var levelDialog = GetRoomDialog(room);
+
+	if (array_length(levelDialog) > 0) {
+		ChangeGameState(GameState.DIALOGUE);
+
+		var dlg = instance_create_layer(0, 0, "Base", obj_DialogController);
+		dlg.Setup(levelDialog, function() {
+			ChangeGameState(GameState.PROGRAMMING);
+		});
+	}
+	else {
+		ChangeGameState(GameState.PROGRAMMING);
+	}
 }
 
 function OnCollision() {

@@ -12,13 +12,9 @@ function GetRoomDialog(_room) {
 
         case rm_Level1_1:
             return [
-                DialogLine("Chef",   "。。。。。。。。。。。"),
-                DialogLine("Waiter", "。。。。。。。。。。。"),
-            ];
-
-        case rm_Level1_2:
-            return [
-                DialogLine("Chef", "。。。。。。。。"),
+				DialogLine("L", "Chef", "这是左边角色的测试对话。", spr_Portrait_Left),
+				DialogLine("R", "Waiter", "这是右边角色的测试对话。", spr_Portrait_Right),
+				DialogLine("L", "Chef", "现在对话框会切换回左边。", spr_Portrait_Left)
             ];
 
         default:
