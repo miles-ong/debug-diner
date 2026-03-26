@@ -14,7 +14,9 @@ function HandleButtonPress(_id, _layer) {
 					break;
 					
 				case 1:
-					obj_GameController.GoToCurrentLevel();
+					var level = obj_GameController.GetLevel(obj_GameController.currentLevelIndex);
+					
+					if(level.unlocked) obj_GameController.GoToCurrentLevel();
 					break;
 					
 				case 2:
@@ -32,6 +34,10 @@ function HandleButtonPress(_id, _layer) {
 					break;
 				
 				case 1:
+					//var continueLevelIndex = obj_GameController.continueLevelIndex;
+					//var level = obj_GameController.GetLevel(continueLevelIndex);
+					
+					//if(level.unlocked) obj_GameController.GoToLevel(continueLevelIndex);
 					break;
 			}
 	}

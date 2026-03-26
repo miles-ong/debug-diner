@@ -106,7 +106,7 @@ function SetCurrentLevel(_index) {
 /// @description Gets the level from levels using a given index
 /// @param _index The index to access
 function GetLevel(_index) {
-	if(_index < 0 || _index > array_length(levels) - 1) return;
+	if(_index < 0 || _index > array_length(levels) - 1) return noone;
 	
 	return levels[_index];
 }
@@ -144,6 +144,7 @@ function GoToLevel(index) {
 		}));
 		layer_set_visible("GameStartInterface", false);
 		layer_set_visible("LevelSelectInterface", false);
+		layer_set_visible("LevelResult", false);
 		layer_set_visible("MainMenuInterface", false);
 		layer_set_visible("LevelInterface", true);
 	})));

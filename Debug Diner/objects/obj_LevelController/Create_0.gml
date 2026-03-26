@@ -121,6 +121,14 @@ function CheckTasksCompletion() {
 		if(completedBT2 != undefined) {
 			bonusTask2.isCompleted = completedBT2;
 		}
+		
+		var nextIndex = obj_GameController.GetNextLevelIndex();
+		var level = obj_GameController.GetLevel(nextIndex);
+		
+		if(!level.unlocked) {
+			level.unlocked = true;
+			obj_GameController.continueLevelIndex = nextIndex;
+		}
 	}
 }
 
