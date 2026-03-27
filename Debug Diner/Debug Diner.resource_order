@@ -43,6 +43,8 @@
   ],
   "ResourceOrderSettings":[
     {"name":"cu_CrashFallback","order":1,"path":"animcurves/cu_CrashFallback/cu_CrashFallback.yy",},
+    {"name":"fnt_Dialog_Name","order":3,"path":"fonts/fnt_Dialog_Name/fnt_Dialog_Name.yy",},
+    {"name":"fnt_Dialog_Text","order":4,"path":"fonts/fnt_Dialog_Text/fnt_Dialog_Text.yy",},
     {"name":"fo_UILarge","order":2,"path":"fonts/fo_UILarge/fo_UILarge.yy",},
     {"name":"fo_UIMedium","order":1,"path":"fonts/fo_UIMedium/fo_UIMedium.yy",},
     {"name":"obj_BlockBank","order":8,"path":"objects/obj_BlockBank/obj_BlockBank.yy",},

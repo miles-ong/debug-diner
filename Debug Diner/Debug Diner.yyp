@@ -59,12 +59,14 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.4.221",
   },
   "name":"Debug Diner",
   "resources":[
     {"id":{"name":"cu_ButtonClick","path":"animcurves/cu_ButtonClick/cu_ButtonClick.yy",},},
     {"id":{"name":"cu_CrashFallback","path":"animcurves/cu_CrashFallback/cu_CrashFallback.yy",},},
+    {"id":{"name":"fnt_Dialog_Name","path":"fonts/fnt_Dialog_Name/fnt_Dialog_Name.yy",},},
+    {"id":{"name":"fnt_Dialog_Text","path":"fonts/fnt_Dialog_Text/fnt_Dialog_Text.yy",},},
     {"id":{"name":"fo_UILarge","path":"fonts/fo_UILarge/fo_UILarge.yy",},},
     {"id":{"name":"fo_UIMedium","path":"fonts/fo_UIMedium/fo_UIMedium.yy",},},
     {"id":{"name":"fo_UISmall","path":"fonts/fo_UISmall/fo_UISmall.yy",},},

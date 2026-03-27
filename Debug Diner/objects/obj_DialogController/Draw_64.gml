@@ -83,6 +83,7 @@ if (!is_undefined(line_sprite) && line_sprite != noone) {
 }
 
 draw_set_alpha(1);
+draw_set_font(DIALOG_FONT_NAME);
 draw_set_color(c_white);
 draw_text(
     box_x1 + padding,
@@ -90,6 +91,7 @@ draw_text(
     string(line_name)
 );
 
+draw_set_font(DIALOG_FONT_TEXT);
 draw_text_ext(
     box_x1 + padding,
     y_top + padding + DIALOG_TEXT_OFFSET_Y,
