@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_show_tooltip",
   "parent":{
-    "name":"Debug Diner",
-    "path":"Debug Diner.yyp",
+    "name":"Tooltip",
+    "path":"folders/Tooltip.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

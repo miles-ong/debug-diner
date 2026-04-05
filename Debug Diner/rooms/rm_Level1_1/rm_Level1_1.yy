@@ -19,6 +19,7 @@
     {"name":"inst_39E13C8A","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
     {"name":"inst_3168874","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
     {"name":"inst_48238D4B","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
+    {"name":"inst_40BDF61D","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -26,6 +27,7 @@
         {"$GMRInstance":"v4","%Name":"inst_48238D4B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_48238D4B","objectId":{"name":"obj_Waiter","path":"objects/obj_Waiter/obj_Waiter.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Entity","path":"objects/obj_Entity/obj_Entity.yy",},"propertyId":{"name":"facing","path":"objects/obj_Entity/obj_Entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Direction.WEST",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":480.0,"y":352.0,},
+        {"$GMRInstance":"v4","%Name":"inst_40BDF61D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_40BDF61D","objectId":{"name":"obj_TooltipController","path":"objects/obj_TooltipController/obj_TooltipController.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1504.0,"y":832.0,},
       ],"layers":[],"name":"Base","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Floor","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_2FC35A02","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2FC35A02","objectId":{"name":"obj_TileDark","path":"objects/obj_TileDark/obj_TileDark.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":288.0,},
