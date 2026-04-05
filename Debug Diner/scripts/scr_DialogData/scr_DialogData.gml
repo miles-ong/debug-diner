@@ -28,7 +28,10 @@ function GetRoomDialog(_room) {
 				DialogLine("R", "???", "...", spr_Portrait_Right),
 				DialogLine("R", "???", "AHA! It is English you speak... Correct?", spr_Portrait_Right),
 				DialogLine("L", "Player", "Uh... Yes?", spr_Portrait_Left),
-				DialogLine("L", "Player", "MORE DIALOGUE TO COME", spr_Portrait_Left),
+				DialogLine("L", "Player", "Wait… do you always talk like this to strangers?", spr_Portrait_Left),
+				DialogLine("R", "???", "Only to those who can speak English! Lucky you, I suppose.", spr_Portrait_Right),
+				DialogLine("L", "Player", "Uuh?", spr_Portrait_Left),
+				DialogLine("R", "???", "Never mind, forget it...", spr_Portrait_Right),
 				DialogLine("R", "???", "Go ahead and use that robot to complete the task posted on the hologram to your right!", spr_Portrait_Right),
 				DialogLine("R", "???", "Oh, and make sure not to crash it... I suspect that the robots will be quite fragile after that emergency landing!", spr_Portrait_Right),
             ];
@@ -42,6 +45,17 @@ function GetRoomDialog(_room) {
 				DialogLine("L", "Player", "But I don't even know how to cook...", spr_Portrait_Left),
 				DialogLine("R", "???", "If that's the case...", spr_Portrait_Right),
 				DialogLine("R", "???", "You better learn how to program!", spr_Portrait_Right),
+			];
+		
+		case rm_Level1_4:
+			return [
+				DialogLine("R", "???", "Programming is getting pretty complicated, isn't it?", spr_Portrait_Right),
+				DialogLine("L", "Player", "It's simple enough for me.", spr_Portrait_Left),
+				DialogLine("R", "???", "Try this loop", spr_Portrait_Right),
+				DialogLine("R", "???", "it's way better than using a bunch of other blocks.", spr_Portrait_Right),
+				DialogLine("L", "Player", "So will I get paid?", spr_Portrait_Left),
+				DialogLine("R", "???", " ...?", spr_Portrait_Right),
+				
 			];
 
         default:
