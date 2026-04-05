@@ -13,7 +13,7 @@ northAmericaLevels = [
 		"Level 1-1", 
 		spr_TrophyBurger, 
 		true, 
-		CreateTask(TaskType.GUIDETOTABLE), 
+		CreateTask(TaskType.LESSTHANBLOCKS, 4), 
 		undefined, 
 		undefined, 
 		rm_Level1_1,
@@ -29,7 +29,7 @@ northAmericaLevels = [
 		undefined,
 		rm_Level1_2,
 		undefined,
-		[ BlockType.MOVE ]
+		[ BlockType.MOVE, BlockType.TURN ]
 	),
 	CreateLevel(
 		"Level 1-3",
