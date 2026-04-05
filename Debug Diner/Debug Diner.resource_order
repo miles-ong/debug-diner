@@ -40,6 +40,7 @@
     {"name":"Icons","order":8,"path":"folders/Sprites/UI/Icons.yy",},
     {"name":"Tile Sets","order":12,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":13,"path":"folders/Timelines.yy",},
+    {"name":"Tooltip","order":16,"path":"folders/Tooltip.yy",},
   ],
   "ResourceOrderSettings":[
     {"name":"cu_CrashFallback","order":1,"path":"animcurves/cu_CrashFallback/cu_CrashFallback.yy",},
@@ -101,6 +102,7 @@
     {"name":"scr_Globals","order":1,"path":"scripts/scr_Globals/scr_Globals.yy",},
     {"name":"scr_Level","order":9,"path":"scripts/scr_Level/scr_Level.yy",},
     {"name":"scr_MenuBlocks","order":10,"path":"scripts/scr_MenuBlocks/scr_MenuBlocks.yy",},
+    {"name":"scr_show_tooltip","order":17,"path":"scripts/scr_show_tooltip/scr_show_tooltip.yy",},
     {"name":"sfx_ArgumentClick","order":2,"path":"sounds/sfx_ArgumentClick/sfx_ArgumentClick.yy",},
     {"name":"sfx_BlockConnect","order":3,"path":"sounds/sfx_BlockConnect/sfx_BlockConnect.yy",},
     {"name":"sfx_BlockDisconnect","order":4,"path":"sounds/sfx_BlockDisconnect/sfx_BlockDisconnect.yy",},
