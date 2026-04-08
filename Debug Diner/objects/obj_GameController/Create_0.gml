@@ -210,9 +210,13 @@ function ClearLayers() {
 	layer_destroy_instances("MenuBlockDragging");
 	layer_destroy_instances("BlockSlot");
 	layer_destroy_instances("Block");
+	layer_destroy_instances("ConditionalBlock");
+	layer_destroy_instances("ConditionalSlot");
 	layer_destroy_instances("BlockContent");
 	layer_destroy_instances("BlockSlotDragging");
 	layer_destroy_instances("BlockDragging");
+	layer_destroy_instances("ConditionalBlockDragging");
+	layer_destroy_instances("ConditionalSlotDragging");
 	layer_destroy_instances("BlockContentDragging");
 }
 

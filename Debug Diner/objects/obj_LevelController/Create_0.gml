@@ -62,6 +62,7 @@ function StartLevel() {
 			BlockType.MOVE,
 			BlockType.TURN,
 			BlockType.LOOP,
+			BlockType.WAIT,
 			BlockType.IF,
 			BlockType.COND_AHEAD_IS
 		];

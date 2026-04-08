@@ -71,6 +71,11 @@ function Initialize() {
 			condition = "";
 			break;
 		
+		case BlockType.WAIT:
+			name = "Wait";
+			SetBlockColor(BlockColor.PINK);
+			break;
+		
 		case BlockType.COND_AHEAD_IS:
 			name = "Ahead Is";
 			SetBlockColor(BlockColor.GREEN);
@@ -111,28 +116,25 @@ function Initialize() {
 }
 
 function LinkToSlot(slot, mute = false) {
-	if(slot == noone || !slot.isEmpty) return false;
-	if(isConditional && slot.type != SlotType.CONDITION) return false;
-	if(!isConditional && slot.type == SlotType.CONDITION) return false;
-	
-	if(!mute) audio_play_sound(sfx_BlockConnect, 0, false);
-	
-	parentBlock = slot.owner;
-		
-	if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
-	else slot.owner.nextBlock = id;
-	
-	if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
-	else if(slot.type == SlotType.CONDITION) slot.owner.conditionBlock = id;
-	else slot.owner.nextBlock = id;
-	
-	slot.isEmpty = false;
-	x = slot.x;
-	y = slot.y;
-	
-	StretchParents();
-		
-	return true;
+    if(slot == noone || !slot.isEmpty) return false;
+    if(isConditional && slot.type != SlotType.CONDITION) return false;
+    if(!isConditional && slot.type == SlotType.CONDITION) return false;
+    
+    if(!mute) audio_play_sound(sfx_BlockConnect, 0, false);
+    
+    parentBlock = slot.owner;
+    
+    if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
+    else if(slot.type == SlotType.CONDITION) slot.owner.conditionBlock = id;
+    else slot.owner.nextBlock = id;
+    
+    slot.isEmpty = false;
+    x = slot.x;
+    y = slot.y;
+    
+    StretchParents();
+    
+    return true;
 }
 
 function UnlinkFromSlot() {
