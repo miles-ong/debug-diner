@@ -1,11 +1,16 @@
 type = BlockType.MOVE;
 name = "";
 color = BlockColor.WHITE;
+isConditional = false;
 
-function Initialize(_type, _name, _color, _hasBody = false) {
+function Initialize(_type, _name, _color, _hasBody = false, _isConditional = false) {
 	type = _type;
 	name = _name;
-	sprite_index = _hasBody ? spr_BlockBody : spr_Block;
+	isConditional = _isConditional;
+	
+	if(_isConditional) sprite_index = spr_ConditionalBlock;
+	else sprite_index = _hasBody ? spr_BlockBody : spr_Block;
+	
 	SetBlockColor(_color);
 	Stretch();
 }

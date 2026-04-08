@@ -61,7 +61,9 @@ function StartLevel() {
 		enabledBlocks = [
 			BlockType.MOVE,
 			BlockType.TURN,
-			BlockType.LOOP
+			BlockType.LOOP,
+			BlockType.IF,
+			BlockType.COND_AHEAD_IS
 		];
 	}
 	else {

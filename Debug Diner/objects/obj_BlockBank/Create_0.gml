@@ -12,6 +12,7 @@ function BuildButton(_blockType, _x, _y) {
 	var name;
 	var color;
 	var hasBody = false;
+	var isConditional = false;
 	
 	switch(_blockType) {
 		case BlockType.MOVE:
@@ -29,11 +30,27 @@ function BuildButton(_blockType, _x, _y) {
 			color = BlockColor.RED;
 			hasBody = true;
 			break;
+		
+		case BlockType.IF:
+			name = "If";
+			color = BlockColor.TEAL;
+			hasBody = true;
+			break;
+		
+		case BlockType.COND_AHEAD_IS:
+			name = "Ahead Is";
+			color = BlockColor.GREEN;
+			isConditional = true;
+			break;
 	}
+
+	var blockHeight;
 	
-	var blockHeight = hasBody ? sprite_get_height(spr_BlockBody) : sprite_get_height(spr_Block);
+	if(isConditional) blockHeight = sprite_get_height(spr_ConditionalBlock);
+	else blockHeight = hasBody ? sprite_get_height(spr_BlockBody) : sprite_get_height(spr_Block);
+	
 	var button = instance_create_layer(_x, _y - blockHeight / 2, "LevelInterface", obj_BlockButton);
-	button.Initialize(_blockType, name, color, hasBody);
+	button.Initialize(_blockType, name, color, hasBody, isConditional);
 	
 	return button;
 }

@@ -6,7 +6,11 @@ if(global.isDraggingBlock == true) {
 
 global.isDraggingBlock = true;
 
-var block = instance_create_layer(mouse_x, mouse_y, "BlockDragging", obj_Block);
+var layerId = isConditional 
+	? "ConditionalBlockDragging"
+	: "BlockDragging";
+	
+var block = instance_create_layer(mouse_x, mouse_y, layerId, obj_Block);
 block.type = type;
 block.Initialize();
 block.BringToDraggingLayer();

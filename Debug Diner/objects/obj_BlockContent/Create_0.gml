@@ -38,6 +38,8 @@ function Initialize(_text = "") {
 			text = _text;
 			break;
 	}
+	
+	if(owner.isConditional) sprite_index = spr_ConditionalBlockContentArgument;
 }
 
 function OnClick() {

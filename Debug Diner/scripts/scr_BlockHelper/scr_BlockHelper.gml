@@ -3,7 +3,10 @@ enum BlockType {
 	MOVE,
 	TURN,
 	LOOP,
-	IF
+	IF,
+	WHILE,
+	INTERACT,
+	COND_AHEAD_IS
 }
 
 enum BlockContentType {
@@ -22,7 +25,8 @@ enum BlockArgumentType {
 
 enum SlotType {
 	SEQUENCE,
-	BODY
+	BODY,
+	CONDITION
 }
 
 enum MenuBlockType {
@@ -64,5 +68,8 @@ function BlockTypeToString(type) {
 		case BlockType.TURN: return "Turn";
 		case BlockType.LOOP: return "Loop";
 		case BlockType.IF: return "If";
+		case BlockType.WHILE: return "While";
+		case BlockType.INTERACT: return "Interact";
+		case BlockType.COND_AHEAD_IS: return "Ahead Is";
 	}
 }

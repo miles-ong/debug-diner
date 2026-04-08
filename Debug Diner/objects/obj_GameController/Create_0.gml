@@ -18,7 +18,7 @@ northAmericaLevels = [
 		undefined, 
 		rm_Level1_1,
 		undefined,
-		[ BlockType.MOVE ]
+		undefined
 	),
 	CreateLevel(
 		"Level 1-2",

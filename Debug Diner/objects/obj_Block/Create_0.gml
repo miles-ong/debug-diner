@@ -5,14 +5,17 @@ color = BlockColor.WHITE;
 parentBlock = noone;
 nextBlock = noone;
 childBlock = noone;
+conditionBlock = noone;
 
 nextSlot = noone;
 childSlot = noone;
+conditionSlot = noone;
 
 isDraggable = true;
 isSource = false;
 hasSequence = true;
 hasBody = false;
+isConditional = false;
 
 isDragging = false;
 
@@ -63,13 +66,29 @@ function Initialize() {
 			
 		case BlockType.IF:
 			name = "If";
-			SetBlockColor(BlockColor.WHITE);
+			SetBlockColor(BlockColor.TEAL);
 			hasBody = true;
 			condition = "";
 			break;
+		
+		case BlockType.COND_AHEAD_IS:
+			name = "Ahead Is";
+			SetBlockColor(BlockColor.GREEN);
+			hasSequence = false;
+			isConditional = true;
+			argObject = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.CYCLE, "", [
+				"Table", 
+				"Chair",
+				"Counter",
+				"Food Printer",
+				"Waiter"
+			]);
+			break;
 	}
 	
-	sprite_index = hasBody ? spr_BlockBody : spr_Block;
+	if(isConditional) sprite_index = spr_ConditionalBlock;
+	else sprite_index = hasBody ? spr_BlockBody : spr_Block;
+
 	Stretch();
 	
 	if(hasSequence) {
@@ -83,6 +102,12 @@ function Initialize() {
 		childSlot.owner = id;
 		childSlot.type = SlotType.BODY;
 	}
+	
+	if(type == BlockType.IF) {
+		conditionSlot = instance_create_layer(x, y, "ConditionalSlot", obj_BlockSlot);
+		conditionSlot.owner = id;
+		conditionSlot.type = SlotType.CONDITION;
+	}
 }
 
 function LinkToSlot(slot, mute = false) {
@@ -93,6 +118,10 @@ function LinkToSlot(slot, mute = false) {
 	parentBlock = slot.owner;
 		
 	if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
+	else slot.owner.nextBlock = id;
+	
+	if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
+	else if(slot.type == SlotType.CONDITION) slot.owner.conditionBlock = id;
 	else slot.owner.nextBlock = id;
 	
 	slot.isEmpty = false;
@@ -119,6 +148,12 @@ function UnlinkFromSlot() {
 		parentBlock.childBlock = noone;
 		
 		if(parentBlock.childSlot != noone) parentBlock.childSlot.isEmpty = true;
+	}
+	
+	if(parentBlock.conditionBlock == id) {
+		parentBlock.conditionBlock = noone;
+		
+		if(parentBlock.conditionSlot != noone) parentBlock.conditionSlot.isEmpty = true;
 	}
 	
 	StretchParents();
@@ -162,7 +197,9 @@ function OnArgumentChanged() {
 
 function Stretch() {
 	draw_set_font(fo_UISmall);
-	var offsetX = BLOCK_EDGE_LENGTH + BLOCK_PADDING + sprite_get_width(spr_BlockLightConnected) + BLOCK_CONTENT_PADDING + string_width(name);
+	var offsetX = BLOCK_EDGE_LENGTH + BLOCK_PADDING + BLOCK_CONTENT_PADDING + string_width(name);
+	
+	if(!isConditional) offsetX += sprite_get_width(spr_BlockLightConnected);
 	
 	for(var i = 0; i < array_length(contents); i++) {
 		var content = contents[i];
@@ -176,6 +213,14 @@ function Stretch() {
 		if(content.contentType != BlockContentType.DISPLAY) content.image_xscale = contentWidth / BLOCK_CONTENT_WIDTH;
 		
 		offsetX += contentWidth;
+	}
+	
+	if(type == BlockType.IF) {
+	    var condWidth = conditionBlock != noone
+	        ? conditionBlock.sprite_width
+	        : BLOCK_CONDITION_SLOT_WIDTH;
+    
+	    offsetX += BLOCK_CONTENT_PADDING + condWidth;
 	}
 	
 	var blockWidth = offsetX + BLOCK_CONTENT_PADDING + BLOCK_PADDING + BLOCK_EDGE_LENGTH;	
@@ -231,28 +276,44 @@ function RefreshChain() {
 		nextBlock.RefreshChain();
 	}
 	
+	if(conditionSlot != noone) {
+	    draw_set_font(fo_UISmall);
+	    conditionSlot.x = x + BLOCK_EDGE_LENGTH + BLOCK_PADDING + sprite_get_width(spr_BlockLightConnected) + BLOCK_CONTENT_PADDING + string_width(name) + BLOCK_CONTENT_PADDING;
+	    conditionSlot.y = y + (BLOCK_HEIGHT - CONDITIONAL_BLOCK_HEIGHT) / 2;
+	}
+	
 	if(childBlock != noone) {
 		childBlock.x = x + BLOCK_BODY_WIDTH;
 		childBlock.y = y + BLOCK_HEIGHT;
 		childBlock.RefreshChain();
 	}
+	
+	if(conditionBlock != noone) {
+		conditionBlock.x = conditionSlot.x;
+		conditionBlock.y = conditionSlot.y;
+		conditionBlock.RefreshChain();
+	}
 }
 
 function DestroyChain() {
 	for(var i = 0; i < array_length(contents); i++) {
-		instance_destroy(contents[i]);
+		if(instance_exists(contents[i])) instance_destroy(contents[i]);
 	}
 	
 	if(childBlock != noone) childBlock.DestroyChain();
 	if(nextBlock != noone) nextBlock.DestroyChain();
+	if(conditionBlock != noone && instance_exists(conditionBlock)) conditionBlock.DestroyChain();
 	if(nextSlot != noone) instance_destroy(nextSlot);
 	if(childSlot != noone) instance_destroy(childSlot);
+	if(conditionSlot != noone) instance_destroy(conditionSlot);
 	
 	instance_destroy();
 }
 
 function BringToDraggingLayer() {
-	layer = layer_get_id("BlockDragging");
+	layer = isConditional
+		? layer_get_id("ConditionalBlockDragging")
+		: layer_get_id("BlockDragging");
 	
 	for(var i = 0; i < array_length(contents); i++) {
 		contents[i].layer = layer_get_id("BlockContentDragging");
@@ -260,12 +321,16 @@ function BringToDraggingLayer() {
 	
 	if(nextSlot != noone) nextSlot.layer = layer_get_id("BlockSlotDragging");
 	if(childSlot != noone) childSlot.layer = layer_get_id("BlockSlotDragging");
+	if(conditionSlot != noone) conditionSlot.layer = layer_get_id("ConditionalSlotDragging");
 	if(nextBlock != noone) nextBlock.BringToDraggingLayer();
 	if(childBlock != noone) childBlock.BringToDraggingLayer();
+	if(conditionBlock != noone) conditionBlock.BringToDraggingLayer();
 }
 
 function BringToBaseLayer() {
-	layer = layer_get_id("Block");
+	layer = isConditional
+		? layer_get_id("ConditionalBlock")
+		: layer_get_id("Block");
 	
 	for(var i = 0; i < array_length(contents); i++) {
 		contents[i].layer = layer_get_id("BlockContent");
@@ -273,8 +338,10 @@ function BringToBaseLayer() {
 	
 	if(nextSlot != noone) nextSlot.layer = layer_get_id("BlockSlot");
 	if(childSlot != noone) childSlot.layer = layer_get_id("BlockSlot");
+	if(conditionSlot != noone) conditionSlot.layer = layer_get_id("ConditionalSlot");
 	if(nextBlock != noone) nextBlock.BringToBaseLayer();
 	if(childBlock != noone) childBlock.BringToBaseLayer();
+	if(conditionBlock != noone) conditionBlock.BringToBaseLayer();
 }
 
 function Serialize() {
@@ -294,6 +361,13 @@ function Serialize() {
 			
 		case BlockType.LOOP:
 			node.args.count = argCount.value;
+			break;
+			
+		case BlockType.IF:
+			node.args.condition = conditionBlock != noone
+				? conditionBlock.Serialize()
+				: noone;
+				
 			break;
 	}
 	
@@ -325,6 +399,15 @@ function Deserialize(node) {
 		case BlockType.LOOP:
 			count = node.args.count;
 			argCount.value = count;
+			break;
+			
+		case BlockType.IF:
+			if(node.args.condition != noone) {
+				var condBlock = instance_create_layer(conditionSlot.x, conditionSlot.y, "Block", obj_Block);
+				condBlock.Deserialize(node.args.condition);
+				condBlock.LinkToSlot(conditionSlot, true);
+			}
+			
 			break;
 	}
 	
