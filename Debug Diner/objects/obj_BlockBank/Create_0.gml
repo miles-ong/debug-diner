@@ -1,4 +1,6 @@
 function Initialize(_enabledBlocks) {
+	with(obj_BlockButton) instance_destroy(id);
+	
 	var xPadding = x + UI_CONTAINER_PADDING * 2 + 16;
 	var yPadding = y + sprite_height / 2;
 	

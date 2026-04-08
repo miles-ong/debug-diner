@@ -18,7 +18,7 @@ northAmericaLevels = [
 		undefined, 
 		rm_Level1_1,
 		undefined,
-		undefined
+		[ BlockType.MOVE ]
 	),
 	CreateLevel(
 		"Level 1-2",
@@ -40,7 +40,7 @@ northAmericaLevels = [
 		CreateTask(TaskType.LESSTHANBLOCKS, 3),
 		rm_Level1_3,
 		undefined,
-		[ BlockType.MOVE, BlockType.LOOP]
+		[ BlockType.MOVE, BlockType.LOOP ]
 	),
 	CreateLevel(
 		"Level 1-4",
@@ -172,9 +172,12 @@ function GoToLevel(index) {
 	
 	obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, true, method(level, function() {
 		room_goto(targetRoom);
+		obj_LevelController.InitializeLevel();
+		
 		obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, false, function() {
 			obj_LevelController.StartLevel();
 		}));
+		
 		layer_set_visible("GameStartInterface", false);
 		layer_set_visible("LevelSelectInterface", false);
 		layer_set_visible("LevelResult", false);

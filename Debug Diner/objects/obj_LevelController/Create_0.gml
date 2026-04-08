@@ -17,18 +17,17 @@ bonusTask2 = undefined;
 prevBonusTask1Completion = false;
 prevBonusTask2Completion = false;
 
-function StartLevel() {
+function InitializeLevel() {
 	collided = false;
 	totalBlocksUsed = 0;
 	ds_map_clear(blockTypesUsed);
-	
 	var currLevel = global.currentLevel;
 	
 	if(currLevel == noone) return;
 	
 	mainTask = currLevel.mainTask;
 	
-	if(mainTask == undefined) return;
+	if(mainTask == noone) return;
 	
 	bonusTask1 = currLevel.bonusTask1;
 	bonusTask2 = currLevel.bonusTask2;
@@ -38,22 +37,6 @@ function StartLevel() {
 	
 	obj_GridController.Initialize();
 	obj_StepController.Initialize();
-	
-	// Dialog hookup
-	var levelDialog = GetRoomDialog(room);
-
-	if (array_length(levelDialog) > 0) {
-		ChangeGameState(GameState.DIALOGUE);
-
-		var dlg = instance_create_layer(0, 0, "Base", obj_DialogController);
-		
-		dlg.Setup(levelDialog, function() {
-			ChangeGameState(GameState.PROGRAMMING);
-		});
-	}
-	else {
-		ChangeGameState(GameState.PROGRAMMING);
-	}
 	
 	var enabledBlocks;
 	
@@ -72,6 +55,23 @@ function StartLevel() {
 	}
 	
 	obj_BlockBank.Initialize(enabledBlocks);
+}
+
+function StartLevel() {
+	var levelDialog = GetRoomDialog(room);
+
+	if (array_length(levelDialog) > 0) {
+		ChangeGameState(GameState.DIALOGUE);
+
+		var dlg = instance_create_layer(0, 0, "Base", obj_DialogController);
+		
+		dlg.Setup(levelDialog, function() {
+			ChangeGameState(GameState.PROGRAMMING);
+		});
+	}
+	else {
+		ChangeGameState(GameState.PROGRAMMING);
+	}
 }
 
 function OnCollision() {

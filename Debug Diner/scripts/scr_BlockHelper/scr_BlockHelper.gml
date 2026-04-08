@@ -70,6 +70,7 @@ function BlockTypeToString(type) {
 		case BlockType.LOOP: return "Loop";
 		case BlockType.IF: return "If";
 		case BlockType.WHILE: return "While";
+		case BlockType.WAIT: return "Wait";
 		case BlockType.INTERACT: return "Interact";
 		case BlockType.COND_AHEAD_IS: return "Ahead Is";
 	}

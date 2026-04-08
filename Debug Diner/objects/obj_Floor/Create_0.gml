@@ -2,4 +2,4 @@ event_inherited();
 
 isWalkable = true;
 
-SetupEntity(GridLevel.FLOOR, false);
+SetupEntity("Floor", GridLevel.FLOOR, false);
