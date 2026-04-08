@@ -1,4 +1,4 @@
-if(global.isDraggingBlock) {
+if(global.draggingBlock != noone) {
     global.hoveredBlockContent = noone;
     global.hoveredBlock = noone;
     global.hoveredBlockSlot = collision_point(mouse_x, mouse_y, obj_BlockSlot, true, true);

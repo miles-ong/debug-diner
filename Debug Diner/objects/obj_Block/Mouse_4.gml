@@ -1,8 +1,8 @@
-if(!isDraggable || global.isDraggingBlock) return;
+if(!isDraggable || global.draggingBlock != noone) return;
 
 if(global.hoveredBlock != id) return;
 
-global.isDraggingBlock = true;
+global.draggingBlock = id;
 UnlinkFromSlot();
 BringToDraggingLayer();
 isDragging = true;

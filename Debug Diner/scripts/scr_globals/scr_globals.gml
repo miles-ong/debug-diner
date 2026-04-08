@@ -4,7 +4,7 @@ global.collisionDuration = 40;
 
 global.gameState = GameState.PROGRAMMING;
 
-global.isDraggingBlock = false;
+global.draggingBlock = noone;
 global.selectedProgram = noone;
 global.editingBlockContent = noone;
 global.hoveredBlock = noone;

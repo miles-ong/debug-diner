@@ -1,10 +1,8 @@
 if(global.gameState != GameState.PROGRAMMING) exit;
 
-if(global.isDraggingBlock == true) {
+if(global.draggingBlock != noone) {
 	return false;
 }
-
-global.isDraggingBlock = true;
 
 var layerId = isConditional 
 	? "ConditionalBlockDragging"
@@ -14,4 +12,5 @@ var block = instance_create_layer(mouse_x, mouse_y, layerId, obj_Block);
 block.type = type;
 block.Initialize();
 block.BringToDraggingLayer();
+global.draggingBlock = block;
 block.isDragging = true;

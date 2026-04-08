@@ -1,2 +1,2 @@
 event_inherited();
-SetupEntity(GridLevel.BASE, true, true, 25, 90);
+SetupEntity("Chair", GridLevel.BASE, true, true, 25, 90);

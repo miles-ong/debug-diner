@@ -4,7 +4,7 @@ if(isDragging) {
 	RefreshChain();
 	
 	if(!mouse_check_button(mb_left)) {
-		global.isDraggingBlock = false;
+		global.draggingBlock = noone;
 		isDragging = false;
 		BringToBaseLayer();
 		var slot = instance_position(x, y, obj_BlockSlot);

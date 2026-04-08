@@ -1,5 +1,6 @@
 // --- Setup ---
 label = "";
+conditionLabel = "";
 debugLabel = "[obj_Entity]";
 
 // --- Settings ---
@@ -34,18 +35,21 @@ collisionProgress = 0;
 collisionCurveSpeed = animcurve_get_channel(cu_CrashFallback, "_speed");
 
 /// @description Helper to initialize basic entity settings
+/// @param _conditionLabel Label for general conditional detection
 /// @param _gridLevel Level on the grid to exist
 /// @param _collision Enables collision
 /// @param _animateCollision Enables collision animation
 /// @param _collisionKnockback Pixels to be knocked back on collision
 /// @param _collisionRotation Angle to rotate on collision
 function SetupEntity(
+	_conditionLabel,
 	_gridLevel,
 	_collision,
 	_animateCollision = false,
 	_collisionKnockback = 0,
 	_collisionRotation = 0
 ) {
+	conditionLabel = _conditionLabel;
 	gridLevel = _gridLevel;
 	collision = _collision;
 	animateCollision = _animateCollision;

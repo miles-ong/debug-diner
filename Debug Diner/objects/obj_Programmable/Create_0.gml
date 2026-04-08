@@ -12,6 +12,21 @@ programStack = [];
 // --- Setup ---
 image_speed = 0;
 
+function EvaluateCondition(_condition) {
+	switch(_condition.type) {
+		case BlockType.COND_AHEAD_IS:
+			var occupant = obj_GridController.GetInDirection(gridX, gridY, gridLevel, facing);
+			
+			if(occupant == noone) return false;
+			
+			var options = ["Table", "Chair", "Counter", "Food Printer", "Waiter"];
+			
+			return occupant.label == options[_condition.args.objectType];
+	}
+	
+	return false;
+}
+
 /// @description Returns the number of blocks used in the program
 /// @param nodes Recursive code blocks within parent blocks
 function CountBlocks(nodes) {

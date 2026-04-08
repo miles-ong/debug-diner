@@ -10,11 +10,11 @@ else {
 	hoveredSlot = spr_BlockSlotHovered;
 }
 
-if(isEmpty && global.hoveredBlockSlot == id) {
+if(isEmpty && global.hoveredBlockSlot == id && global.draggingBlock != noone) {
 	var drawHovered = false;
 	
-	if(type == SlotType.CONDITION && global.hoveredBlock.isConditional) drawHovered = true;
-	else if(type != SlotType.CONDITION && !global.hoveredBlock.isConditional) drawHovered = true;
+	if(type == SlotType.CONDITION && global.draggingBlock.isConditional) drawHovered = true;
+	else if(type != SlotType.CONDITION && !global.draggingBlock.isConditional) drawHovered = true;
 	
 	if(drawHovered) {
 		if(type == SlotType.CONDITION) draw_sprite_ext(hoveredSlot, 0, x, y, image_xscale, image_yscale, 0, c_white, 0.4);

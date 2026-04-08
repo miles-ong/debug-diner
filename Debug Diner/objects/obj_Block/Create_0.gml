@@ -112,6 +112,8 @@ function Initialize() {
 
 function LinkToSlot(slot, mute = false) {
 	if(slot == noone || !slot.isEmpty) return false;
+	if(isConditional && slot.type != SlotType.CONDITION) return false;
+	if(!isConditional && slot.type == SlotType.CONDITION) return false;
 	
 	if(!mute) audio_play_sound(sfx_BlockConnect, 0, false);
 	
@@ -369,6 +371,10 @@ function Serialize() {
 				: noone;
 				
 			break;
+		
+		case BlockType.COND_AHEAD_IS:
+			node.args.objectType = argObject.value;
+			break;
 	}
 	
 	if(hasBody) {
@@ -408,6 +414,10 @@ function Deserialize(node) {
 				condBlock.LinkToSlot(conditionSlot, true);
 			}
 			
+			break;
+		
+		case BlockType.COND_AHEAD_IS:
+			argObject.value = node.args.objectType;
 			break;
 	}
 	
