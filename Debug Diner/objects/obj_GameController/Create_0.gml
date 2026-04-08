@@ -40,7 +40,7 @@ northAmericaLevels = [
 		CreateTask(TaskType.LESSTHANBLOCKS, 3),
 		rm_Level1_3,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP]
+		[ BlockType.MOVE, BlockType.LOOP]
 	),
 	CreateLevel(
 		"Level 1-4",
@@ -51,51 +51,51 @@ northAmericaLevels = [
 		CreateTask(TaskType.LESSTHANBLOCKS, 6),
 		rm_Level1_4,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP ]
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP]
 	),
 	CreateLevel(
 		"Level 1-5",
 		spr_TrophyBurger,
 		false,
-		CreateTask(TaskType.GUIDETOTABLE, 2),
-		undefined,
-		undefined,
+		CreateTask(TaskType.GUIDETOTABLE),
+		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
+		CreateTask(TaskType.LESSTHANBLOCKS, 9),
 		rm_Level1_5,
 		undefined,
-		undefined
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP]
 	),
 	CreateLevel(
 		"Level 1-6",
 		spr_TrophyBurger,
 		false,
 		CreateTask(TaskType.GUIDETOTABLE, 2),
-		undefined,
+		CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
 		undefined,
 		rm_Level1_6,
 		undefined,
-		undefined
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT]
 	),
 	CreateLevel(
 		"Level 1-7",
 		spr_TrophyBurger,
 		false,
 		CreateTask(TaskType.GUIDETOTABLE, 2),
-		undefined,
+		CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
 		undefined,
 		rm_Level1_7,
 		undefined,
-		undefined
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT]
 	),
 	CreateLevel(
 		"Level 1-8",
 		spr_TrophyBurger,
 		false,
 		CreateTask(TaskType.GUIDETOTABLE, 2),
-		undefined,
+		CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
 		undefined,
 		rm_Level1_8,
 		undefined,
-		undefined
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT]
 	),
 ];
 #endregion

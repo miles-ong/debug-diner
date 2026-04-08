@@ -6,7 +6,9 @@
   ],
   "managed":true,
   "name":"obj_HoloChair",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Entity","path":"objects/obj_Entity/obj_Entity.yy",},"propertyId":{"name":"facing","path":"objects/obj_Entity/obj_Entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Direction.EAST",},
+  ],
   "parent":{
     "name":"Chair",
     "path":"folders/Objects/Entity/Base/Chair.yy",

@@ -7,9 +7,7 @@
   "inheritLayers":false,
   "instanceCreationOrder":[
     {"name":"inst_4A662F6A1_1","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
-    {"name":"inst_4678D119_1_1","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
     {"name":"inst_70E547AD1_1","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
-    {"name":"inst_70CEC8B2_1_1","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
     {"name":"inst_5A6AE9B","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
     {"name":"inst_2453C5FF","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
     {"name":"inst_FA021D5","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
@@ -31,6 +29,7 @@
     {"name":"inst_229EA32E","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
     {"name":"inst_1FA4784C","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
     {"name":"inst_26F74BDA","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
+    {"name":"inst_62227F54","path":"rooms/rm_Level1_2/rm_Level1_2.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -38,9 +37,8 @@
         {"$GMRInstance":"v4","%Name":"inst_4A662F6A1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4A662F6A1_1","objectId":{"name":"obj_Waiter","path":"objects/obj_Waiter/obj_Waiter.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Entity","path":"objects/obj_Entity/obj_Entity.yy",},"propertyId":{"name":"facing","path":"objects/obj_Entity/obj_Entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Direction.EAST",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":448.0,},
-        {"$GMRInstance":"v4","%Name":"inst_4678D119_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4678D119_1_1","objectId":{"name":"obj_CounterRight","path":"objects/obj_CounterRight/obj_CounterRight.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":320.0,},
         {"$GMRInstance":"v4","%Name":"inst_70E547AD1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_70E547AD1_1","objectId":{"name":"obj_HoloTable","path":"objects/obj_HoloTable/obj_HoloTable.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":320.0,},
-        {"$GMRInstance":"v4","%Name":"inst_70CEC8B2_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_70CEC8B2_1_1","objectId":{"name":"obj_CounterLeft","path":"objects/obj_CounterLeft/obj_CounterLeft.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":320.0,},
+        {"$GMRInstance":"v4","%Name":"inst_62227F54","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_62227F54","objectId":{"name":"obj_CounterSolo","path":"objects/obj_CounterSolo/obj_CounterSolo.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":320.0,},
       ],"layers":[],"name":"Base","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Floor","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_5A6AE9B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A6AE9B","objectId":{"name":"obj_TileWhite","path":"objects/obj_TileWhite/obj_TileWhite.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":448.0,},
