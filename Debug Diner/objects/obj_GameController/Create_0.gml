@@ -13,7 +13,7 @@ northAmericaLevels = [
 		"Level 1-1", 
 		spr_TrophyBurger, 
 		true, 
-		CreateTask(TaskType.LESSTHANBLOCKS, 4), 
+		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
 		rm_Level1_1,
@@ -25,7 +25,7 @@ northAmericaLevels = [
 		spr_TrophyBurger,
 		false,
 		CreateTask(TaskType.GUIDETOTABLE),
-		undefined,
+		CreateTask(TaskType.USEBLOCK, BlockType.TURN),
 		undefined,
 		rm_Level1_2,
 		undefined,
@@ -36,11 +36,11 @@ northAmericaLevels = [
 		spr_TrophyBurger,
 		false,
 		CreateTask(TaskType.GUIDETOTABLE),
-		CreateTask(TaskType.USEBLOCK, BlockType.TURN),
-		undefined,
+		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
+		CreateTask(TaskType.LESSTHANBLOCKS, 3),
 		rm_Level1_3,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN ]
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP]
 	),
 	CreateLevel(
 		"Level 1-4",
@@ -48,7 +48,7 @@ northAmericaLevels = [
 		false,
 		CreateTask(TaskType.GUIDETOTABLE),
 		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
-		CreateTask(TaskType.LESSTHANBLOCKS, 5),
+		CreateTask(TaskType.LESSTHANBLOCKS, 6),
 		rm_Level1_4,
 		undefined,
 		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP ]
