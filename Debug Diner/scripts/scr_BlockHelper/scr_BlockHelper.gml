@@ -5,6 +5,7 @@ enum BlockType {
 	LOOP,
 	IF,
 	WHILE,
+	WAIT,
 	INTERACT,
 	COND_AHEAD_IS
 }

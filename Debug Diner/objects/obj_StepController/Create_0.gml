@@ -159,6 +159,10 @@ function ReadPrograms() {
 								}
 							}
 							break;
+						
+						case BlockType.WAIT:
+							consumeStep = true;
+							break;
 					}
 				}
 			}
