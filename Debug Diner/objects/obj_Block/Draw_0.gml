@@ -2,7 +2,11 @@ var tint = isDraggable && global.hoveredBlock == id ? merge_color(color, c_black
 
 draw_sprite_ext(sprite_index, 0, x, y, image_xscale, image_yscale, 0, tint, 1);
 
-var lightSprite = parentBlock != noone || isSource ? spr_BlockLightConnected : spr_BlockLightDisconnected;
+var lightSprite;
+
+if(isDraggable) lightSprite = parentBlock != noone || isSource ? spr_BlockLightConnected : spr_BlockLightDisconnected;
+else lightSprite = spr_BlockLightUndraggable;
+
 var lightPaddingX = BLOCK_EDGE_LENGTH + BLOCK_PADDING;
 var lightPaddingY = (BLOCK_HEIGHT - sprite_get_height(lightSprite)) / 2;
 

@@ -36,3 +36,5 @@ if(room == rm_MainMenu) {
     
     return;
 }
+
+if(room != rm_Cutscene) obj_LevelController.InitializeLevel();

@@ -83,8 +83,13 @@ function OnCollision() {
 
 function FinalizeLevel() {
 	ChangeGameState(GameState.MENUS)
-	CheckTasksCompletion();
+	var result = CheckTasksCompletion();
 	layer_set_visible("LevelResult", true);
+	obj_UILevelResult.success = result;
+	
+	with(obj_UIButton) {
+		if(buttonID == 1) text = result ? "Continue" : "Retry";
+	}
 }
 
 function LoadExecutionData() {
@@ -132,7 +137,11 @@ function CheckTasksCompletion() {
 			level.unlocked = true;
 			obj_GameController.continueLevelIndex = nextIndex;
 		}
+		
+		return true;
 	}
+	
+	return false;
 }
 
 function EvaluateTask(task) {

@@ -23,7 +23,7 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-2",
 		spr_TrophyBurger,
-		false,
+		true,
 		CreateTask(TaskType.GUIDETOTABLE),
 		CreateTask(TaskType.USEBLOCK, BlockType.TURN),
 		undefined,
@@ -34,7 +34,7 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-3",
 		spr_TrophyBurger,
-		false,
+		true,
 		CreateTask(TaskType.GUIDETOTABLE),
 		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
 		CreateTask(TaskType.LESSTHANBLOCKS, 3),
@@ -45,7 +45,7 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-4",
 		spr_TrophyBurger,
-		false,
+		true,
 		CreateTask(TaskType.GUIDETOTABLE),
 		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
 		CreateTask(TaskType.LESSTHANBLOCKS, 6),
@@ -56,7 +56,7 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-5",
 		spr_TrophyBurger,
-		false,
+		true,
 		CreateTask(TaskType.GUIDETOTABLE),
 		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
 		CreateTask(TaskType.LESSTHANBLOCKS, 9),
@@ -67,7 +67,7 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-6",
 		spr_TrophyBurger,
-		false,
+		true,
 		CreateTask(TaskType.GUIDETOTABLE, 2),
 		CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
 		undefined,
@@ -78,7 +78,7 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-7",
 		spr_TrophyBurger,
-		false,
+		true,
 		CreateTask(TaskType.GUIDETOTABLE, 2),
 		CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
 		undefined,
@@ -89,7 +89,7 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-8",
 		spr_TrophyBurger,
-		false,
+		true,
 		CreateTask(TaskType.GUIDETOTABLE, 2),
 		CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
 		undefined,
@@ -172,7 +172,6 @@ function GoToLevel(index) {
 	
 	obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, true, method(level, function() {
 		room_goto(targetRoom);
-		obj_LevelController.InitializeLevel();
 		
 		obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, false, function() {
 			obj_LevelController.StartLevel();

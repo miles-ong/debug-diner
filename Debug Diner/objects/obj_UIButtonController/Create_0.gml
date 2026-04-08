@@ -34,11 +34,17 @@ function HandleButtonPress(_id, _layer) {
 					break;
 				
 				case 1:
-					//var continueLevelIndex = obj_GameController.continueLevelIndex;
-					//var level = obj_GameController.GetLevel(continueLevelIndex);
-					
-					//if(level.unlocked) obj_GameController.GoToLevel(continueLevelIndex);
-					break;
+				    var nextIndex = obj_GameController.GetNextLevelIndex();
+				    var nextLevel = obj_GameController.GetLevel(nextIndex);
+    
+				    if(nextLevel != noone && nextLevel.unlocked) {
+				        obj_GameController.SetCurrentLevel(nextIndex);
+				        obj_GameController.GoToCurrentLevel();
+				    }
+				    else {
+				        obj_GameController.GoToCurrentLevel();
+				    }
+				    break;
 			}
 	}
 }

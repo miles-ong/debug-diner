@@ -352,7 +352,8 @@ function Serialize() {
 	var node = {
 		type : type,
 		args : {},
-		body : []
+		body : [],
+		isDraggable : isDraggable
 	}
 	
 	switch(type) {
@@ -394,6 +395,7 @@ function Serialize() {
 function Deserialize(node) {
 	type = node.type;
 	Initialize();
+	isDraggable = node.isDraggable;
 	
 	switch(type) {
 		case BlockType.MOVE:
