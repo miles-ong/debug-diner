@@ -124,7 +124,7 @@ function WorldToGrid(_x, _y) {
 /// @param _gy Y coordinate in grid
 function GridToWorld(_gx, _gy) {
 	return {
-		xx : (_gx * BOARD_TILE_SIZE) + BOARD_PADDING + BOARD_TILE_SIZE / 2,
-		yy : (_gy * BOARD_TILE_SIZE) + BOARD_PADDING + BOARD_TILE_SIZE / 2
+		xx : (_gx * BOARD_TILE_SIZE) + BOARD_PADDING,
+		yy : (_gy * BOARD_TILE_SIZE) + BOARD_PADDING
 	};
 }

@@ -1,0 +1,1 @@
+hoverStrength = 0.8;
