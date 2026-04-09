@@ -11,18 +11,21 @@ function HandleButtonPress(_id, _layer) {
 			switch(_id) {
 				case 0:
 					var previousLevelIndex = obj_GameController.GetPreviousLevelIndex();
+					PlaySoundEffect(sfx_TapLow);
 					
 					if(previousLevelIndex != noone) obj_GameController.SetCurrentLevel(previousLevelIndex);
 					break;
 					
 				case 1:
 					var level = obj_GameController.GetLevel(obj_GameController.currentLevelIndex);
+					PlaySoundEffect(sfx_TapEnter);
 					
 					if(level.unlocked) obj_GameController.GoToCurrentLevel();
 					break;
 					
 				case 2:
 					var nextLevelIndex = obj_GameController.GetNextLevelIndex();
+					PlaySoundEffect(sfx_TapHigh);
 					
 					if(nextLevelIndex != noone) obj_GameController.SetCurrentLevel(nextLevelIndex);
 					break;

@@ -13,3 +13,5 @@ global.hoveredBlockSlot = noone;
 global.hoveredProgrammable = noone;
 
 global.currentLevel = noone;
+
+global.soundEffectsVolume = 1;

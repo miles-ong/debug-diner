@@ -112,6 +112,10 @@ function ReadPrograms() {
 						top.remaining -= 1;
 						break;
 					}
+					else if(variable_struct_exists(top, "isWhile") && EvaluateCondition(top.whileCondition)) {
+						top.index = 0;
+						break;
+					}
 					else {
 						array_pop(programStack);
 						
@@ -158,6 +162,15 @@ function ReadPrograms() {
 								if(array_length(node.body) > 0) {
 									array_push(programStack, MakeFrame(node.body, 0));
 								}
+							}
+							break;
+							
+						case BlockType.WHILE:
+							if(node.args.condition != noone && EvaluateCondition(node.args.condition)) {
+								var frame = MakeFrame(node.body, 0);
+								frame.isWhile = true;
+								frame.whileCondition = node.args.condition;
+								array_push(programStack, frame);
 							}
 							break;
 						

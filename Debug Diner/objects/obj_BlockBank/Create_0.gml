@@ -39,6 +39,12 @@ function BuildButton(_blockType, _x, _y) {
 			hasBody = true;
 			break;
 		
+		case BlockType.WHILE:
+			name = "While";
+			color = BlockColor.CYAN;
+			hasBody = true;
+			break;
+		
 		case BlockType.WAIT:
 			name = "Wait";
 			color = BlockColor.PINK;

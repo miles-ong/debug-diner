@@ -70,10 +70,20 @@ function Initialize() {
 			hasBody = true;
 			condition = "";
 			break;
+			
+		case BlockType.WHILE:
+			name = "While";
+			SetBlockColor(BlockColor.CYAN);
+			hasBody = true;
+			condition = "";
+			break;
 		
 		case BlockType.WAIT:
 			name = "Wait";
 			SetBlockColor(BlockColor.PINK);
+			break;
+		
+		case BlockType.INTERACT:
 			break;
 		
 		case BlockType.COND_AHEAD_IS:
@@ -82,6 +92,7 @@ function Initialize() {
 			hasSequence = false;
 			isConditional = true;
 			argObject = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.CYCLE, "", [
+				"Empty",
 				"Table", 
 				"Chair",
 				"Counter",
@@ -108,7 +119,7 @@ function Initialize() {
 		childSlot.type = SlotType.BODY;
 	}
 	
-	if(type == BlockType.IF) {
+	if(type == BlockType.IF || type == BlockType.WHILE) {
 		conditionSlot = instance_create_layer(x, y, "ConditionalSlot", obj_BlockSlot);
 		conditionSlot.owner = id;
 		conditionSlot.type = SlotType.CONDITION;
@@ -120,7 +131,7 @@ function LinkToSlot(slot, mute = false) {
     if(isConditional && slot.type != SlotType.CONDITION) return false;
     if(!isConditional && slot.type == SlotType.CONDITION) return false;
     
-    if(!mute) audio_play_sound(sfx_BlockConnect, 0, false);
+    if(!mute) PlaySoundEffect(sfx_BlockConnect);
     
     parentBlock = slot.owner;
     
@@ -140,7 +151,7 @@ function LinkToSlot(slot, mute = false) {
 function UnlinkFromSlot() {
 	if(parentBlock == noone) return;
 	
-	audio_play_sound(sfx_BlockDisconnect, 0, false);
+	PlaySoundEffect(sfx_BlockDisconnect);
 	
 	if(parentBlock.nextBlock == id) {
 		parentBlock.nextBlock = noone;
@@ -207,7 +218,7 @@ function Stretch() {
 		offsetX += contentWidth;
 	}
 	
-	if(type == BlockType.IF) {
+	if(type == BlockType.IF || type == BlockType.WHILE) {
 	    var condWidth = conditionBlock != noone
 	        ? conditionBlock.sprite_width
 	        : BLOCK_CONDITION_SLOT_WIDTH;
@@ -363,6 +374,13 @@ function Serialize() {
 				
 			break;
 		
+		case BlockType.WHILE:
+			node.args.condition = conditionBlock != noone
+				? conditionBlock.Serialize()
+				: noone;
+			
+			break;
+		
 		case BlockType.COND_AHEAD_IS:
 			node.args.objectType = argObject.value;
 			break;
@@ -401,12 +419,19 @@ function Deserialize(node) {
 			
 		case BlockType.IF:
 			if(node.args.condition != noone) {
-				var condBlock = instance_create_layer(conditionSlot.x, conditionSlot.y, "Block", obj_Block);
+				var condBlock = instance_create_layer(conditionSlot.x, conditionSlot.y, "ConditionalBlock", obj_Block);
 				condBlock.Deserialize(node.args.condition);
 				condBlock.LinkToSlot(conditionSlot, true);
 			}
 			
 			break;
+		
+		case BlockType.WHILE:
+			if(node.args.condition != noone) {
+				var condBlock = instance_create_layer(conditionSlot.x, conditionSlot.y, "ConditionalBlock", obj_Block);
+				condBlock.Deserialize(node.args.condition);
+				condBlock.LinkToSlot(conditionSlot, true);
+			}
 		
 		case BlockType.COND_AHEAD_IS:
 			argObject.value = node.args.objectType;

@@ -23,7 +23,7 @@ function Initialize(_text = "") {
 				case BlockArgumentType.INT: value = 1; break;
 				case BlockArgumentType.BOOL: value = true; break;
 				case BlockArgumentType.TEXT: value = ""; break;
-				case BlockArgumentType.CYCLE: value = 1; break;
+				case BlockArgumentType.CYCLE: value = 0; break;
 			}
 			
 			sprite_index = spr_BlockContentArgument;
@@ -45,7 +45,7 @@ function Initialize(_text = "") {
 function OnClick() {
 	switch(contentType) {
 		case BlockContentType.ARGUMENT:
-			audio_play_sound(sfx_ArgumentClick, 0, false);
+			PlaySoundEffect(sfx_ArgumentClick);
 			
 			switch(argumentType) {
 				case BlockArgumentType.INT:	
@@ -73,7 +73,7 @@ function OnClick() {
 			
 		case BlockContentType.BUTTON:
 			if(action != undefined) {
-				audio_play_sound(sfx_ArgumentClick, 0, false);
+				PlaySoundEffect(sfx_ArgumentClick);
 				action();
 			}
 			

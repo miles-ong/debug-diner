@@ -45,7 +45,8 @@ enum BlockColor {
 	TEAL,
 	BLUE,
 	PURPLE,
-	PINK
+	PINK,
+	CYAN
 }
 
 function SetBlockColor(c) {
@@ -59,6 +60,7 @@ function SetBlockColor(c) {
 		case BlockColor.BLUE: color = make_color_rgb(90, 155, 240); break;
 		case BlockColor.PURPLE: color = make_color_rgb(170, 100, 230); break;
 		case BlockColor.PINK: color = make_color_rgb(235, 120, 180); break;
+		case BlockColor.CYAN: color = make_color_rgb(80, 210, 235); break;
 	}
 }
 

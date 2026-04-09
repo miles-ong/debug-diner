@@ -16,13 +16,12 @@ function EvaluateCondition(_condition) {
 	switch(_condition.type) {
 		case BlockType.COND_AHEAD_IS:
 			var occupant = obj_GridController.GetInDirection(gridX, gridY, gridLevel, facing);
+			var options = ["Empty", "Table", "Chair", "Counter", "Food Printer", "Waiter"];
+			var objType = options[_condition.args.objectType];
 			
-			if(occupant == noone) return false;
+			if(occupant == noone) return objType == "Empty";
 			
-			var options = ["Table", "Chair", "Counter", "Food Printer", "Waiter"];
-			show_debug_message($"[obj_Programmable] Evaluating '{occupant.conditionLabel}' and '{options[_condition.args.objectType]}'");
-			
-			return occupant.conditionLabel == options[_condition.args.objectType];
+			return occupant.conditionLabel == objType;
 	}
 	
 	return false;

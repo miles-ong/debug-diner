@@ -47,6 +47,7 @@ function InitializeLevel() {
 			BlockType.LOOP,
 			BlockType.WAIT,
 			BlockType.IF,
+			BlockType.WHILE,
 			BlockType.COND_AHEAD_IS
 		];
 	}
