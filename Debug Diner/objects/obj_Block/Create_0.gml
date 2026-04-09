@@ -182,21 +182,9 @@ function AddContent(_contentType, _argumentType = BlockArgumentType.NONE, _text 
 }
 
 function OnArgumentChanged() {
-	switch(type) {
-		case BlockType.MOVE:
-			break;
-			
-		case BlockType.TURN:
-			turnDirection = argDirection.value;
-			break;
-		
-		case BlockType.LOOP:
-			count = argCount.value;
-			break;
-	}
-	
 	Stretch();
 	RefreshChain();
+	StretchParents();
 }
 
 function Stretch() {

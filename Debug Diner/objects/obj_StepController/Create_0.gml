@@ -154,6 +154,7 @@ function ReadPrograms() {
 						
 						case BlockType.IF:
 							if(node.args.condition != noone && EvaluateCondition(node.args.condition)) {
+								
 								if(array_length(node.body) > 0) {
 									array_push(programStack, MakeFrame(node.body, 0));
 								}

@@ -20,8 +20,9 @@ function EvaluateCondition(_condition) {
 			if(occupant == noone) return false;
 			
 			var options = ["Table", "Chair", "Counter", "Food Printer", "Waiter"];
+			show_debug_message($"[obj_Programmable] Evaluating '{occupant.conditionLabel}' and '{options[_condition.args.objectType]}'");
 			
-			return occupant.label == options[_condition.args.objectType];
+			return occupant.conditionLabel == options[_condition.args.objectType];
 	}
 	
 	return false;
