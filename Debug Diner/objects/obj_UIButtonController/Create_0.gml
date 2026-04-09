@@ -1,3 +1,5 @@
+success = false;
+
 if(instance_number(obj_UIButtonController) > 1) {
 	instance_destroy();
 	return;
@@ -37,7 +39,7 @@ function HandleButtonPress(_id, _layer) {
 				    var nextIndex = obj_GameController.GetNextLevelIndex();
 				    var nextLevel = obj_GameController.GetLevel(nextIndex);
     
-				    if(nextLevel != noone && nextLevel.unlocked) {
+				    if(nextLevel != noone && nextLevel.unlocked && success) {
 				        obj_GameController.SetCurrentLevel(nextIndex);
 				        obj_GameController.GoToCurrentLevel();
 				    }

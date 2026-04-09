@@ -48,7 +48,7 @@
     {"$GMFolder":"","%Name":"Block","folderPath":"folders/Sprites/Block.yy","name":"Block","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Cutscene","folderPath":"folders/Sprites/Cutscene.yy","name":"Cutscene","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Floor","folderPath":"folders/Sprites/Floor.yy","name":"Floor","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Programmable","folderPath":"folders/Sprites/Programmable.yy","name":"Programmable","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Programmable","folderPath":"folders/Sprites/Base/Programmable.yy","name":"Programmable","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Trophy","folderPath":"folders/Sprites/Trophy.yy","name":"Trophy","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"UI","folderPath":"folders/Sprites/UI.yy","name":"UI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Icons","folderPath":"folders/Sprites/UI/Icons.yy","name":"Icons","resourceType":"GMFolder","resourceVersion":"2.0",},

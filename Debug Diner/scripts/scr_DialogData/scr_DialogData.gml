@@ -51,11 +51,23 @@ function GetRoomDialog(_room) {
 			return [
 				DialogLine("R", "???", "Programming is getting pretty complicated, isn't it?", spr_Portrait_Right),
 				DialogLine("L", "Player", "It's simple enough for me.", spr_Portrait_Left),
-				DialogLine("R", "???", "Try this loop", spr_Portrait_Right),
-				DialogLine("R", "???", "it's way better than using a bunch of other blocks.", spr_Portrait_Right),
+				DialogLine("R", "???", "Try this loop!", spr_Portrait_Right),
+				DialogLine("R", "???", "It's way better than using a bunch of other blocks.", spr_Portrait_Right),
 				DialogLine("L", "Player", "So will I get paid?", spr_Portrait_Left),
 				DialogLine("R", "???", " ...?", spr_Portrait_Right),
-				
+			];
+			
+		case rm_Level1_8:
+			return [
+				DialogLine("L", "Player", "Why are the lights yellow...", spr_Portrait_Left),
+				DialogLine("R", "???", "Behold my brilliance!", spr_Portrait_Right),
+				DialogLine("L", "Player", "You made it...", spr_Portrait_Left),
+				DialogLine("L", "Player", "Dance?", spr_Portrait_Left),
+				DialogLine("R", "???", "Yes! Isn't it beautiful!", spr_Portrait_Right),
+				DialogLine("L", "Player", "Sure, but it isn't very practical...", spr_Portrait_Left),
+				DialogLine("R", "???", "Do all Terrans hate fun?", spr_Portrait_Right),
+				DialogLine("R", "???", "I guess you can tweak the numbers...", spr_Portrait_Right),
+				DialogLine("R", "???", "But don't move my blocks!!!", spr_Portrait_Right),
 			];
 
         default:

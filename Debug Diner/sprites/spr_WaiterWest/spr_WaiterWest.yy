@@ -27,7 +27,7 @@
   "origin":4,
   "parent":{
     "name":"Programmable",
-    "path":"folders/Sprites/Programmable.yy",
+    "path":"folders/Sprites/Base/Programmable.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

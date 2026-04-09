@@ -86,6 +86,7 @@ function FinalizeLevel() {
 	var result = CheckTasksCompletion();
 	layer_set_visible("LevelResult", true);
 	obj_UILevelResult.success = result;
+	obj_UIButtonController.success = result;
 	
 	with(obj_UIButton) {
 		if(buttonID == 1) text = result ? "Continue" : "Retry";
