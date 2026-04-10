@@ -15,12 +15,12 @@ enum TrophySprite {
 }
 
 enum LevelRegion {
-	NORTHAMERICA,
-	SOUTHAMERICA,
-	EUROPE,
-	ASIA,
-	AFRICA,
-	AUSTRALIA
+	NORTHAMERICA = 0,
+	SOUTHAMERICA = 1,
+	AFRICA = 2,
+	EUROPE = 3,
+	ASIA = 4,
+	AUSTRALIA = 5
 }
 
 /// @description Constructs level data

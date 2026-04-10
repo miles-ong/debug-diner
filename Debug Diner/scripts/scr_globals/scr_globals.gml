@@ -15,3 +15,5 @@ global.hoveredProgrammable = noone;
 global.currentLevel = noone;
 
 global.soundEffectsVolume = 1;
+
+global.uiTransitionAlpha = 1;

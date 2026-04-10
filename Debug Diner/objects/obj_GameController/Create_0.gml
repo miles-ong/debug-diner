@@ -79,7 +79,7 @@ northAmericaLevels = [
 		"Level 1-7",
 		spr_TrophyBurger,
 		false,
-		CreateTask(TaskType.GUIDETOTABLE, 2),
+		CreateTask(TaskType.GUIDETOTABLE, 1),
 		CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
 		CreateTask(TaskType.LESSTHANBLOCKS, 6),
 		rm_Level1_7,

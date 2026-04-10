@@ -1,3 +1,5 @@
+if(global.gameState == GameState.TRANSITIONING) exit;
+
 animateClick = true;
 clickCurveValue = 0;
 

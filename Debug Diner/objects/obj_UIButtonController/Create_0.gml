@@ -1,4 +1,6 @@
 success = false;
+alphaTimer = 0;
+callback = undefined;
 
 if(instance_number(obj_UIButtonController) > 1) {
 	instance_destroy();
@@ -7,6 +9,11 @@ if(instance_number(obj_UIButtonController) > 1) {
 
 function HandleButtonPress(_id, _layer) {
 	switch(_layer) {
+		case ButtonLayer.REGIONSELECT:
+			obj_GameController.SetLevelRegion(_id);
+			obj_LayerController.TransitionLayers("RegionSelectInterface", "LevelSelectInterface", 0.02);
+			break;
+			
 		case ButtonLayer.LEVELSELECT:
 			switch(_id) {
 				case 0:

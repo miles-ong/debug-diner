@@ -1,6 +1,6 @@
-if(global.isDraggingBlock) return;
+if(global.draggingBlock != noone || global.gameState == GameState.TRANSITIONING) return;
 
-global.isDraggingBlock = true;
+global.draggingBlock = id;
 
 if(isConnected) obj_MainMenuBlock.Disconnect();
 

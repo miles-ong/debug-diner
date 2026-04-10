@@ -1,3 +1,5 @@
+event_inherited();
+
 draw_self();
 
 var trophy = global.currentLevel.trophy;

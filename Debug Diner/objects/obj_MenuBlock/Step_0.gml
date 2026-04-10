@@ -11,7 +11,7 @@ if(isDragging) {
 	ClampToBounds(bounds);
 	
 	if(!mouse_check_button(mb_left)) {
-		global.isDraggingBlock = false;
+		global.draggingBlock = noone;
 		isDragging = false;
 		layer = layer_get_id("MenuBlock");
 		

@@ -6,8 +6,8 @@
   "name":"obj_UIButtonHologram",
   "overriddenProperties":[],
   "parent":{
-    "name":"UI",
-    "path":"folders/Objects/UI.yy",
+    "name":"Button",
+    "path":"folders/Objects/UI/Button.yy",
   },
   "parentObjectId":{
     "name":"obj_UIButton",

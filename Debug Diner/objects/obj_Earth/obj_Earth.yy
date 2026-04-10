@@ -9,8 +9,8 @@
   "name":"obj_Earth",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Decorative",
+    "path":"folders/Objects/UI/Decorative.yy",
   },
   "parentObjectId":null,
   "persistent":false,

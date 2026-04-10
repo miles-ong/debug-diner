@@ -10,7 +10,6 @@
     {"name":"inst_6FD96D2","path":"roomui/RoomUI/RoomUI.yy",},
     {"name":"inst_3DC5223D","path":"roomui/RoomUI/RoomUI.yy",},
     {"name":"inst_76CA5F43","path":"roomui/RoomUI/RoomUI.yy",},
-    {"name":"inst_C2C4458","path":"roomui/RoomUI/RoomUI.yy",},
     {"name":"inst_101737EB","path":"roomui/RoomUI/RoomUI.yy",},
     {"name":"inst_4701BD2","path":"roomui/RoomUI/RoomUI.yy",},
     {"name":"inst_5A443B35","path":"roomui/RoomUI/RoomUI.yy",},
@@ -33,6 +32,15 @@
     {"name":"inst_531AFCE1","path":"rooms/rm_StartRoom/rm_StartRoom.yy",},
     {"name":"inst_6E6C87B6","path":"roomui/RoomUI/RoomUI.yy",},
     {"name":"inst_64AD9E52","path":"rooms/rm_StartRoom/rm_StartRoom.yy",},
+    {"name":"inst_2CD478AB","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_465C466C","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_207D5B9D","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_3203A1C4","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_46604ECE","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_42D4D87C","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_C2C4458","path":"roomui/RoomUI/RoomUI.yy",},
+    {"name":"inst_65C723CA","path":"rooms/rm_StartRoom/rm_StartRoom.yy",},
+    {"name":"inst_5F36F41D","path":"roomui/RoomUI/RoomUI.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -44,6 +52,7 @@
         {"$GMRInstance":"v4","%Name":"inst_66A99FBD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_66A99FBD","objectId":{"name":"obj_LevelController","path":"objects/obj_LevelController/obj_LevelController.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"$GMRInstance":"v4","%Name":"inst_407765E7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_407765E7","objectId":{"name":"obj_StepController","path":"objects/obj_StepController/obj_StepController.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"$GMRInstance":"v4","%Name":"inst_531AFCE1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_531AFCE1","objectId":{"name":"obj_TutorialController","path":"objects/obj_TutorialController/obj_TutorialController.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+        {"$GMRInstance":"v4","%Name":"inst_65C723CA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_65C723CA","objectId":{"name":"obj_LayerController","path":"objects/obj_LayerController/obj_LayerController.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
       ],"layers":[],"name":"Controllers","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Earth","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_64AD9E52","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_64AD9E52","objectId":{"name":"obj_Earth","path":"objects/obj_Earth/obj_Earth.yy",},"properties":[

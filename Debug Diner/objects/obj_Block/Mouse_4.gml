@@ -1,4 +1,4 @@
-if(!isDraggable || global.draggingBlock != noone) return;
+if(!isDraggable || global.draggingBlock != noone || global.gameState != GameState.PROGRAMMING) return;
 
 if(global.hoveredBlock != id) return;
 

@@ -9,6 +9,7 @@ enum GridLevel {
 }
 
 enum ButtonLayer {
+	REGIONSELECT,
 	LEVELSELECT,
 	LEVELRESULT,
 }
