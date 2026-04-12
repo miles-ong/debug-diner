@@ -100,11 +100,71 @@ northAmericaLevels = [
 ];
 #endregion
 #region Regions
-southAmericaLevels = [];
-europeLevels = [];
-asiaLevels = [];
-africaLevels = [];
-australiaLevels = [];
+southAmericaLevels = [
+	CreateLevel(
+		"Level 2-1", 
+		spr_TrophyBurger, 
+		true, 
+		CreateTask(TaskType.GUIDETOTABLE), 
+		undefined, 
+		undefined, 
+		rm_Level1_1,
+		undefined,
+		undefined
+	),
+];
+africaLevels = [
+	CreateLevel(
+		"Level 3-1", 
+		spr_TrophyBurger, 
+		true, 
+		CreateTask(TaskType.GUIDETOTABLE), 
+		undefined, 
+		undefined, 
+		rm_Level1_1,
+		undefined,
+		undefined
+	),
+];
+europeLevels = [
+	CreateLevel(
+		"Level 4-1", 
+		spr_TrophyBurger, 
+		true, 
+		CreateTask(TaskType.GUIDETOTABLE), 
+		undefined, 
+		undefined, 
+		rm_Level1_1,
+		undefined,
+		undefined
+	),
+];
+asiaLevels = [
+	CreateLevel(
+		"Level 5-1", 
+		spr_TrophyBurger, 
+		true, 
+		CreateTask(TaskType.GUIDETOTABLE), 
+		undefined, 
+		undefined, 
+		rm_Level1_1,
+		undefined,
+		undefined
+	),
+];
+australiaLevels = [
+	CreateLevel(
+		"Level 6-1", 
+		spr_TrophyBurger, 
+		true, 
+		CreateTask(TaskType.GUIDETOTABLE), 
+		undefined, 
+		undefined, 
+		rm_Level1_1,
+		undefined,
+		undefined
+	),
+];
 #endregion
 
 // --- Tracking ---
@@ -120,11 +180,13 @@ function SetLevelRegion(_region) {
 	switch(_region) {
 		case LevelRegion.NORTHAMERICA: levels = northAmericaLevels; break;
 		case LevelRegion.SOUTHAMERICA: levels = southAmericaLevels; break;
+		case LevelRegion.AFRICA: levels = africaLevels; break;
 		case LevelRegion.EUROPE: levels = europeLevels; break;
 		case LevelRegion.ASIA: levels = asiaLevels; break;
-		case LevelRegion.AFRICA: levels = africaLevels; break;
 		case LevelRegion.AUSTRALIA: levels = australiaLevels; break;
 	}
+	
+	SetCurrentLevel(0);
 }
 
 /// @description Sets the current level to a level from levels using a given index. If the index is out of bounds, the current level doesn't change
