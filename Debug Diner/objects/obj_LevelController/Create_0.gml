@@ -161,7 +161,7 @@ function EvaluateTask(task) {
 				for(var i = 0; i < array_length(proximity); i++) {
 					var inst = proximity[i];
 					
-					if(instance_exists(inst) && inst.object_index == obj_Waiter) {
+					if(instance_exists(inst) && (inst.object_index == obj_Waiter || object_is_ancestor(inst.object_index, obj_Waiter))) {
 						if(obj_GridController.IsEntityFacingEntity(inst, id)) found++;
 					}
 				}

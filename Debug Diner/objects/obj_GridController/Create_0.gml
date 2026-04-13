@@ -93,7 +93,7 @@ function GetInProximity(_gx, _gy, _level) {
 /// @param _e2 The entity to be faced
 function IsEntityFacingEntity(_e1, _e2) {
 	if(_e1.facing == undefined) {
-		show_debug_message($"{debugLabel} '{_e1.label}' does have a specified direction it is facing");
+		show_debug_message($"{debugLabel} '{_e1.label}' does not have a specified direction it is facing");
 		return false;
 	}
 	
