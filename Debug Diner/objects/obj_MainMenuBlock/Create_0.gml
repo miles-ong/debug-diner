@@ -1,5 +1,6 @@
 connectedBlock = noone;
-slotOffset = 58.5;
+slotOffsetX = 160;
+slotOffsetY = 48;
 
 function Connect(block) {
 	if(connectedBlock != noone) return false;
@@ -23,8 +24,8 @@ function Connect(block) {
 			break;
 	}
 	
-	connectedBlock.x = x;
-	connectedBlock.y = y + sprite_height - slotOffset;
+	connectedBlock.x = x + slotOffsetX;
+	connectedBlock.y = y + sprite_get_height(spr_MainMenuBlock) - slotOffsetY;
 	
 	return true;
 }

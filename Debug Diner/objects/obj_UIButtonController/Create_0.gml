@@ -11,7 +11,7 @@ function HandleButtonPress(_id, _layer) {
 	switch(_layer) {
 		case ButtonLayer.REGIONSELECT:
 			obj_GameController.SetLevelRegion(_id);
-			obj_LayerController.TransitionLayers("RegionSelectInterface", "LevelSelectInterface", 0.02);
+			obj_LayerController.TransitionLayers("RegionSelectInterface", "LevelSelectInterface", 0.05);
 			break;
 			
 		case ButtonLayer.LEVELSELECT:

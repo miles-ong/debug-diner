@@ -1,6 +1,6 @@
 if(global.draggingBlock != noone) {
     global.hoveredBlockContent = noone;
-    global.hoveredBlock = noone;
+    global.hoveredBlock = collision_point(mouse_x, mouse_y, obj_MainMenuBlock, true, true);
     global.hoveredBlockSlot = collision_point(mouse_x, mouse_y, obj_BlockSlot, true, true);
     global.hoveredProgrammable = noone;
 
