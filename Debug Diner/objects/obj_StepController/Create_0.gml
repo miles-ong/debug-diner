@@ -163,6 +163,9 @@ function ReadPrograms() {
 									array_push(programStack, MakeFrame(node.body, 0));
 								}
 							}
+							else if(node.args.hasElse && array_length(node.elseBody) > 0) {
+								array_push(programStack, MakeFrame(node.elseBody, 0));
+							}
 							break;
 							
 						case BlockType.WHILE:

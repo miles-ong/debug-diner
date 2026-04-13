@@ -202,6 +202,7 @@
     {"id":{"name":"spr_Cutscene1_5","path":"sprites/spr_Cutscene1_5/spr_Cutscene1_5.yy",},},
     {"id":{"name":"spr_Earth","path":"sprites/spr_Earth/spr_Earth.yy",},},
     {"id":{"name":"spr_EarthShadow","path":"sprites/spr_EarthShadow/spr_EarthShadow.yy",},},
+    {"id":{"name":"spr_ElseBlockBody","path":"sprites/spr_ElseBlockBody/spr_ElseBlockBody.yy",},},
     {"id":{"name":"spr_Empty","path":"sprites/spr_Empty/spr_Empty.yy",},},
     {"id":{"name":"spr_ExecuteButton","path":"sprites/spr_ExecuteButton/spr_ExecuteButton.yy",},},
     {"id":{"name":"spr_GrayTile","path":"sprites/spr_GrayTile/spr_GrayTile.yy",},},

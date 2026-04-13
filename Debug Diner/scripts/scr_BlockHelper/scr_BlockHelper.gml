@@ -4,6 +4,7 @@ enum BlockType {
 	TURN,
 	LOOP,
 	IF,
+	IFELSE,
 	WHILE,
 	WAIT,
 	INTERACT,
@@ -27,7 +28,8 @@ enum BlockArgumentType {
 enum SlotType {
 	SEQUENCE,
 	BODY,
-	CONDITION
+	CONDITION,
+	ELSE
 }
 
 enum MenuBlockType {

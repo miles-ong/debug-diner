@@ -155,6 +155,7 @@
     {"name":"spr_Cutscene1_4","order":4,"path":"sprites/spr_Cutscene1_4/spr_Cutscene1_4.yy",},
     {"name":"spr_Cutscene1_5","order":5,"path":"sprites/spr_Cutscene1_5/spr_Cutscene1_5.yy",},
     {"name":"spr_EarthShadow","order":1,"path":"sprites/spr_EarthShadow/spr_EarthShadow.yy",},
+    {"name":"spr_ElseBlockBody","order":16,"path":"sprites/spr_ElseBlockBody/spr_ElseBlockBody.yy",},
     {"name":"spr_Empty","order":17,"path":"sprites/spr_Empty/spr_Empty.yy",},
     {"name":"spr_ExecuteButton","order":6,"path":"sprites/spr_ExecuteButton/spr_ExecuteButton.yy",},
     {"name":"spr_GrayTile","order":2,"path":"sprites/spr_GrayTile/spr_GrayTile.yy",},

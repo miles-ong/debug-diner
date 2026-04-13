@@ -6,16 +6,23 @@ parentBlock = noone;
 nextBlock = noone;
 childBlock = noone;
 conditionBlock = noone;
+elseBlock = noone;
+elseBodyYScale = 1;
 
 nextSlot = noone;
 childSlot = noone;
 conditionSlot = noone;
+elseSlot = noone;
 
 isDraggable = true;
 isSource = false;
 hasSequence = true;
 hasBody = false;
+hasElse = false;
 isConditional = false;
+
+argDo = noone;
+argElseToggle = noone;
 
 isDragging = false;
 
@@ -68,14 +75,41 @@ function Initialize() {
 			name = "If";
 			SetBlockColor(BlockColor.TEAL);
 			hasBody = true;
+			hasElse = false;
 			condition = "";
-			break;
+			argDo = AddContent(BlockContentType.DISPLAY, BlockArgumentType.NONE, "Do");
+			argElseToggle = AddContent(BlockContentType.BUTTON, BlockArgumentType.NONE, hasElse ? "- Else" : "+ Else", [], function() {
+				hasElse = !hasElse;
+				
+				if(hasElse) {
+				    elseSlot = instance_create_layer(x + BLOCK_BODY_WIDTH, y, "BlockSlot", obj_BlockSlot);
+				    elseSlot.owner = id;
+				    elseSlot.type = SlotType.ELSE;
+				    argElseToggle.text = "- Else";
+				}
+				else {
+					if(elseBlock != noone) elseBlock.DestroyChain();
+					
+					elseBlock = noone;
+					
+					if(elseSlot != noone) instance_destroy(elseSlot);
+					
+					elseSlot = noone;
+					elseBodyYScale = 1;
+					argElseToggle.text = "+ Else";
+				}
+				
+				OnArgumentChanged();
+			});
 			
+			break;
+		
 		case BlockType.WHILE:
 			name = "While";
 			SetBlockColor(BlockColor.CYAN);
 			hasBody = true;
 			condition = "";
+			argDo = AddContent(BlockContentType.DISPLAY, BlockArgumentType.NONE, "Do");
 			break;
 		
 		case BlockType.WAIT:
@@ -119,6 +153,12 @@ function Initialize() {
 		childSlot.type = SlotType.BODY;
 	}
 	
+	if(hasElse) {
+		elseSlot = instance_create_layer(x + BLOCK_BODY_WIDTH, y, "BlockSlot", obj_BlockSlot);
+		elseSlot.owner = id;
+		elseSlot.type = SlotType.ELSE;
+	}
+	
 	if(type == BlockType.IF || type == BlockType.WHILE) {
 		conditionSlot = instance_create_layer(x, y, "ConditionalSlot", obj_BlockSlot);
 		conditionSlot.owner = id;
@@ -136,6 +176,7 @@ function LinkToSlot(slot, mute = false) {
     parentBlock = slot.owner;
     
     if(slot.type == SlotType.BODY) slot.owner.childBlock = id;
+	else if(slot.type == SlotType.ELSE) slot.owner.elseBlock = id;
     else if(slot.type == SlotType.CONDITION) slot.owner.conditionBlock = id;
     else slot.owner.nextBlock = id;
     
@@ -169,6 +210,12 @@ function UnlinkFromSlot() {
 		parentBlock.conditionBlock = noone;
 		
 		if(parentBlock.conditionSlot != noone) parentBlock.conditionSlot.isEmpty = true;
+	}
+	
+	if(parentBlock.elseBlock == id) {
+		parentBlock.elseBlock = noone;
+		
+		if(parentBlock.elseSlot != noone) parentBlock.elseSlot.isEmpty = true;
 	}
 	
 	StretchParents();
@@ -207,6 +254,8 @@ function Stretch() {
 	for(var i = 0; i < array_length(contents); i++) {
 		var content = contents[i];
 		
+		if(content == argDo) continue;
+		if(content == argElseToggle) continue;
 		if(content.contentType != BlockContentType.DISPLAY) offsetX += BLOCK_CONTENT_PADDING;
 		
 		content.offsetX = offsetX;
@@ -224,6 +273,19 @@ function Stretch() {
 	        : BLOCK_CONDITION_SLOT_WIDTH;
     
 	    offsetX += BLOCK_CONTENT_PADDING + condWidth;
+		
+		argDo.offsetX = offsetX;
+		argDo.offsetY = (BLOCK_HEIGHT - BLOCK_CONTENT_HEIGHT) / 2;
+		offsetX += argDo.GetValueWidth();
+		
+		if(argElseToggle != noone) {
+			offsetX += BLOCK_CONTENT_PADDING * 2;
+			argElseToggle.offsetX = offsetX;
+			argElseToggle.offsetY = (BLOCK_HEIGHT - BLOCK_CONTENT_HEIGHT) / 2;
+			var contentWidth = argElseToggle.GetValueWidth();
+			argElseToggle.image_xscale = contentWidth / BLOCK_CONTENT_WIDTH;
+			offsetX += contentWidth;
+		}
 	}
 	
 	var blockWidth = offsetX + BLOCK_CONTENT_PADDING + BLOCK_PADDING + BLOCK_EDGE_LENGTH;	
@@ -237,11 +299,29 @@ function Stretch() {
 			
 			while(currentBlock != noone) {
 				bodyHeight += currentBlock.sprite_height;
+				
+				if(currentBlock.hasElse) bodyHeight += currentBlock.elseBodyYScale * sprite_get_height(spr_ElseBlockBody) - BLOCK_HEIGHT;
+				
 				currentBlock = currentBlock.nextBlock;
 			}
 		}
 		
 		image_yscale = (bodyHeight + sprite_get_height(spr_BlockBody)) / sprite_get_height(sprite_index);
+	}
+	
+	if(hasElse) {
+		var elseBodyHeight = 0;
+		var currentBlock = elseBlock;
+		
+		while(currentBlock != noone) {
+			elseBodyHeight += currentBlock.sprite_height;
+			
+			if(currentBlock.hasElse) elseBodyHeight += currentBlock.elseBodyYScale * sprite_get_height(spr_ElseBlockBody) - BLOCK_HEIGHT;
+			
+			currentBlock = currentBlock.nextBlock;
+		}
+		
+		elseBodyYScale = (elseBodyHeight + sprite_get_height(spr_ElseBlockBody)) / sprite_get_height(spr_ElseBlockBody);
 	}
 	
 	RefreshChain();
@@ -263,9 +343,11 @@ function RefreshChain() {
 		contents[i].y = y + contents[i].offsetY;
 	}
 	
+	var elseTotalHeight = hasElse ? elseBodyYScale * sprite_get_height(spr_ElseBlockBody) - BLOCK_HEIGHT : 0;
+	
 	if(nextSlot != noone) {
 		nextSlot.x = x;
-		nextSlot.y = y + sprite_height;
+		nextSlot.y = y + sprite_height + elseTotalHeight;
 	}
 	
 	if(childSlot != noone) {
@@ -273,16 +355,21 @@ function RefreshChain() {
 		childSlot.y = y + BLOCK_HEIGHT;
 	}
 	
-	if(nextBlock != noone) {
-		nextBlock.x = x;
-		nextBlock.y = y + sprite_height;
-		nextBlock.RefreshChain();
-	}
-	
 	if(conditionSlot != noone) {
 	    draw_set_font(fo_UISmall);
 	    conditionSlot.x = x + BLOCK_EDGE_LENGTH + BLOCK_PADDING + sprite_get_width(spr_BlockLightConnected) + BLOCK_CONTENT_PADDING + string_width(name) + BLOCK_CONTENT_PADDING;
 	    conditionSlot.y = y + (BLOCK_HEIGHT - CONDITIONAL_BLOCK_HEIGHT) / 2;
+	}
+	
+	if(elseSlot != noone) {
+		elseSlot.x = x + BLOCK_BODY_WIDTH;
+		elseSlot.y = y + sprite_height;
+	}
+	
+	if(nextBlock != noone) {
+		nextBlock.x = x;
+		nextBlock.y = y + sprite_height + elseTotalHeight;
+		nextBlock.RefreshChain();
 	}
 	
 	if(childBlock != noone) {
@@ -296,6 +383,12 @@ function RefreshChain() {
 		conditionBlock.y = conditionSlot.y;
 		conditionBlock.RefreshChain();
 	}
+	
+	if(elseBlock != noone) {
+		elseBlock.x = x + BLOCK_BODY_WIDTH;
+		elseBlock.y = y + sprite_height;
+		elseBlock.RefreshChain();
+	}
 }
 
 function DestroyChain() {
@@ -306,9 +399,11 @@ function DestroyChain() {
 	if(childBlock != noone) childBlock.DestroyChain();
 	if(nextBlock != noone) nextBlock.DestroyChain();
 	if(conditionBlock != noone && instance_exists(conditionBlock)) conditionBlock.DestroyChain();
+	if(elseBlock != noone) elseBlock.DestroyChain();
 	if(nextSlot != noone) instance_destroy(nextSlot);
 	if(childSlot != noone) instance_destroy(childSlot);
 	if(conditionSlot != noone) instance_destroy(conditionSlot);
+	if(elseSlot != noone) instance_destroy(elseSlot);
 	
 	instance_destroy();
 }
@@ -325,9 +420,11 @@ function BringToDraggingLayer() {
 	if(nextSlot != noone) nextSlot.layer = layer_get_id("BlockSlotDragging");
 	if(childSlot != noone) childSlot.layer = layer_get_id("BlockSlotDragging");
 	if(conditionSlot != noone) conditionSlot.layer = layer_get_id("ConditionalSlotDragging");
+	if(elseSlot != noone) elseSlot.layer = layer_get_id("BlockSlotDragging");
 	if(nextBlock != noone) nextBlock.BringToDraggingLayer();
 	if(childBlock != noone) childBlock.BringToDraggingLayer();
 	if(conditionBlock != noone) conditionBlock.BringToDraggingLayer();
+	if(elseBlock != noone) elseBlock.BringToDraggingLayer();
 }
 
 function BringToBaseLayer() {
@@ -342,9 +439,11 @@ function BringToBaseLayer() {
 	if(nextSlot != noone) nextSlot.layer = layer_get_id("BlockSlot");
 	if(childSlot != noone) childSlot.layer = layer_get_id("BlockSlot");
 	if(conditionSlot != noone) conditionSlot.layer = layer_get_id("ConditionalSlot");
+	if(elseSlot != noone) elseSlot.layer = layer_get_id("BlockSlot");
 	if(nextBlock != noone) nextBlock.BringToBaseLayer();
 	if(childBlock != noone) childBlock.BringToBaseLayer();
 	if(conditionBlock != noone) conditionBlock.BringToBaseLayer();
+	if(elseBlock != noone) elseBlock.BringToBaseLayer();
 }
 
 function Serialize() {
@@ -368,9 +467,15 @@ function Serialize() {
 			break;
 			
 		case BlockType.IF:
-			node.args.condition = conditionBlock != noone
-				? conditionBlock.Serialize()
-				: noone;
+			node.args.condition = conditionBlock != noone ? conditionBlock.Serialize() : noone;
+			node.args.hasElse = hasElse;
+			node.elseBody = [];
+			var elseChild = elseBlock;
+			
+			while(elseChild != noone) {
+				array_push(node.elseBody, elseChild.Serialize());
+				elseChild = elseChild.nextBlock;
+			}
 				
 			break;
 		
@@ -400,6 +505,7 @@ function Serialize() {
 
 function Deserialize(node) {
 	type = node.type;
+	if(type == BlockType.IF) hasElse = node.args.hasElse;
 	Initialize();
 	isDraggable = node.isDraggable;
 	
@@ -424,6 +530,20 @@ function Deserialize(node) {
 				condBlock.LinkToSlot(conditionSlot, true);
 			}
 			
+			if(hasElse) {
+				var prevElse = noone;
+				
+				for(var i = 0; i < array_length(node.elseBody); i++) {
+					var elseChild = instance_create_layer(elseSlot.x, elseSlot.y, "Block", obj_Block);
+					elseChild.Deserialize(node.elseBody[i]);
+					
+					if(prevElse == noone) elseChild.LinkToSlot(elseSlot, true);
+					else elseChild.LinkToSlot(prevElse.nextSlot, true);
+					
+					prevElse = elseChild;
+				}
+			}
+				
 			break;
 		
 		case BlockType.WHILE:

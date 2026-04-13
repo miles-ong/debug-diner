@@ -28,3 +28,8 @@ else {
 }
 
 draw_text(x + textPaddingX, y + textPaddingY, name);
+
+if(hasElse) {
+	draw_sprite_ext(spr_ElseBlockBody, 0, x, y + sprite_height - BLOCK_HEIGHT, image_xscale, elseBodyYScale, 0, tint, 1);
+	draw_text(x + lightPaddingX + sprite_get_width(spr_BlockLightConnected) + BLOCK_CONTENT_PADDING, y + textPaddingY + sprite_height - BLOCK_HEIGHT, "Else Do");
+}
