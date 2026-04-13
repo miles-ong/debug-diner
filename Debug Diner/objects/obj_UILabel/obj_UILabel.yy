@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_UI",
+  "%Name":"obj_UILabel",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_UI",
+  "name":"obj_UILabel",
   "overriddenProperties":[],
   "parent":{
     "name":"UI",
@@ -25,11 +25,17 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"textFont","filters":[],"listItems":[],"multiselect":false,"name":"textFont","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"fo_UIMedium","path":"fonts/fo_UIMedium/fo_UIMedium.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"fo_UIMedium","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"text","filters":[],"listItems":[],"multiselect":false,"name":"text","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"\"","varType":2,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_HologramContainer",
+    "path":"sprites/spr_HologramContainer/spr_HologramContainer.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

@@ -1,5 +1,3 @@
-event_inherited();
-
 draw_self();
 
 var currLevel = global.currentLevel;

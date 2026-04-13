@@ -1,9 +1,7 @@
 {
   "$GMObject":"",
   "%Name":"obj_WorldMap",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"obj_WorldMap",
   "overriddenProperties":[],
@@ -11,10 +9,7 @@
     "name":"Decorative",
     "path":"folders/Objects/UI/Decorative.yy",
   },
-  "parentObjectId":{
-    "name":"obj_UI",
-    "path":"objects/obj_UI/obj_UI.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

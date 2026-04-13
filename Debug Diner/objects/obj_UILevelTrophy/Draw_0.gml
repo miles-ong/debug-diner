@@ -1,6 +1,5 @@
-event_inherited();
-
 draw_self();
+draw_set_alpha(image_alpha);
 
 var trophy = global.currentLevel.trophy;
 
@@ -28,3 +27,4 @@ var index = 0;
 if(total > 0) index = ceil((completed / total) * 3);
 
 draw_sprite(trophy, index, x, y);
+draw_set_alpha(1);
