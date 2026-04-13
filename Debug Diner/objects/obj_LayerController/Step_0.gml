@@ -15,8 +15,8 @@ if (phase == 0) {
         } else {
             layer_set_visible(currentLayerID, true);
         }
-
-        phase = 1;
+		
+		phase = 1;
     } else {
         SetLayerAlpha(currentLayerID, alpha);
     }

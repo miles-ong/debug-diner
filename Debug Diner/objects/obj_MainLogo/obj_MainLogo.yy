@@ -1,13 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_GameTitle",
-  "eventList":[],
+  "%Name":"obj_MainLogo",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_GameTitle",
+  "name":"obj_MainLogo",
   "overriddenProperties":[],
   "parent":{
-    "name":"UI",
-    "path":"folders/Objects/UI.yy",
+    "name":"Decorative",
+    "path":"folders/Objects/UI/Decorative.yy",
   },
   "parentObjectId":null,
   "persistent":false,
