@@ -1,4 +1,4 @@
-if(global.gameState != GameState.EVENT) exit;
+//if(global.gameState != GameState.EVENT) exit;
 if(charIndex > string_length(text)) exit;
 
 timer++;
