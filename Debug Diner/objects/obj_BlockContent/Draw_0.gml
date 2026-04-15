@@ -1,3 +1,5 @@
+event_inherited();
+
 if(contentType != BlockContentType.DISPLAY) draw_self();
 
 var paddingX = BLOCK_CONTENT_PADDING;
@@ -31,3 +33,5 @@ switch(contentType) {
 }
 
 draw_text(x + paddingX, y + paddingY, displayText);
+
+if(highlight) shader_reset();

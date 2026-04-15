@@ -1,3 +1,5 @@
+event_inherited();
+
 type = BlockType.MOVE;
 name = "";
 color = BlockColor.WHITE;

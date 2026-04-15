@@ -1,3 +1,5 @@
+event_inherited();
+
 type = BlockType.MOVE;
 name = "";
 color = BlockColor.WHITE;
@@ -185,6 +187,7 @@ function LinkToSlot(slot, mute = false) {
     y = slot.y;
     
     StretchParents();
+	obj_EventController.FireSignal(EventSignal.BLOCKCONNECTED);
     
     return true;
 }
@@ -219,6 +222,7 @@ function UnlinkFromSlot() {
 	}
 	
 	StretchParents();
+	obj_EventController.FireSignal(EventSignal.BLOCKDISCONNECTED);
 	
 	parentBlock = noone;
 }

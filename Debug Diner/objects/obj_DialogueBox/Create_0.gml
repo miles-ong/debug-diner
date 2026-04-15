@@ -21,7 +21,7 @@ function SetBoxColor(_color) {
 	}
 }
 
-boxHeight = 300;
+boxHeight = 360;
 contentPadding = 8;
 textPadding = 24;
 draw_set_font(fo_UIMedium);

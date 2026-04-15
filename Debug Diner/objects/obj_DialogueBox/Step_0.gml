@@ -27,3 +27,6 @@ timer = 0;
 
 currentText += string_char_at(text, charIndex);
 charIndex++;
+var pitch = random_range(0.5, 0.8);
+PlaySoundEffect(sfx_TalkingBip);
+audio_sound_pitch(sfx_TalkingBip, pitch);

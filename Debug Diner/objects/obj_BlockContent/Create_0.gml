@@ -1,3 +1,5 @@
+event_inherited();
+
 owner = noone;
 
 contentType = BlockContentType.ARGUMENT;

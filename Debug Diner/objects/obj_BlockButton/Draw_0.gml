@@ -1,3 +1,5 @@
+event_inherited();
+
 draw_sprite_ext(sprite_index, 0, x, y, image_xscale, image_yscale, 0, color, 1);
 
 draw_set_color(c_black);
@@ -11,3 +13,5 @@ var height = isConditional
 var paddingY = ((height + BLOCK_EDGE_LENGTH) - string_height("A")) / 2;
 
 draw_text(x + paddingX, y + paddingY, name);
+
+if(highlight) shader_reset();

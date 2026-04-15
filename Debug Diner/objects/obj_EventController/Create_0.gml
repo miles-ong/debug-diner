@@ -39,26 +39,22 @@ function FireSignal(_signalType, _signaler = undefined) {
 	var next = event[nextActionIndex];
 	
 	if (next.signal == _signalType) {
-		if (_signalType == EventSignal.OBJECTCLICKED || 
-			_signalType == EventSignal.BLOCKCONNECTED || 
-			_signalType == EventSignal.BLOCKDISCONNECTED) {
-				var desired = next.desiredSignaler;
+		if (_signalType == EventSignal.OBJECTCLICKED) {
+			var desired = next.desiredSignaler;
 				
-				if(desired == undefined) {
-					show_debug_message($"{debugLabel} The desired signaler for this action cannot be undefined");
-					return;
-				}
+			if(desired == undefined) {
+				show_debug_message($"{debugLabel} The desired signaler for this action cannot be undefined");
+				return;
+			}
 				
-				if(_signaler.object_index != desired && !object_is_ancestor(_signaler.object_index, desired)) {
-					return;
-				}
+			if(_signaler.object_index != desired && !object_is_ancestor(_signaler.object_index, desired)) {
+				return;
+			}
 		}
-		
-	//(inst.object_index == obj_Waiter || object_is_ancestor(inst.object_index, obj_Waiter)))
 		
 		previousGameState = global.gameState;
 		ChangeGameState(GameState.EVENT);
-		next.action.Execute();
+		ExecuteAction(next.action);
 		nextActionIndex++;
 		show_debug_message($"{debugLabel} Executed action");
 	}

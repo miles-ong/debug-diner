@@ -1,5 +1,6 @@
-var tint = isDraggable && global.hoveredBlock == id ? merge_color(color, c_black, hoverStrength) : color;
+event_inherited();
 
+var tint = isDraggable && global.hoveredBlock == id ? merge_color(color, c_black, hoverStrength) : color;
 draw_sprite_ext(sprite_index, 0, x, y, image_xscale, image_yscale, 0, tint, 1);
 
 var lightSprite;
@@ -33,3 +34,5 @@ if(hasElse) {
 	draw_sprite_ext(spr_ElseBlockBody, 0, x, y + sprite_height - BLOCK_HEIGHT, image_xscale, elseBodyYScale, 0, tint, 1);
 	draw_text(x + lightPaddingX + sprite_get_width(spr_BlockLightConnected) + BLOCK_CONTENT_PADDING, y + textPaddingY + sprite_height - BLOCK_HEIGHT, "Else Do");
 }
+
+if(highlight) shader_reset();

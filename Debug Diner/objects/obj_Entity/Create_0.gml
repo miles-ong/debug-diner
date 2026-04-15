@@ -1,4 +1,5 @@
 // --- Setup ---
+event_inherited();
 label = "";
 conditionLabel = "";
 debugLabel = "[obj_Entity]";
@@ -152,4 +153,11 @@ function HandleCollision(_moveDirection) {
 			knockbackX = collisionKnockback;
 			break;
 	}
+}
+
+function DrawHighlightArrow() {
+	var halfH = (sprite_height * 0.5) * image_yscale;
+	var bounce = sin(current_time / 300) * 4;
+	var arrowY = y - halfH - 8 + bounce;
+	draw_sprite(spr_HighlightArrow, 0, x, arrowY);
 }

@@ -15,6 +15,7 @@ if(isDragging) {
 			if(panel != noone && panel.visible) {
 				panel.SnapToGrid(id);
 				RefreshChain();
+				obj_EventController.FireSignal(EventSignal.BLOCKPLACED);				
 			}
 			else {
 				DestroyChain();

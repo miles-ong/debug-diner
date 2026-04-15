@@ -4,6 +4,7 @@ enum EventSignal {
 	LEVELCOMPLETED,
 	DIALOGUEFINISHED,
 	OBJECTCLICKED,
+	BLOCKPLACED,
 	BLOCKCONNECTED,
 	BLOCKDISCONNECTED
 }
@@ -14,6 +15,7 @@ function EventSignalToString(_signal) {
 		case EventSignal.LEVELCOMPLETED: return "Level Completed";
 		case EventSignal.DIALOGUEFINISHED: return "Dialogue Finished";
 		case EventSignal.OBJECTCLICKED: return "Object Clicked";
+		case EventSignal.BLOCKPLACED: return "Block Placed";
 		case EventSignal.BLOCKCONNECTED: return "Block Connected";
 		case EventSignal.BLOCKDISCONNECTED: return "Block Disconnected";
 	}
@@ -32,6 +34,17 @@ function EventAction(_signal = undefined, _action, _desiredSignaler = undefined)
 	};
 }
 
+function ExecuteAction(_action) {
+	if(is_array(_action)) {
+		for(var i = 0; i < array_length(_action); i++) {
+			_action[i].Execute();
+		}
+	}
+	else {
+		_action.Execute();
+	}
+}
+
 /// @description Creates a dialogue box with a character
 /// @param _text The text to be displayed
 /// @param _characterSprite The sprite to be displayed next to the dialogue box, mark undefined for no character sprite
@@ -39,7 +52,7 @@ function EventAction(_signal = undefined, _action, _desiredSignaler = undefined)
 /// @param _color The color tint of the dialogue box | DEFAULT = DialogueColor.WHITE
 /// @param _talkingBuffer The higher this value is, the slower the character will talk | DEFAULT = 4
 /// @param _font The font to draw the text in | DEFAULT = fo_UILarge
-function CreateDialogue(_text, _characterSprite, _position, _color = DialogueColor.WHITE, _talkingBuffer = 4, _font = fo_UILarge) constructor {
+function Dialogue(_text, _characterSprite, _position, _color = DialogueColor.WHITE, _talkingBuffer = 4, _font = fo_UILarge) constructor {
 	text = _text;
 	characterSprite = _characterSprite;
 	position = _position;
@@ -53,5 +66,44 @@ function CreateDialogue(_text, _characterSprite, _position, _color = DialogueCol
 	}
 }
 
-function CreateTooltip() {
+function Highlight(_target) constructor {
+	target = _target;
+	
+	function Execute() {
+		if(!variable_instance_exists(target, "highlight")) {
+			show_debug_message("[Event] Cannot highlight objects that do not inherit obj_MainParent");
+			return;
+		}
+		
+		target.highlight = true;
+	}
+}
+
+function Unhighlight(_target) constructor {
+	target = _target;
+	
+	function Execute() {
+		if(!variable_instance_exists(target, "highlight")) {
+			show_debug_message("[Event] Cannot unhighlight objects that do not inherit obj_MainParent");
+			return;
+		}
+		
+		target.highlight = false;
+		ChangeGameState(obj_EventController.previousGameState);
+	}
+}
+
+function End() constructor {
+	function Execute() {
+		ChangeGameState(obj_EventController.previousGameState);
+		show_debug_message("[Event] Ended event through action");
+	}
+}
+
+function Custom(_func) constructor {
+	func = _func;
+	
+	function Execute() {
+		func();
+	}
 }
