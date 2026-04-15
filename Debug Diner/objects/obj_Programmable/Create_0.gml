@@ -16,7 +16,7 @@ function EvaluateCondition(_condition) {
 	switch(_condition.type) {
 		case BlockType.COND_AHEAD_IS:
 			var occupant = obj_GridController.GetInDirection(gridX, gridY, gridLevel, facing);
-			var options = ["Empty", "Table", "Chair", "Counter", "Food Printer", "Waiter"];
+			var options = ["Empty", "Table", "Chair", "Counter", "Printer", "Waiter"];
 			var objType = options[_condition.args.objectType];
 			
 			if(occupant == noone) return objType == "Empty";

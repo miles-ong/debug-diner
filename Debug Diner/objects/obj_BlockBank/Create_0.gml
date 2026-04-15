@@ -50,6 +50,11 @@ function BuildButton(_blockType, _x, _y) {
 			color = BlockColor.PINK;
 			break;
 		
+		case BlockType.INTERACT:
+			name = "Interact";
+			color = BlockColor.WHITE;
+			break;
+		
 		case BlockType.COND_AHEAD_IS:
 			name = "Ahead Is";
 			color = BlockColor.GREEN;

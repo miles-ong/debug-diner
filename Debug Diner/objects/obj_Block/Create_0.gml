@@ -120,6 +120,12 @@ function Initialize() {
 			break;
 		
 		case BlockType.INTERACT:
+			name = "Interact";
+			SetBlockColor(BlockColor.WHITE);
+			argInteraction = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.CYCLE, "", [
+				"Pick Up",
+				"Place"
+			]);
 			break;
 		
 		case BlockType.COND_AHEAD_IS:
@@ -132,7 +138,7 @@ function Initialize() {
 				"Table", 
 				"Chair",
 				"Counter",
-				"Food Printer",
+				"Printer",
 				"Waiter"
 			]);
 			break;
@@ -480,14 +486,19 @@ function Serialize() {
 				array_push(node.elseBody, elseChild.Serialize());
 				elseChild = elseChild.nextBlock;
 			}
-				
 			break;
 		
 		case BlockType.WHILE:
 			node.args.condition = conditionBlock != noone
 				? conditionBlock.Serialize()
 				: noone;
-			
+			break;
+		
+		case BlockType.WAIT:
+			break;
+		
+		case BlockType.INTERACT:
+			node.args.interaction = argInteraction.value;
 			break;
 		
 		case BlockType.COND_AHEAD_IS:
@@ -547,7 +558,6 @@ function Deserialize(node) {
 					prevElse = elseChild;
 				}
 			}
-				
 			break;
 		
 		case BlockType.WHILE:
@@ -556,6 +566,14 @@ function Deserialize(node) {
 				condBlock.Deserialize(node.args.condition);
 				condBlock.LinkToSlot(conditionSlot, true);
 			}
+			break;
+		
+		case BlockType.WAIT:
+			break;
+		
+		case BlockType.INTERACT:
+			argInteraction.value = node.args.interaction;
+			break;
 		
 		case BlockType.COND_AHEAD_IS:
 			argObject.value = node.args.objectType;
