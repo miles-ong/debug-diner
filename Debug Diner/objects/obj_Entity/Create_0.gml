@@ -35,6 +35,11 @@ collisionPhase = 0;
 collisionProgress = 0;
 collisionCurveSpeed = animcurve_get_channel(cu_CrashFallback, "_speed");
 
+// --- Placement ---
+placeable = false;
+placeYOffset = 0;
+placedItem = undefined;
+
 /// @description Helper to initialize basic entity settings
 /// @param _conditionLabel Label for general conditional detection
 /// @param _gridLevel Level on the grid to exist
@@ -42,13 +47,17 @@ collisionCurveSpeed = animcurve_get_channel(cu_CrashFallback, "_speed");
 /// @param _animateCollision Enables collision animation
 /// @param _collisionKnockback Pixels to be knocked back on collision
 /// @param _collisionRotation Angle to rotate on collision
+/// @param _placeable Can have items placed ontop
+/// @param _placeYOffset Pixels from center that items should render
 function SetupEntity(
 	_conditionLabel,
 	_gridLevel,
 	_collision,
 	_animateCollision = false,
 	_collisionKnockback = 0,
-	_collisionRotation = 0
+	_collisionRotation = 0,
+	_placeable = false,
+	_placeYOffset = 0
 ) {
 	conditionLabel = _conditionLabel;
 	gridLevel = _gridLevel;
@@ -56,6 +65,8 @@ function SetupEntity(
 	animateCollision = _animateCollision;
 	collisionKnockback = _collisionKnockback;
 	collisionRotation = _collisionRotation;
+	placeable = _placeable;
+	placeYOffset = _placeYOffset;
 }
 
 /// @description Adds a move to the step controller upon program execution
@@ -160,4 +171,10 @@ function DrawHighlightArrow() {
 	var bounce = sin(current_time / 300) * 4;
 	var arrowY = y - halfH - 8 + bounce;
 	draw_sprite(spr_HighlightArrow, 0, x, arrowY);
+}
+
+function DrawPlacedItem() {
+	if(placedItem != undefined) {
+		
+	}
 }

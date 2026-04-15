@@ -182,6 +182,7 @@
     {"id":{"name":"spr_BlockLightUndraggable","path":"sprites/spr_BlockLightUndraggable/spr_BlockLightUndraggable.yy",},},
     {"id":{"name":"spr_BlockSlot","path":"sprites/spr_BlockSlot/spr_BlockSlot.yy",},},
     {"id":{"name":"spr_BlockSlotHovered","path":"sprites/spr_BlockSlotHovered/spr_BlockSlotHovered.yy",},},
+    {"id":{"name":"spr_Burger","path":"sprites/spr_Burger/spr_Burger.yy",},},
     {"id":{"name":"spr_ChairDown","path":"sprites/spr_ChairDown/spr_ChairDown.yy",},},
     {"id":{"name":"spr_ChairLeft","path":"sprites/spr_ChairLeft/spr_ChairLeft.yy",},},
     {"id":{"name":"spr_ChairRight","path":"sprites/spr_ChairRight/spr_ChairRight.yy",},},

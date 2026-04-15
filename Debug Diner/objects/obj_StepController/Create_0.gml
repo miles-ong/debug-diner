@@ -180,6 +180,9 @@ function ReadPrograms() {
 						case BlockType.WAIT:
 							consumeStep = true;
 							break;
+						
+						case BlockType.INTERACT:
+							break;
 					}
 				}
 			}

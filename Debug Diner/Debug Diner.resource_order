@@ -140,6 +140,7 @@
     {"name":"spr_BlockLightUndraggable","order":14,"path":"sprites/spr_BlockLightUndraggable/spr_BlockLightUndraggable.yy",},
     {"name":"spr_BlockSlot","order":1,"path":"sprites/spr_BlockSlot/spr_BlockSlot.yy",},
     {"name":"spr_BlockSlotHovered","order":2,"path":"sprites/spr_BlockSlotHovered/spr_BlockSlotHovered.yy",},
+    {"name":"spr_Burger","order":39,"path":"sprites/spr_Burger/spr_Burger.yy",},
     {"name":"spr_ChairDown","order":3,"path":"sprites/spr_ChairDown/spr_ChairDown.yy",},
     {"name":"spr_ChairLeft","order":1,"path":"sprites/spr_ChairLeft/spr_ChairLeft.yy",},
     {"name":"spr_ChairUp","order":2,"path":"sprites/spr_ChairUp/spr_ChairUp.yy",},

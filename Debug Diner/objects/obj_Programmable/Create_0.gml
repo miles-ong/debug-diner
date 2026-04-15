@@ -9,6 +9,8 @@ clickSoundEffects = [];
 program = [];
 programStack = [];
 
+holdingFood = false;
+
 // --- Setup ---
 image_speed = 0;
 
