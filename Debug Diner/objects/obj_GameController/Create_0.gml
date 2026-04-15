@@ -19,7 +19,7 @@ northAmericaLevels = [
 		rm_Level1_1,
 		undefined,
 		[ BlockType.MOVE ],
-/*		#region Level 1-1 Event
+		#region Level 1-1 Event
 		[
 			EventAction(EventSignal.LEVELSTARTED, new Dialogue("Agh!!!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Uh...", spr_Player, Position.LEFT, DialogueColor.BLUE)),
@@ -90,7 +90,7 @@ northAmericaLevels = [
 			EventAction(EventSignal.DIALOGUEFINISHED, [new Dialogue("Let's see if you can guide the waiter to that table!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE), new Highlight(obj_Table)]),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Good service is of utmost importance!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Unhighlight(obj_Table))
-		]*/
+		]
 		#endregion
 	),
 	CreateLevel(
@@ -151,30 +151,30 @@ northAmericaLevels = [
 	//	undefined,
 	//	[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP ]
 	//),
-	//CreateLevel(
-	//	"Level 1-7",
-	//	spr_TrophyBurger,
-	//	false,
-	//	CreateTask(TaskType.GUIDETOTABLE, 1),
-	//	CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
-	//	CreateTask(TaskType.LESSTHANBLOCKS, 6),
-	//	rm_Level1_7,
-	//	undefined,
-	//	[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
-	//	undefined
-	//),
-	//CreateLevel(
-	//	"Level 1-8",
-	//	spr_TrophyBurger,
-	//	false,
-	//	CreateTask(TaskType.GUIDETOTABLE, 1),
-	//	undefined,
-	//	undefined,
-	//	rm_Level1_8,
-	//	undefined,
-	//	[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
-	//	undefined
-	//),
+	CreateLevel(
+		"Level 1-7",
+		spr_TrophyBurger,
+		false,
+		CreateTask(TaskType.GUIDETOTABLE, 1),
+		CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
+		CreateTask(TaskType.LESSTHANBLOCKS, 6),
+		rm_Level1_7,
+		undefined,
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
+		undefined
+	),
+	CreateLevel(
+		"Level 1-8",
+		spr_TrophyBurger,
+		false,
+		CreateTask(TaskType.GUIDETOTABLE, 1),
+		undefined,
+		undefined,
+		rm_Level1_8,
+		undefined,
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
+		undefined
+	),
 ];
 #endregion
 #region Regions
@@ -186,33 +186,9 @@ southAmericaLevels = [
 		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
-		rm_Level2_1,
+		rm_Level1_1,
 		undefined,
-		[ BlockType.MOVE, BlockType.LOOP],
-		undefined
-	),
-	CreateLevel(
-		"Level 2-2", 
-		spr_TrophyBurger, 
-		true, 
-		CreateTask(TaskType.GUIDETOTABLE), 
-		undefined, 
-		undefined, 
-		rm_Level2_2,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
-		undefined
-	),
-	CreateLevel(
-		"Level 2-3", 
-		spr_TrophyBurger, 
-		true, 
-		CreateTask(TaskType.GUIDETOTABLE), 
-		undefined, 
-		undefined, 
-		rm_Level2_3,
-		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
 		undefined
 	),
 ];
@@ -222,35 +198,11 @@ africaLevels = [
 		spr_TrophyBurger, 
 		true, 
 		CreateTask(TaskType.GUIDETOTABLE), 
-		CreateTask(TaskType.LESSTHANBLOCKS, 5), 
-		CreateTask(TaskType.USEBLOCK, BlockType.IF), 
-		rm_Level3_1,
+		undefined, 
+		undefined, 
+		rm_Level1_1,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.IF, BlockType.COND_AHEAD_IS],
-		undefined
-	),
-	CreateLevel(
-		"Level 3-2", 
-		spr_TrophyBurger, 
-		true, 
-		CreateTask(TaskType.GUIDETOTABLE), 
-		CreateTask(TaskType.LESSTHANBLOCKS, 5), 
-		CreateTask(TaskType.USEBLOCK, BlockType.IFELSE), 
-		rm_Level3_2,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.IF, BlockType.COND_AHEAD_IS],
-		undefined
-	),
-	CreateLevel(
-		"Level 3-3", 
-		spr_TrophyBurger, 
-		true, 
-		CreateTask(TaskType.GUIDETOTABLE), 
-		CreateTask(TaskType.LESSTHANBLOCKS, 6), 
-		CreateTask(TaskType.NOTUSEBLOCK, BlockType.TURN), 
-		rm_Level3_3,
-		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.IF, BlockType.COND_AHEAD_IS],
 		undefined
 	),
 ];

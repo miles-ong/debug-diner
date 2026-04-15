@@ -194,7 +194,7 @@
                 {"$GMRTextItem":"v3","%Name":"text_1B2DF405","alignment":0,"charSpacing":0.0,"colour":4294967295,"flexProperties":{"$InstanceFlexProps":"v1","anchor":0,"resourceType":"InstanceFlexProps",},"fontId":{"name":"fo_UIMedium","path":"fonts/fo_UIMedium/fo_UIMedium.yy",},"frameH":0.0,"frameW":0.0,"frozen":false,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"lineSpacing":0.0,"name":"text_1B2DF405","paragraphSpacing":0.0,"resourceType":"GMRTextItem","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"text":"[ Click to start ]","wrap":false,"x":0.0,"y":-150.0,},
               ],"flexDirection":0,"height":{"unit":3,"value":47.0,},"justifyContent":1,"name":"FlexPanel","nodeColour":4293347570,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":3,"value":249.0,},},
           ],"flexDirection":0,"height":{"unit":2,"value":20.0,},"justifyContent":1,"name":"Text","nodeColour":4283648242,"resourceType":"GMRFlexPanel","resourceVersion":"2.0","width":{"unit":2,"value":100.0,},},
-      ],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"GameStartInterface","nodeColour":4294107208,"resourceType":"GMRUILayer","resourceVersion":"2.0",},
+      ],"flexDirection":0,"gridX":32,"gridY":32,"justifyContent":1,"name":"GameStartInterface","nodeColour":4294107208,"resourceType":"GMRUILayer","resourceVersion":"2.0","visible":false,},
   ],
   "locked":false,
   "name":"RoomUI",
@@ -205,5 +205,5 @@
   "resourceType":"GMRoomUI",
   "resourceVersion":"2.0",
   "viewspaceChildren":[],
-  "visible":false,
+  "visible":true,
 }
