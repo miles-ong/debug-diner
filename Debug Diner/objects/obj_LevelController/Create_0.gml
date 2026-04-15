@@ -87,7 +87,8 @@ function InitializeLevel() {
 }
 
 function StartLevel() {
-	obj_EventController.Initialize(global.currentLevel.eventSequence);
+	if(!global.currentLevel.eventCompleted) obj_EventController.Initialize(global.currentLevel.eventSequence);
+	
 	ChangeGameState(GameState.PROGRAMMING);
 	obj_EventController.FireSignal(EventSignal.LEVELSTARTED);
 }
@@ -149,12 +150,29 @@ function CheckTasksCompletion() {
 			bonusTask2.isCompleted = completedBT2;
 		}
 		
-		var nextIndex = obj_GameController.GetNextLevelIndex();
-		var level = obj_GameController.GetLevel(nextIndex);
-		
-		if(!level.unlocked) {
-			level.unlocked = true;
-			obj_GameController.continueLevelIndex = nextIndex;
+		var isLastLevel = (obj_GameController.currentLevelIndex == array_length(obj_GameController.levels) - 1);
+
+		if (!isLastLevel) {
+			var nextIndex = obj_GameController.GetNextLevelIndex();
+			var level = obj_GameController.GetLevel(nextIndex);
+
+			if (level != noone && !level.unlocked) {
+				level.unlocked = true;
+				obj_GameController.continueLevelIndex = nextIndex;
+			}
+		}
+		else {
+			var nextRegion = obj_GameController.GetNextRegion(obj_GameController.currentRegion);
+
+			if (nextRegion != undefined) {
+				obj_GameController.SetLevelRegion(nextRegion);
+				var nextRegionLevels = obj_GameController.levels;
+
+		        if (array_length(nextRegionLevels) > 0) {
+		            nextRegionLevels[0].unlocked = true;
+		            obj_GameController.continueLevelIndex = 0;
+		        }
+			}
 		}
 		
 		return true;

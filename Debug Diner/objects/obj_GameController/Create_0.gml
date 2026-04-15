@@ -7,6 +7,9 @@ if(instance_number(obj_GameController) > 1) {
 debugLabel = "[obj_GameController]";
 levels = [];
 
+// --- Settings ---
+unlockAllLevels = false;
+
 #region Levels
 northAmericaLevels = [
 	CreateLevel(
@@ -19,7 +22,7 @@ northAmericaLevels = [
 		rm_Level1_1,
 		undefined,
 		[ BlockType.MOVE ],
-/*		#region Level 1-1 Event
+		#region Level 1-1 Event
 		[
 			EventAction(EventSignal.LEVELSTARTED, new Dialogue("Agh!!!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Uh...", spr_Player, Position.LEFT, DialogueColor.BLUE)),
@@ -90,13 +93,13 @@ northAmericaLevels = [
 			EventAction(EventSignal.DIALOGUEFINISHED, [new Dialogue("Let's see if you can guide the waiter to that table!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE), new Highlight(obj_Table)]),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Good service is of utmost importance!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Unhighlight(obj_Table))
-		]*/
+		]
 		#endregion
 	),
 	CreateLevel(
 		"Level 1-2",
 		spr_TrophyBurger,
-		true,
+		false,
 		CreateTask(TaskType.GUIDETOTABLE),
 		CreateTask(TaskType.USEBLOCK, BlockType.TURN),
 		undefined,
@@ -120,61 +123,15 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-4",
 		spr_TrophyBurger,
-		false,
+		true,
 		CreateTask(TaskType.GUIDETOTABLE),
 		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
-		CreateTask(TaskType.LESSTHANBLOCKS, 7),
+		CreateTask(TaskType.LESSTHANBLOCKS, 5),
 		rm_Level1_4,
 		undefined,
 		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP],
 		undefined
-	),
-	//CreateLevel(
-	//	"Level 1-5",
-	//	spr_TrophyBurger,
-	//	false,
-	//	CreateTask(TaskType.GUIDETOTABLE),
-	//	CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
-	//	CreateTask(TaskType.LESSTHANBLOCKS, 9),
-	//	rm_Level1_5,
-	//	undefined,
-	//	[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP]
-	//),
-	//CreateLevel(
-	//	"Level 1-6",
-	//	spr_TrophyBurger,
-	//	false,
-	//	CreateTask(TaskType.GUIDETOTABLE, 2),
-	//	CreateTask(TaskType.LESSTHANBLOCKS, 6),
-	//	undefined,
-	//	rm_Level1_6,
-	//	undefined,
-	//	[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP ]
-	//),
-	//CreateLevel(
-	//	"Level 1-7",
-	//	spr_TrophyBurger,
-	//	false,
-	//	CreateTask(TaskType.GUIDETOTABLE, 1),
-	//	CreateTask(TaskType.USEBLOCK, BlockType.WAIT),
-	//	CreateTask(TaskType.LESSTHANBLOCKS, 6),
-	//	rm_Level1_7,
-	//	undefined,
-	//	[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
-	//	undefined
-	//),
-	//CreateLevel(
-	//	"Level 1-8",
-	//	spr_TrophyBurger,
-	//	false,
-	//	CreateTask(TaskType.GUIDETOTABLE, 1),
-	//	undefined,
-	//	undefined,
-	//	rm_Level1_8,
-	//	undefined,
-	//	[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
-	//	undefined
-	//),
+	)
 ];
 #endregion
 #region Regions
@@ -182,7 +139,7 @@ southAmericaLevels = [
 	CreateLevel(
 		"Level 2-1", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
@@ -194,25 +151,25 @@ southAmericaLevels = [
 	CreateLevel(
 		"Level 2-2", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
 		rm_Level2_2,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT ],
 		undefined
 	),
 	CreateLevel(
 		"Level 2-3", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
 		rm_Level2_3,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT ],
 		undefined
 	),
 ];
@@ -220,10 +177,10 @@ africaLevels = [
 	CreateLevel(
 		"Level 3-1", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
-		CreateTask(TaskType.LESSTHANBLOCKS, 5), 
 		CreateTask(TaskType.USEBLOCK, BlockType.IF), 
+		CreateTask(TaskType.LESSTHANBLOCKS, 4), 
 		rm_Level3_1,
 		undefined,
 		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.IF, BlockType.COND_AHEAD_IS],
@@ -232,10 +189,10 @@ africaLevels = [
 	CreateLevel(
 		"Level 3-2", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		CreateTask(TaskType.LESSTHANBLOCKS, 5), 
-		CreateTask(TaskType.USEBLOCK, BlockType.IFELSE), 
+		CreateTask(TaskType.USEBLOCK, BlockType.IF), 
 		rm_Level3_2,
 		undefined,
 		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.IF, BlockType.COND_AHEAD_IS],
@@ -244,10 +201,10 @@ africaLevels = [
 	CreateLevel(
 		"Level 3-3", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		CreateTask(TaskType.LESSTHANBLOCKS, 6), 
-		CreateTask(TaskType.NOTUSEBLOCK, BlockType.TURN), 
+		undefined,
 		rm_Level3_3,
 		undefined,
 		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.IF, BlockType.COND_AHEAD_IS],
@@ -258,7 +215,7 @@ europeLevels = [
 	CreateLevel(
 		"Level 4-1", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
@@ -272,7 +229,7 @@ asiaLevels = [
 	CreateLevel(
 		"Level 5-1", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
@@ -286,7 +243,7 @@ australiaLevels = [
 	CreateLevel(
 		"Level 6-1", 
 		spr_TrophyBurger, 
-		true, 
+		false, 
 		CreateTask(TaskType.GUIDETOTABLE), 
 		undefined, 
 		undefined, 
@@ -317,7 +274,35 @@ function SetLevelRegion(_region) {
 		case LevelRegion.AUSTRALIA: levels = australiaLevels; break;
 	}
 	
+	if(unlockAllLevels) {
+		for(var i = 0; i < array_length(levels); i++) {
+			levels[i].unlocked = true;
+		}
+	}
+	
 	SetCurrentLevel(0);
+}
+
+function GetRegionLevels(_region) {
+	switch(_region) {
+		case LevelRegion.NORTHAMERICA: return northAmericaLevels;
+		case LevelRegion.SOUTHAMERICA: return southAmericaLevels;
+		case LevelRegion.AFRICA: return africaLevels;
+		case LevelRegion.EUROPE: return europeLevels;
+		case LevelRegion.ASIA: return asiaLevels;
+		case LevelRegion.AUSTRALIA: return australiaLevels;
+	}
+}
+
+function GetNextRegion(_region) {
+	switch(_region) {
+		case LevelRegion.NORTHAMERICA: return LevelRegion.SOUTHAMERICA;
+		case LevelRegion.SOUTHAMERICA: return LevelRegion.AFRICA;
+		case LevelRegion.AFRICA: return LevelRegion.EUROPE;
+		case LevelRegion.EUROPE: return LevelRegion.ASIA;
+		case LevelRegion.ASIA: return LevelRegion.AUSTRALIA;
+		case LevelRegion.AUSTRALIA: return undefined;
+	}
 }
 
 /// @description Sets the current level to a level from levels using a given index. If the index is out of bounds, the current level doesn't change

@@ -4,7 +4,6 @@ enum BlockType {
 	TURN,
 	LOOP,
 	IF,
-	IFELSE,
 	WHILE,
 	WAIT,
 	INTERACT,

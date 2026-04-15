@@ -55,7 +55,12 @@ function FireSignal(_signalType, _signaler = undefined) {
 		previousGameState = global.gameState;
 		ChangeGameState(GameState.EVENT);
 		ExecuteAction(next.action);
-		nextActionIndex++;
 		show_debug_message($"{debugLabel} Executed action");
+		nextActionIndex++;
+		
+		if(nextActionIndex >= array_length(event)) {
+			global.currentLevel.eventCompleted = true;
+			show_debug_message($"{debugLabel} Event completed");
+		}
 	}
 }
