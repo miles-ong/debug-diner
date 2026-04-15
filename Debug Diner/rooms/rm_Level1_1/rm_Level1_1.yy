@@ -21,6 +21,8 @@
     {"name":"inst_25FD9A17","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
     {"name":"inst_494FA6EE","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
     {"name":"inst_3D1C3498","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
+    {"name":"inst_6408D776","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
+    {"name":"inst_1410FDAD","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -29,6 +31,10 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Entity","path":"objects/obj_Entity/obj_Entity.yy",},"propertyId":{"name":"facing","path":"objects/obj_Entity/obj_Entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Direction.WEST",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":448.0,"y":448.0,},
         {"$GMRInstance":"v4","%Name":"inst_70E547AD1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_70E547AD1","objectId":{"name":"obj_HoloTable","path":"objects/obj_HoloTable/obj_HoloTable.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":448.0,},
+        {"$GMRInstance":"v4","%Name":"inst_6408D776","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6408D776","objectId":{"name":"obj_HoloChair","path":"objects/obj_HoloChair/obj_HoloChair.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Chair","path":"objects/obj_Chair/obj_Chair.yy",},"propertyId":{"name":"uniqueId","path":"objects/obj_Chair/obj_Chair.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":384.0,},
+        {"$GMRInstance":"v4","%Name":"inst_1410FDAD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1410FDAD","objectId":{"name":"obj_HoloChair","path":"objects/obj_HoloChair/obj_HoloChair.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":384.0,},
       ],"layers":[],"name":"Base","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Floor","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_24037DD5_1_1_2_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_24037DD5_1_1_2_1","objectId":{"name":"obj_TileWhite","path":"objects/obj_TileWhite/obj_TileWhite.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":448.0,},

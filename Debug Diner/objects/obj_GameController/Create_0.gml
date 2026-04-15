@@ -17,7 +17,7 @@ northAmericaLevels = [
 		undefined, 
 		undefined, 
 		rm_Level1_1,
-		[ Customer(1) ],
+		undefined,
 		[ BlockType.MOVE ],
 		#region Level 1-1 Event
 		[
