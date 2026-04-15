@@ -3,6 +3,8 @@ if(instance_exists(obj_LevelController) > 1) {
 	return;
 }
 
+debugLabel = "[LevelController]";
+
 collided = false;
 customersSatisfied = false;
 bonusOrdersSatisfied = false;
@@ -56,6 +58,32 @@ function InitializeLevel() {
 	}
 	
 	obj_BlockBank.Initialize(enabledBlocks);
+	
+	if(currLevel.customers != undefined) {
+		if(is_array(currLevel.customers)) {
+			for(var i = 0; i < array_length(currLevel.customers); i++) {
+				with(obj_Chair) {
+					if(uniqueId == currLevel.customers[i].chairId) {
+						if(customer != undefined) {
+							show_debug_message($"{debugLabel} Multiple customers cannot share the same chair");
+							continue;
+						}
+						else {
+							customer = currLevel.customers[i];
+							continue;
+						}
+					}
+				}
+				
+				show_debug_message($"{debugLabel} No chair ID exists that matches the customer's chair ID");
+			}
+		}
+		else {
+			with(obj_Chair) {
+				if(uniqueId == currLevel.customers.chairId) customer = currLevel.customers;
+			}
+		}
+	}
 }
 
 function StartLevel() {

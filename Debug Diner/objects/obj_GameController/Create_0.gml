@@ -17,8 +17,8 @@ northAmericaLevels = [
 		undefined, 
 		undefined, 
 		rm_Level1_1,
-		undefined,
-		undefined,
+		[ Customer(1) ],
+		[ BlockType.MOVE ],
 		#region Level 1-1 Event
 		[
 			EventAction(EventSignal.LEVELSTARTED, new Dialogue("Agh!!!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
