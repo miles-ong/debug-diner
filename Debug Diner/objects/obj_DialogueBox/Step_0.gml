@@ -1,5 +1,23 @@
-//if(global.gameState != GameState.EVENT) exit;
-if(charIndex > string_length(text)) exit;
+if(global.gameState != GameState.EVENT) exit;
+
+if(mouse_check_button_pressed(mb_left)) {
+	if(charIndex <= string_length(text)) {
+		currentText = text;
+		charIndex = string_length(text) + 1;
+		exit;
+	}
+	else {
+		ChangeGameState(obj_EventController.previousGameState);
+		obj_EventController.FireSignal(EventSignal.DIALOGUEFINISHED);
+		instance_destroy();
+	}
+}
+
+if(charIndex > string_length(text)) {
+	if(hintAlpha != 0.4) hintAlpha += 0.001;
+	
+	exit;
+}
 
 timer++;
 

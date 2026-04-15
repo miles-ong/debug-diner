@@ -59,20 +59,9 @@ function InitializeLevel() {
 }
 
 function StartLevel() {
-	var levelDialog = GetRoomDialog(room);
-
-	if (array_length(levelDialog) > 0) {
-		ChangeGameState(GameState.DIALOGUE);
-
-		var dlg = instance_create_layer(0, 0, "Base", obj_DialogController);
-		
-		dlg.Setup(levelDialog, function() {
-			ChangeGameState(GameState.PROGRAMMING);
-		});
-	}
-	else {
-		ChangeGameState(GameState.PROGRAMMING);
-	}
+	obj_EventController.Initialize(global.currentLevel.eventSequence);
+	ChangeGameState(GameState.PROGRAMMING);
+	obj_EventController.FireSignal(EventSignal.LEVELSTARTED);
 }
 
 function OnCollision() {

@@ -24,26 +24,28 @@ enum LevelRegion {
 }
 
 /// @description Constructs level data
-/// @param n Name of the level
-/// @param t Trophy sprite
-/// @param u Determines whether the level is unlocked or not
-/// @param mt Main task to complete level
-/// @param bt1 Bonus task, mark undefined if nothing
-/// @param bt2 Bonus task, mark undefined if nothing
-/// @param tr Room to enter
-/// @param c Customers to serve
-/// @param eb Array of blocks that are enabled, mark undefined if no blocks are disabled
-function CreateLevel(n, t, u, mt, bt1, bt2, tr, c = undefined, eb = undefined) {
+/// @param _name Name of the level
+/// @param _trophy Trophy sprite
+/// @param _unlocked Determines whether the level is unlocked or not
+/// @param _mainTask Main task to complete level
+/// @param _bonusTask1 Bonus task, mark undefined if nothing
+/// @param _bonusTask2 Bonus task, mark undefined if nothing
+/// @param _trophy Room to enter
+/// @param _customers Customers to serve
+/// @param _enabledBlocks Array of blocks that are enabled, mark undefined if no blocks are disabled
+/// @param _event The event to be executed at the start of the level
+function CreateLevel(_name, _trophy, _unlocked, _mainTask, _bonusTask1, _bonusTask2, _targetRoom, _customers = undefined, _enabledBlocks = undefined, _event = undefined) {
 	return {
-		name : n,
-		trophy : t,
-		unlocked : u,
-		mainTask : mt,
-		bonusTask1 : bt1,
-		bonusTask2 : bt2,
-		targetRoom : tr,
-		customers : c,
-		enabledBlocks : eb
+		name : _name,
+		trophy : _trophy,
+		unlocked : _unlocked,
+		mainTask : _mainTask,
+		bonusTask1 : _bonusTask1,
+		bonusTask2 : _bonusTask2,
+		targetRoom : _targetRoom,
+		customers : _customers,
+		enabledBlocks : _enabledBlocks,
+		eventSequence : _event
 	};
 }
 

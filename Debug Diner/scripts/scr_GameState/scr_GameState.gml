@@ -1,7 +1,6 @@
 enum GameState {
 	MENUS,
 	TRANSITIONING,
-	DIALOGUE,
 	EVENT,
 	CUTSCENE,
 	PROGRAMMING,
@@ -25,7 +24,7 @@ function GameStateToString(_gameState) {
 	switch(_gameState) {
 		case GameState.MENUS: return "Menus";
 		case GameState.TRANSITIONING: return "Transitioning";
-		case GameState.DIALOGUE: return "Dialogue";
+		case GameState.EVENT: return "Event";
 		case GameState.CUTSCENE: return "Cutscene";
 		case GameState.PROGRAMMING: return "Programming";
 		case GameState.READING: return "Reading";

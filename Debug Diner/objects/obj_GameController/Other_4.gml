@@ -33,8 +33,6 @@ if(room == rm_MainMenu) {
     CreateMenuBlock(MenuBlockType.LEVELSELECT, bounds, placedRects);
     CreateMenuBlock(MenuBlockType.CONTINUE, bounds, placedRects);
     CreateMenuBlock(MenuBlockType.SETTINGS, bounds, placedRects);
-	//var obj = instance_create_layer(x, y, "Dialogue", obj_DialogueBox);
-	//obj.Initialize("Hello, I am the player and I like to speak a lot", fo_UIMedium, spr_Player, DialoguePosition.LEFT);
     
     return;
 }

@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_DialogData",
+  "%Name":"scr_Event",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_DialogData",
+  "name":"scr_Event",
   "parent":{
     "name":"Scripts",
-    "path":"folders/Dialogue/Scripts.yy",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

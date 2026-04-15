@@ -18,7 +18,12 @@ northAmericaLevels = [
 		undefined, 
 		rm_Level1_1,
 		undefined,
-		undefined
+		undefined,
+		[
+			EventAction(EventSignal.LEVELSTARTED, new CreateDialogue("Hello, who are you? An alien?", spr_Player, Position.LEFT, DialogueColor.BLUE, 10)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new CreateDialogue("Test2", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new CreateDialogue("Test3", spr_Player, Position.LEFT, DialogueColor.BLUE))
+		]
 	),
 	CreateLevel(
 		"Level 1-2",
@@ -29,7 +34,8 @@ northAmericaLevels = [
 		undefined,
 		rm_Level1_2,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN ]
+		[ BlockType.MOVE, BlockType.TURN ],
+		undefined
 	),
 	CreateLevel(
 		"Level 1-3",
@@ -40,7 +46,8 @@ northAmericaLevels = [
 		CreateTask(TaskType.LESSTHANBLOCKS, 3),
 		rm_Level1_3,
 		undefined,
-		[ BlockType.MOVE, BlockType.LOOP ]
+		[ BlockType.MOVE, BlockType.LOOP ],
+		undefined
 	),
 	CreateLevel(
 		"Level 1-4",
@@ -51,7 +58,8 @@ northAmericaLevels = [
 		CreateTask(TaskType.LESSTHANBLOCKS, 7),
 		rm_Level1_4,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP]
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP],
+		undefined
 	),
 	//CreateLevel(
 	//	"Level 1-5",
@@ -84,7 +92,8 @@ northAmericaLevels = [
 		CreateTask(TaskType.LESSTHANBLOCKS, 6),
 		rm_Level1_7,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT]
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
+		undefined
 	),
 	CreateLevel(
 		"Level 1-8",
@@ -95,7 +104,8 @@ northAmericaLevels = [
 		undefined,
 		rm_Level1_8,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT]
+		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP, BlockType.WAIT],
+		undefined
 	),
 ];
 #endregion
@@ -110,6 +120,7 @@ southAmericaLevels = [
 		undefined, 
 		rm_Level1_1,
 		undefined,
+		undefined,
 		undefined
 	),
 ];
@@ -122,6 +133,7 @@ africaLevels = [
 		undefined, 
 		undefined, 
 		rm_Level1_1,
+		undefined,
 		undefined,
 		undefined
 	),
@@ -136,6 +148,7 @@ europeLevels = [
 		undefined, 
 		rm_Level1_1,
 		undefined,
+		undefined,
 		undefined
 	),
 ];
@@ -149,6 +162,7 @@ asiaLevels = [
 		undefined, 
 		rm_Level1_1,
 		undefined,
+		undefined,
 		undefined
 	),
 ];
@@ -161,6 +175,7 @@ australiaLevels = [
 		undefined, 
 		undefined, 
 		rm_Level1_1,
+		undefined,
 		undefined,
 		undefined
 	),
