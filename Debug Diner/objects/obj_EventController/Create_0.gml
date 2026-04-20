@@ -51,6 +51,14 @@ function FireSignal(_signalType, _signaler = undefined) {
 				return;
 			}
 		}
+		else if (_signalType == EventSignal.BLOCKCONNECTED) {
+			var desired = next.desiredBlockType;
+			
+			if(desired != undefined) {
+				if(_signaler == undefined) {
+				}
+			}
+		}
 		
 		previousGameState = global.gameState;
 		ChangeGameState(GameState.EVENT);

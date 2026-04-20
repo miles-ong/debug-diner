@@ -47,6 +47,7 @@
     {"name":"cu_CrashFallback","order":1,"path":"animcurves/cu_CrashFallback/cu_CrashFallback.yy",},
     {"name":"fo_UILarge","order":2,"path":"fonts/fo_UILarge/fo_UILarge.yy",},
     {"name":"fo_UIMedium","order":1,"path":"fonts/fo_UIMedium/fo_UIMedium.yy",},
+    {"name":"fo_UIMega","order":3,"path":"fonts/fo_UIMega/fo_UIMega.yy",},
     {"name":"obj_BlockBank","order":8,"path":"objects/obj_BlockBank/obj_BlockBank.yy",},
     {"name":"obj_BlockButton","order":2,"path":"objects/obj_BlockButton/obj_BlockButton.yy",},
     {"name":"obj_BlockContent","order":1,"path":"objects/obj_BlockContent/obj_BlockContent.yy",},

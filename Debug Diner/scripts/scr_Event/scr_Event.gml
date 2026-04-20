@@ -26,11 +26,12 @@ function EventSignalToString(_signal) {
 /// @param _signal The EventSignal that triggers this action
 /// @param _action The action to be executed
 /// @param _desiredSignaler The object desired to signal (Use only for OBJECTCLICKED, BLOCKCONNECTED, and BLOCKDISCONNECTED)
-function EventAction(_signal = undefined, _action, _desiredSignaler = undefined) {
+function EventAction(_signal = undefined, _action, _desiredSignaler = undefined, _desiredBlockType = undefined) {
 	return {
 		signal : _signal,
 		action : _action,
-		desiredSignaler : _desiredSignaler
+		desiredSignaler : _desiredSignaler,
+		desiredBlockType : _desiredBlockType
 	};
 }
 

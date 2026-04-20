@@ -1,3 +1,5 @@
+event_inherited();
+
 draw_self();
 draw_set_alpha(image_alpha);
 
@@ -37,3 +39,5 @@ if(currLevel.bonusTask2 != undefined) {
 }
 
 draw_set_alpha(1);
+
+if(highlight) shader_reset();

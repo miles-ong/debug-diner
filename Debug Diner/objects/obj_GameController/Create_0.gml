@@ -104,7 +104,37 @@ northAmericaLevels = [
 		rm_Level1_2,
 		undefined,
 		[ BlockType.MOVE, BlockType.TURN ],
-		undefined
+		#region Level 1-2 Event
+		[
+			EventAction(EventSignal.LEVELSTARTED, new Dialogue("I knew you had it in you Terran!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Thanks...", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Are you ever going to tell me your name?", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("My name?", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Ah! You must be referring to my 'title'!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("The cosmos knows me as...", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue(">-&<+*%&@>#-+!-", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE, 10, fo_UIMega)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Speak English please.", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("How about I teach you my langu-", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("English.", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Ugh, fine.", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("You can call me 'Alien'!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("...", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("How creative.", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Enough small talk!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, [new Dialogue("See that window to your right?", spr_Alien, Position.RIGHT, DialogueColor.GREEN), new Highlight(obj_UILevelTasks)]),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("I'd get tired having to tell you what to do all the time...", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("So instead, I will have the UFO tell you for me!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Aren't you telling the UFO what to tell me...", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("...", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Anyways, the tasks marked white MUST be completed!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("The yellow ones are for your bonus!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, [new Dialogue("My bonus? Does this mean you're paying me?", spr_Player, Position.LEFT, DialogueColor.BLUE), new Unhighlight(obj_UILevelTasks)]),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Pay? What are you talking about?", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Aren't you humans obsessed with being completionists?", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("This is a game afterall!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("We don't normally break the 4th wall this early.", spr_Player, Position.LEFT, DialogueColor.BLUE))
+		]
+		#endregion
 	),
 	CreateLevel(
 		"Level 1-3",
@@ -116,7 +146,25 @@ northAmericaLevels = [
 		rm_Level1_3,
 		undefined,
 		[ BlockType.MOVE, BlockType.LOOP ],
-		undefined
+		#region Level 1-3 Event
+		[
+			EventAction(EventSignal.LEVELSTARTED, new Dialogue("Welcome back to the most famous restaurant on this planet!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Famous? You're still parked in my backyard...", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("But can't you see our future together head programmer!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Ugh, can you NOT call me that!", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("...", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Fine.", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Anyways, I finished repairing the UFO, so all we need now is for you to complete your training!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("I've been training?", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Of course! I need to make sure my head progr- I mean, 'partner' is prepared to start this journey!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Here is the final test!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Why don't you give that 'Loop' block a spin!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Couldn't I just use the 'Move' blocks like I did before?", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("You could, but being efficient will lead to good service...", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("And good service is?", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("\"Of utmost importance\"...", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+		]
+		#endregion
 	),
 	CreateLevel(
 		"Level 1-4",
@@ -128,7 +176,11 @@ northAmericaLevels = [
 		rm_Level1_4,
 		undefined,
 		[ BlockType.MOVE, BlockType.TURN, BlockType.LOOP],
-		undefined
+		#region Level 1-4 Event
+		[
+			
+		]
+		#endregion
 	)
 ];
 #endregion
@@ -365,6 +417,7 @@ function GoToLevel(_index) {
 		layer_set_visible("LevelResult", false);
 		layer_set_visible("MainMenuInterface", false);
 		layer_set_visible("LevelInterface", true);
+		obj_GameController.SetCurrentLevel(index);
 	})));
 }
 
@@ -388,7 +441,7 @@ function ReturnToMainMenu() {
 		layer_set_visible("LevelInterface", false);
 		layer_set_visible("LevelResult", false);
 		layer_set_visible("MainMenuInterface", true);
-		SetCurrentLevel(0);
+		obj_GameController.SetCurrentLevel(0);
 	}));
 }
 
@@ -420,5 +473,3 @@ function UnlockAllLevels() {
 	SetRegionLevels(LevelRegion.NORTHAMERICA);
 	show_debug_message($"{debugLabel} Unlocked all levels");
 }
-
-//UnlockAllLevels(); // Comment out if false

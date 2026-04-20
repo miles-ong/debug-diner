@@ -70,6 +70,7 @@
     {"id":{"name":"cu_CrashFallback","path":"animcurves/cu_CrashFallback/cu_CrashFallback.yy",},},
     {"id":{"name":"fo_UILarge","path":"fonts/fo_UILarge/fo_UILarge.yy",},},
     {"id":{"name":"fo_UIMedium","path":"fonts/fo_UIMedium/fo_UIMedium.yy",},},
+    {"id":{"name":"fo_UIMega","path":"fonts/fo_UIMega/fo_UIMega.yy",},},
     {"id":{"name":"fo_UISmall","path":"fonts/fo_UISmall/fo_UISmall.yy",},},
     {"id":{"name":"obj_Block","path":"objects/obj_Block/obj_Block.yy",},},
     {"id":{"name":"obj_BlockBank","path":"objects/obj_BlockBank/obj_BlockBank.yy",},},

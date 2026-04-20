@@ -6,6 +6,6 @@ surface_resize(application_surface, baseW, baseH);
 window_set_size(baseW * scale, baseH * scale);
 window_center();
 
-//UnlockAllLevels();
+UnlockAllLevels();
 SetRegionLevels(LevelRegion.NORTHAMERICA);
 SetCurrentLevel(0);

@@ -193,7 +193,7 @@ function LinkToSlot(slot, mute = false) {
     y = slot.y;
     
     StretchParents();
-	obj_EventController.FireSignal(EventSignal.BLOCKCONNECTED);
+	obj_EventController.FireSignal(EventSignal.BLOCKCONNECTED, id);
     
     return true;
 }
