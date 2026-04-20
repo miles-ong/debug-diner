@@ -30,7 +30,7 @@ enum LevelRegion {
 /// @param _mainTask Main task to complete level
 /// @param _bonusTask1 Bonus task, mark undefined if nothing
 /// @param _bonusTask2 Bonus task, mark undefined if nothing
-/// @param _trophy Room to enter
+/// @param _targetRoom Room to enter
 /// @param _customers Customers to serve
 /// @param _enabledBlocks Array of blocks that are enabled, mark undefined if no blocks are disabled
 /// @param _event The event to be executed at the start of the level

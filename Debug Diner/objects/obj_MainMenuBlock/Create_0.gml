@@ -15,8 +15,9 @@ function Connect(block) {
 			break;
 			
 		case MenuBlockType.CONTINUE:
-			obj_GameController.GoToCurrentLevel();
-			
+			obj_GameController.SetRegionLevels(obj_GameController.continueRegion);
+			obj_GameController.SetCurrentLevel(obj_GameController.continueLevelIdx);
+			obj_LayerController.FadeLayerIn("LevelSelectInterface", 0.1);
 			break;
 			
 		case MenuBlockType.SETTINGS:

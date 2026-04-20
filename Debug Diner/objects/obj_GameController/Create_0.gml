@@ -4,13 +4,11 @@ if(instance_number(obj_GameController) > 1) {
 }
 
 // --- Setup ---
-debugLabel = "[obj_GameController]";
+debugLabel = "[GameController]";
 levels = [];
 
-// --- Settings ---
-unlockAllLevels = false;
-
-#region Levels
+#region Regions
+#region North America
 northAmericaLevels = [
 	CreateLevel(
 		"Level 1-1", 
@@ -105,7 +103,7 @@ northAmericaLevels = [
 		undefined,
 		rm_Level1_2,
 		undefined,
-		[ BlockType.MOVE, BlockType.TURN , BlockType.INTERACT ],
+		[ BlockType.MOVE, BlockType.TURN ],
 		undefined
 	),
 	CreateLevel(
@@ -123,7 +121,7 @@ northAmericaLevels = [
 	CreateLevel(
 		"Level 1-4",
 		spr_TrophyBurger,
-		true,
+		false,
 		CreateTask(TaskType.GUIDETOTABLE),
 		CreateTask(TaskType.USEBLOCK, BlockType.LOOP),
 		CreateTask(TaskType.LESSTHANBLOCKS, 5),
@@ -134,7 +132,7 @@ northAmericaLevels = [
 	)
 ];
 #endregion
-#region Regions
+#region South America
 southAmericaLevels = [
 	CreateLevel(
 		"Level 2-1", 
@@ -173,6 +171,8 @@ southAmericaLevels = [
 		undefined
 	),
 ];
+#endregion
+#region Africa
 africaLevels = [
 	CreateLevel(
 		"Level 3-1", 
@@ -211,6 +211,8 @@ africaLevels = [
 		undefined
 	),
 ];
+#endregion
+#region Europe
 europeLevels = [
 	CreateLevel(
 		"Level 4-1", 
@@ -225,6 +227,8 @@ europeLevels = [
 		undefined
 	),
 ];
+#endregion
+#region Asia
 asiaLevels = [
 	CreateLevel(
 		"Level 5-1", 
@@ -239,6 +243,8 @@ asiaLevels = [
 		undefined
 	),
 ];
+#endregion
+#region Australia
 australiaLevels = [
 	CreateLevel(
 		"Level 6-1", 
@@ -254,34 +260,13 @@ australiaLevels = [
 	),
 ];
 #endregion
+#endregion
 
 // --- Tracking ---
-currentRegion = LevelRegion.NORTHAMERICA;
-currentLevelIndex = 0;
-continueLevel = 0;
+currLevelIdx = 0;
 
-/// @description Fills the available levels with the levels from the given region
-/// @param _region The region to load levels from
-function SetLevelRegion(_region) {
-	levels = [];
-	
-	switch(_region) {
-		case LevelRegion.NORTHAMERICA: levels = northAmericaLevels; break;
-		case LevelRegion.SOUTHAMERICA: levels = southAmericaLevels; break;
-		case LevelRegion.AFRICA: levels = africaLevels; break;
-		case LevelRegion.EUROPE: levels = europeLevels; break;
-		case LevelRegion.ASIA: levels = asiaLevels; break;
-		case LevelRegion.AUSTRALIA: levels = australiaLevels; break;
-	}
-	
-	if(unlockAllLevels) {
-		for(var i = 0; i < array_length(levels); i++) {
-			levels[i].unlocked = true;
-		}
-	}
-	
-	SetCurrentLevel(0);
-}
+continueRegion = LevelRegion.NORTHAMERICA;
+continueLevelIdx = 0;
 
 function GetRegionLevels(_region) {
 	switch(_region) {
@@ -305,47 +290,67 @@ function GetNextRegion(_region) {
 	}
 }
 
-/// @description Sets the current level to a level from levels using a given index. If the index is out of bounds, the current level doesn't change
-/// @param _index The index to access
-function SetCurrentLevel(_index) {
-	if(_index < 0 || _index > array_length(levels) - 1) return;
+/// @description Fills the available levels with the levels from the given region
+/// @param _region The region to load levels from
+/// @param _index The current level index to set to. Defaults to 0
+function SetRegionLevels(_region, _index = 0) {
+	var regionLevels = GetRegionLevels(_region);
 	
-	currentLevelIndex = _index;
-	global.currentLevel = levels[_index];
+	if(_index >= array_length(regionLevels)) return;
+	
+	levels = regionLevels;
+	global.currentRegion = _region;
+	currLevelIdx = _index;
 }
 
 /// @description Gets the level from levels using a given index
 /// @param _index The index to access
 function GetLevel(_index) {
-	if(_index < 0 || _index > array_length(levels) - 1) return noone;
+	if(_index < 0 || _index > array_length(levels) - 1) return undefined;
 	
 	return levels[_index];
 }
 
-/// @description Gets the next level's index. If the index goes out of bounds, wrap back to the first level in levels
+/// @description Gets the next level's index. If at the end, wraps to the beginning of the list
 function GetNextLevelIndex() {
 	var length = array_length(levels);
 	
-	if(length == 0) return undefined;
+	if(length <= 0) return 0;
 	
-	return (currentLevelIndex + 1) % array_length(levels);
+	return (currLevelIdx + 1) % length;
 }
 
-/// @description Gets the previous level's index. If the index goes out of bounds, wrap back to the last level in levels
-function GetPreviousLevelIndex() {
-	var length = array_length(levels)
+/// @description Gets the previous level's index. If at the beginning, wraps to the end of list
+function GetPrevLevelIndex() {
+	var length = array_length(levels);
 	
-	if(length == 0) return undefined;
+	if(length <= 0) return 0;
 	
-	return (currentLevelIndex - 1 + length) % array_length(levels);
+	return (currLevelIdx - 1 + length) % length; 
+}
+
+/// @description Sets the current level to a given index
+/// @param _index The index to access
+function SetCurrentLevel(_index) {
+	var level = GetLevel(_index);
+	
+	if(level != undefined) {
+		currLevelIdx = _index;
+		global.currentLevel = level;
+		show_debug_message($"{debugLabel} Set current level to '{level.name}'");
+	}
 }
 
 /// @description Loads a level from levels using a given index and enters the level's room
-/// @param The index to access
-function GoToLevel(index) {
-	if(index < 0 || index > array_length(levels) - 1) return;
+/// @param _index The index to access
+function GoToLevel(_index) {
+	if(_index < 0 || _index > array_length(levels) - 1) return;
 	
-	var level = { targetRoom : levels[index].targetRoom };
+	var level = { 
+		targetRoom : levels[_index].targetRoom,
+		index : _index
+	};
+	
 	ChangeGameState(GameState.TRANSITIONING);
 	
 	obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, true, method(level, function() {
@@ -365,7 +370,7 @@ function GoToLevel(index) {
 
 /// @description Goes to the currently selected level
 function GoToCurrentLevel() {
-	GoToLevel(currentLevelIndex);
+	GoToLevel(currLevelIdx);
 }
 
 /// @description Goes back to the main menu room
@@ -374,13 +379,16 @@ function ReturnToMainMenu() {
 	
 	obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, true, function() {
 		room_goto(rm_MainMenu);
+		
 		obj_ScreenFilter.AddFilter(new Fade(0.02, c_black, false, function() {
 			ChangeGameState(GameState.MENUS);
 		}));
+		
 		layer_set_visible("GameStartInterface", false);
 		layer_set_visible("LevelInterface", false);
 		layer_set_visible("LevelResult", false);
 		layer_set_visible("MainMenuInterface", true);
+		SetCurrentLevel(0);
 	}));
 }
 
@@ -400,5 +408,17 @@ function ClearLayers() {
 	layer_destroy_instances("BlockContentDragging");
 }
 
-SetLevelRegion(LevelRegion.NORTHAMERICA);
-SetCurrentLevel(0);
+function UnlockAllLevels() {	
+	for(var i = 0; i < LevelRegion.AUSTRALIA + 1; i++) {
+		SetRegionLevels(i);
+		
+		for(var j = 0; j < array_length(levels); j++) {
+			levels[j].unlocked = true;
+		}
+	}
+	
+	SetRegionLevels(LevelRegion.NORTHAMERICA);
+	show_debug_message($"{debugLabel} Unlocked all levels");
+}
+
+//UnlockAllLevels(); // Comment out if false

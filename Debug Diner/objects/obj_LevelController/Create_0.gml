@@ -101,7 +101,8 @@ function OnCollision() {
 }
 
 function FinalizeLevel() {
-	ChangeGameState(GameState.MENUS)
+	ChangeGameState(GameState.MENUS);
+	show_debug_message($"{debugLabel} Total Blocks Used: {totalBlocksUsed}");
 	var result = CheckTasksCompletion();
 	layer_set_visible("LevelResult", true);
 	obj_UILevelResult.success = result;
@@ -119,8 +120,6 @@ function LoadExecutionData() {
 		other.totalBlocksUsed += CountBlocks(program);
 		CollectBlockTypes(program, other.blockTypesUsed);
 	}
-	
-	show_debug_message("Total Blocks Used: " + string(totalBlocksUsed));
 }
 
 function CheckTasksCompletion() {
@@ -150,29 +149,28 @@ function CheckTasksCompletion() {
 			bonusTask2.isCompleted = completedBT2;
 		}
 		
-		var isLastLevel = (obj_GameController.currentLevelIndex == array_length(obj_GameController.levels) - 1);
-
-		if (!isLastLevel) {
-			var nextIndex = obj_GameController.GetNextLevelIndex();
-			var level = obj_GameController.GetLevel(nextIndex);
-
-			if (level != noone && !level.unlocked) {
-				level.unlocked = true;
-				obj_GameController.continueLevelIndex = nextIndex;
+		var nextLevelIdx = obj_GameController.GetNextLevelIndex();
+		var contRegion = global.currentRegion;
+		var contLevel;
+		
+		if(nextLevelIdx == 0) {
+			var nextRegion = obj_GameController.GetNextRegion(global.currentRegion);
+			
+			if(nextRegion != undefined) {
+				var regionLevels = obj_GameController.GetRegionLevels(nextRegion);
+				contRegion = nextRegion;
+				contLevel = regionLevels[nextLevelIdx];
 			}
 		}
 		else {
-			var nextRegion = obj_GameController.GetNextRegion(obj_GameController.currentRegion);
-
-			if (nextRegion != undefined) {
-				obj_GameController.SetLevelRegion(nextRegion);
-				var nextRegionLevels = obj_GameController.levels;
-
-		        if (array_length(nextRegionLevels) > 0) {
-		            nextRegionLevels[0].unlocked = true;
-		            obj_GameController.continueLevelIndex = 0;
-		        }
-			}
+			contLevel = obj_GameController.GetLevel(nextLevelIdx);
+		}
+		
+		if(contLevel != undefined && !contLevel.unlocked) {
+			contLevel.unlocked = true;
+			obj_GameController.continueRegion = contRegion;
+			obj_GameController.continueLevelIdx = nextLevelIdx;
+			show_debug_message($"{debugLabel} Unlocked '{contLevel.name}'");
 		}
 		
 		return true;

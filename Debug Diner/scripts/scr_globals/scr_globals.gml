@@ -12,7 +12,8 @@ global.hoveredBlockContent = noone;
 global.hoveredBlockSlot = noone;
 global.hoveredProgrammable = noone;
 
-global.currentLevel = noone;
+global.currentRegion = LevelRegion.NORTHAMERICA;
+global.currentLevel = undefined;
 
 global.soundEffectsVolume = 1;
 

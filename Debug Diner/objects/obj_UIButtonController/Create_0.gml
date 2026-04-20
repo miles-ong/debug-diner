@@ -10,31 +10,34 @@ if(instance_number(obj_UIButtonController) > 1) {
 function HandleButtonPress(_id, _layer) {
 	switch(_layer) {
 		case ButtonLayer.REGIONSELECT:
-			obj_GameController.SetLevelRegion(_id);
+			obj_GameController.SetRegionLevels(_id);
+			obj_GameController.SetCurrentLevel(0);
 			obj_LayerController.TransitionLayers("RegionSelectInterface", "LevelSelectInterface", 0.05);
 			break;
 			
 		case ButtonLayer.LEVELSELECT:
 			switch(_id) {
 				case 0:
-					var previousLevelIndex = obj_GameController.GetPreviousLevelIndex();
 					PlaySoundEffect(sfx_TapLow);
-					
-					if(previousLevelIndex != noone) obj_GameController.SetCurrentLevel(previousLevelIndex);
+					var prevIdx = obj_GameController.GetPrevLevelIndex();
+					obj_GameController.SetCurrentLevel(prevIdx);
 					break;
 					
 				case 1:
-					var level = obj_GameController.GetLevel(obj_GameController.currentLevelIndex);
-					PlaySoundEffect(sfx_TapEnter);
+					if(global.currentLevel.unlocked) {
+						PlaySoundEffect(sfx_TapEnter);
+						obj_GameController.GoToCurrentLevel();
+					}
+					else {
+						PlaySoundEffect(sfx_Undraggable);
+					}
 					
-					if(level.unlocked) obj_GameController.GoToCurrentLevel();
 					break;
 					
 				case 2:
-					var nextLevelIndex = obj_GameController.GetNextLevelIndex();
 					PlaySoundEffect(sfx_TapHigh);
-					
-					if(nextLevelIndex != noone) obj_GameController.SetCurrentLevel(nextLevelIndex);
+					var nextIdx = obj_GameController.GetNextLevelIndex();
+					obj_GameController.SetCurrentLevel(nextIdx);
 					break;
 			}
 			break;
@@ -46,16 +49,22 @@ function HandleButtonPress(_id, _layer) {
 					break;
 				
 				case 1:
-				    var nextIndex = obj_GameController.GetNextLevelIndex();
-				    var nextLevel = obj_GameController.GetLevel(nextIndex);
-    
-				    if(nextLevel != noone && nextLevel.unlocked && success) {
-				        obj_GameController.SetCurrentLevel(nextIndex);
-				        obj_GameController.GoToCurrentLevel();
-				    }
-				    else {
-				        obj_GameController.GoToCurrentLevel();
-				    }
+					if(!success) {
+						obj_GameController.GoToCurrentLevel();
+						break;
+					}
+					
+				    var nextIdx = obj_GameController.GetNextLevelIndex();
+					
+					if(nextIdx == 0) {
+						var nextRegion = obj_GameController.GetNextRegion(global.currentRegion);
+						obj_GameController.SetRegionLevels(nextRegion);
+						obj_GameController.GoToCurrentLevel();
+					}
+					else {
+						obj_GameController.GoToLevel(nextIdx);
+					}
+ 
 				    break;
 			}
 	}
