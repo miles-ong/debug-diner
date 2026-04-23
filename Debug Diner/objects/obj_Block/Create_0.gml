@@ -25,6 +25,8 @@ isConditional = false;
 
 argDo = noone;
 argElseToggle = noone;
+argDef = noone;
+argCall = noone;
 
 isDragging = false;
 
@@ -131,13 +133,17 @@ function Initialize() {
 		case BlockType.DEFINE:
 			name = "Define Function";
 			SetBlockColor(BlockColor.GRAPE);
-			argFunctionDef = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT);
+			isSource = true;
+			hasBody = true;
+			hasSequence = false;
+			var def = obj_Terminal.AddFunction("helloWorld");
+			argDef = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT, def);
 			break;
 		
 		case BlockType.CALL:
 			name = "Call Function";
 			SetBlockColor(BlockColor.SLATE);
-			argCall = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT);
+			argCall = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT, "helloWorld");
 			break;
 		
 		case BlockType.COND_AHEAD_IS:
@@ -189,6 +195,7 @@ function Initialize() {
 
 function LinkToSlot(slot, mute = false) {
     if(slot == noone || !slot.isEmpty) return false;
+	if(isSource) return false;
     if(isConditional && slot.type != SlotType.CONDITION) return false;
     if(!isConditional && slot.type == SlotType.CONDITION) return false;
     
@@ -262,7 +269,7 @@ function AddContent(_contentType, _argumentType = BlockArgumentType.NONE, _text 
 	return content;
 }
 
-function OnArgumentChanged() {
+function OnArgumentChanged() {	
 	Stretch();
 	RefreshChain();
 	StretchParents();
@@ -415,6 +422,8 @@ function RefreshChain() {
 }
 
 function DestroyChain() {
+	if(type == BlockType.DEFINE) obj_Terminal.RemoveFunction(argDef.value);
+		
 	for(var i = 0; i < array_length(contents); i++) {
 		if(instance_exists(contents[i])) instance_destroy(contents[i]);
 	}
@@ -514,6 +523,14 @@ function Serialize() {
 			node.args.interaction = argInteraction.value;
 			break;
 		
+		case BlockType.DEFINE:
+			node.args.definition = argDef.value;
+			break;
+		
+		case BlockType.CALL:
+			node.args.call = argCall.value;
+			break;
+		
 		case BlockType.COND_AHEAD_IS:
 			node.args.boolean = argBoolean.value;
 			node.args.objectType = argObject.value;
@@ -587,6 +604,14 @@ function Deserialize(node) {
 		
 		case BlockType.INTERACT:
 			argInteraction.value = node.args.interaction;
+			break;
+			
+		case BlockType.DEFINE:
+			argDef.value = node.args.definition;
+			break;
+		
+		case BlockType.CALL:
+			argCall.value = node.args.call;
 			break;
 		
 		case BlockType.COND_AHEAD_IS:

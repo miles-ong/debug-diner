@@ -8,6 +8,7 @@ if((global.gameState == GameState.PROGRAMMING && global.selectedProgram != id) |
 		}
 	
 		global.selectedProgram = id;
+		obj_BlockBank.Build(isExecutable);
 		highlight = false;
 		ChangeGameState(GameState.PROGRAMMING);
 		obj_EventController.FireSignal(EventSignal.OBJECTCLICKED, id);

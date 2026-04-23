@@ -16,6 +16,11 @@ if(global.editingBlockContent == id) {
 	owner.Stretch();
 	
 	if(keyboard_check_pressed(vk_enter) || mouse_check_button(mb_left) && global.hoveredBlockContent != id) {
+		if(owner.type == BlockType.DEFINE) {
+			value = obj_Terminal.GetUniqueFunctionDefinition(value);
+			obj_Terminal.ModifyFunctionDefinition(prevValue, value);
+		}
+		
 		global.editingBlockContent = noone;
 		owner.OnArgumentChanged();
 	}

@@ -1,11 +1,24 @@
+enabledBlocks = [];
+
 function Initialize(_enabledBlocks) {
 	with(obj_BlockButton) instance_destroy(id);
 	
-	var xPadding = x + UI_CONTAINER_PADDING * 2 + 16;
+	enabledBlocks = _enabledBlocks;
+	Build(true);
+}
+
+function Build(_skipDefineBlock) {
+	with(obj_BlockButton) instance_destroy(id);
+	
+	var xPadding = x + UI_CONTAINER_PADDING * 2;
 	var yPadding = y + sprite_height / 2;
 	
-	for(var i = 0; i < array_length(_enabledBlocks); i++) {
-		var button = BuildButton(_enabledBlocks[i], xPadding, yPadding);
+	for(var i = 0; i < array_length(enabledBlocks); i++) {
+		var blockType = enabledBlocks[i];
+		
+		if(_skipDefineBlock && blockType == BlockType.DEFINE) continue;
+		
+		var button = BuildButton(blockType, xPadding, yPadding);
 		xPadding += button.sprite_width + BLOCK_BANK_CONTENT_PADDING;
 	}
 }
@@ -58,6 +71,7 @@ function BuildButton(_blockType, _x, _y) {
 		case BlockType.DEFINE:
 			name = "Define";
 			color = BlockColor.GRAPE;
+			hasBody = true;
 			break;
 		
 		case BlockType.CALL:

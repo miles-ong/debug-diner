@@ -5,6 +5,7 @@ owner = noone;
 contentType = BlockContentType.ARGUMENT;
 argumentType = BlockArgumentType.INT;
 
+prevValue = 0;
 value = 0;
 options = [];
 text = "";
@@ -24,7 +25,7 @@ function Initialize(_text = "") {
 			switch(argumentType) {
 				case BlockArgumentType.INT: value = 1; break;
 				case BlockArgumentType.BOOL: value = true; break;
-				case BlockArgumentType.TEXT: value = ""; break;
+				case BlockArgumentType.TEXT: value = _text; break;
 				case BlockArgumentType.CYCLE: value = 0; break;
 			}
 			
@@ -52,6 +53,7 @@ function OnClick() {
 			switch(argumentType) {
 				case BlockArgumentType.INT:	
 					global.editingBlockContent = id;
+					prevValue = value;
 					keyboard_string = string(value);
 					break;
 				
@@ -62,6 +64,7 @@ function OnClick() {
 				
 				case BlockArgumentType.TEXT:
 					global.editingBlockContent = id;
+					prevValue = value;
 					keyboard_string = value;
 					break;
 				
