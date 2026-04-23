@@ -2,12 +2,14 @@
 debugLabel = "[obj_StepController]";
 floorPlannedSteps = {};
 basePlannedSteps = {};
+functions = {};
 timer = 0;
 
 /// @description Resets setup variables
 function Initialize() {
 	floorPlannedSteps = {};
 	basePlannedSteps = {};
+	functions = instance_exists(obj_Terminal) ? obj_Terminal.functions : {};
 	timer = 0;
 	show_debug_message($"{debugLabel} Initialized");
 }
@@ -182,6 +184,16 @@ function ReadPrograms() {
 							break;
 						
 						case BlockType.INTERACT:
+							break;
+							
+						case BlockType.CALL:
+							var def = node.args.call;
+							
+							if(variable_struct_exists(other.functions, def)) {
+								var func = other.functions[$ def];
+								var frame = MakeFrame(func.body, 0);
+								array_push(programStack, frame);
+							}
 							break;
 					}
 				}
