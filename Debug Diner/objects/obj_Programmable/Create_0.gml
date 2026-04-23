@@ -4,11 +4,13 @@ event_inherited();
 hoverScale = 0.9;
 scaleSpeed = 0.4;
 clickSoundEffects = [];
+isExecutable = true;
 
 // --- Program ---
 program = [];
 programStack = [];
 
+// --- Tracking ---
 holdingFood = false;
 
 // --- Setup ---
@@ -19,11 +21,16 @@ function EvaluateCondition(_condition) {
 		case BlockType.COND_AHEAD_IS:
 			var occupant = obj_GridController.GetInDirection(gridX, gridY, gridLevel, facing);
 			var options = ["Empty", "Table", "Chair", "Counter", "Printer", "Waiter"];
+			var boolean = _condition.args.boolean;
 			var objType = options[_condition.args.objectType];
 			
-			if(occupant == noone) return objType == "Empty";
+			if(occupant == noone) {
+				if(boolean == 0) return objType == "Empty";
+				else return objType != "Empty";
+			}
 			
-			return occupant.conditionLabel == objType;
+			if(boolean == 0) return occupant.conditionLabel == objType;
+			else return occupant.conditionLabel != objType;
 	}
 	
 	return false;

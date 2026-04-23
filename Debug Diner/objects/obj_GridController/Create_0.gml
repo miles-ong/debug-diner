@@ -1,5 +1,5 @@
 // --- Setup ---
-debugLabel = "[obj_GridController]";
+debugLabel = "[GridController]";
 
 // --- Grids ---
 floorGrid = {};

@@ -7,6 +7,8 @@ enum BlockType {
 	WHILE,
 	WAIT,
 	INTERACT,
+	DEFINE,
+	CALL,
 	COND_AHEAD_IS
 }
 
@@ -47,7 +49,9 @@ enum BlockColor {
 	BLUE,
 	PURPLE,
 	PINK,
-	CYAN
+	CYAN,
+	GRAPE,
+	SLATE
 }
 
 function SetBlockColor(c) {
@@ -62,6 +66,8 @@ function SetBlockColor(c) {
 		case BlockColor.PURPLE: color = make_color_rgb(170, 100, 230); break;
 		case BlockColor.PINK: color = make_color_rgb(235, 120, 180); break;
 		case BlockColor.CYAN: color = make_color_rgb(80, 210, 235); break;
+		case BlockColor.GRAPE: color = make_color_rgb(75, 65, 135); break;
+		case BlockColor.SLATE: color = make_color_rgb(115, 105, 175); break;
 	}
 }
 
@@ -75,6 +81,8 @@ function BlockTypeToString(type) {
 		case BlockType.WHILE: return "While";
 		case BlockType.WAIT: return "Wait";
 		case BlockType.INTERACT: return "Interact";
+		case BlockType.DEFINE: return "Define";
+		case BlockType.CALL: return "Call";
 		case BlockType.COND_AHEAD_IS: return "Ahead Is";
 	}
 }

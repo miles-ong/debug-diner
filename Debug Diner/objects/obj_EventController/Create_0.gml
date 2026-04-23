@@ -16,7 +16,7 @@ function Initialize(_event) {
 	}
 	
 	if(array_length(event) == 0) {
-		show_debug_log($"{debugLabel} Event must have at least one action attached to it");
+		show_debug_message($"{debugLabel} Event must have at least one action attached to it");
 		return;
 	}
 	

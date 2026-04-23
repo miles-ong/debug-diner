@@ -55,6 +55,16 @@ function BuildButton(_blockType, _x, _y) {
 			color = BlockColor.WHITE;
 			break;
 		
+		case BlockType.DEFINE:
+			name = "Define";
+			color = BlockColor.GRAPE;
+			break;
+		
+		case BlockType.CALL:
+			name = "Call";
+			color = BlockColor.SLATE;
+			break;
+		
 		case BlockType.COND_AHEAD_IS:
 			name = "Ahead Is";
 			color = BlockColor.GREEN;

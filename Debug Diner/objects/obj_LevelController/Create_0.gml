@@ -50,6 +50,9 @@ function InitializeLevel() {
 			BlockType.WAIT,
 			BlockType.IF,
 			BlockType.WHILE,
+			BlockType.INTERACT,
+			BlockType.DEFINE,
+			BlockType.CALL,
 			BlockType.COND_AHEAD_IS
 		];
 	}

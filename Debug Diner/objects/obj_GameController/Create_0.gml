@@ -19,7 +19,8 @@ northAmericaLevels = [
 		undefined, 
 		rm_Level1_1,
 		undefined,
-		[ BlockType.MOVE ],
+		//[ BlockType.MOVE ],
+		undefined,
 		#region Level 1-1 Event
 		[
 			EventAction(EventSignal.LEVELSTARTED, new Dialogue("Agh!!!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
@@ -128,11 +129,12 @@ northAmericaLevels = [
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("...", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Anyways, the tasks marked white MUST be completed!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("The yellow ones are for your bonus!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
-			EventAction(EventSignal.DIALOGUEFINISHED, [new Dialogue("My bonus? Does this mean you're paying me?", spr_Player, Position.LEFT, DialogueColor.BLUE), new Unhighlight(obj_UILevelTasks)]),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("My bonus? Does this mean you're paying me?", spr_Player, Position.LEFT, DialogueColor.BLUE)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Pay? What are you talking about?", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("Aren't you humans obsessed with being completionists?", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
 			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("This is a game afterall!", spr_Alien, Position.RIGHT, DialogueColor.GREEN)),
-			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("We don't normally break the 4th wall this early.", spr_Player, Position.LEFT, DialogueColor.BLUE))
+			EventAction(EventSignal.DIALOGUEFINISHED, new Dialogue("We don't normally break the 4th wall this early.", spr_Player, Position.LEFT, DialogueColor.BLUE)),
+			EventAction(EventSignal.DIALOGUEFINISHED, new Unhighlight(obj_UILevelTasks)),
 		]
 		#endregion
 	),

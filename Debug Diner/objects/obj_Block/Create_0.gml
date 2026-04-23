@@ -128,11 +128,24 @@ function Initialize() {
 			]);
 			break;
 		
+		case BlockType.DEFINE:
+			name = "Define Function";
+			SetBlockColor(BlockColor.GRAPE);
+			argFunctionDef = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT);
+			break;
+		
+		case BlockType.CALL:
+			name = "Call Function";
+			SetBlockColor(BlockColor.SLATE);
+			argCall = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT);
+			break;
+		
 		case BlockType.COND_AHEAD_IS:
-			name = "Ahead Is";
+			name = "Ahead";
 			SetBlockColor(BlockColor.GREEN);
 			hasSequence = false;
 			isConditional = true;
+			argBoolean = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.CYCLE, "", ["Is", "Is Not"]);
 			argObject = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.CYCLE, "", [
 				"Empty",
 				"Table", 
@@ -502,6 +515,7 @@ function Serialize() {
 			break;
 		
 		case BlockType.COND_AHEAD_IS:
+			node.args.boolean = argBoolean.value;
 			node.args.objectType = argObject.value;
 			break;
 	}
@@ -576,6 +590,7 @@ function Deserialize(node) {
 			break;
 		
 		case BlockType.COND_AHEAD_IS:
+			argBoolean.value = node.args.boolean;
 			argObject.value = node.args.objectType;
 			break;
 	}
