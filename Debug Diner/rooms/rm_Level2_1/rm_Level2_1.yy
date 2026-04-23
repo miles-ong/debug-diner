@@ -25,6 +25,7 @@
     {"name":"inst_2B99AB02","path":"rooms/rm_Level2_1/rm_Level2_1.yy",},
     {"name":"inst_2D096605","path":"rooms/rm_Level2_1/rm_Level2_1.yy",},
     {"name":"inst_7E60A77E","path":"rooms/rm_Level2_1/rm_Level2_1.yy",},
+    {"name":"inst_10E2D927","path":"rooms/rm_Level2_1/rm_Level2_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -35,6 +36,7 @@
         {"$GMRInstance":"v4","%Name":"inst_2B99AB02","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2B99AB02","objectId":{"name":"obj_Waiter","path":"objects/obj_Waiter/obj_Waiter.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Entity","path":"objects/obj_Entity/obj_Entity.yy",},"propertyId":{"name":"facing","path":"objects/obj_Entity/obj_Entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Direction.SOUTH",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":512.0,"y":320.0,},
+        {"$GMRInstance":"v4","%Name":"inst_10E2D927","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_10E2D927","objectId":{"name":"obj_Terminal","path":"objects/obj_Terminal/obj_Terminal.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":448.0,"y":448.0,},
         {"$GMRInstance":"v4","%Name":"inst_2D096605","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2D096605","objectId":{"name":"obj_HoloTable","path":"objects/obj_HoloTable/obj_HoloTable.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":512.0,"y":576.0,},
         {"$GMRInstance":"v4","%Name":"inst_7E60A77E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7E60A77E","objectId":{"name":"obj_HoloTable","path":"objects/obj_HoloTable/obj_HoloTable.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":576.0,},
       ],"layers":[],"name":"Base","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},

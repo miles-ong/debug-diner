@@ -46,7 +46,7 @@ function CreateLevel(_name, _trophy, _unlocked, _mainTask, _bonusTask1, _bonusTa
 		customers : _customers,
 		enabledBlocks : _enabledBlocks,
 		eventSequence : _event,
-		eventCompleted : true
+		eventCompleted : false
 	};
 }
 

@@ -30,7 +30,6 @@
     {"name":"inst_1EE47379","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
     {"name":"inst_21125E9B","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
     {"name":"inst_7EDCBA65","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
-    {"name":"inst_283D8D95","path":"rooms/rm_Level1_1/rm_Level1_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -39,7 +38,6 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Entity","path":"objects/obj_Entity/obj_Entity.yy",},"propertyId":{"name":"facing","path":"objects/obj_Entity/obj_Entity.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Direction.WEST",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":576.0,"y":448.0,},
         {"$GMRInstance":"v4","%Name":"inst_70E547AD1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_70E547AD1_1","objectId":{"name":"obj_HoloTable","path":"objects/obj_HoloTable/obj_HoloTable.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":448.0,},
-        {"$GMRInstance":"v4","%Name":"inst_283D8D95","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_283D8D95","objectId":{"name":"obj_Terminal","path":"objects/obj_Terminal/obj_Terminal.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":448.0,"y":448.0,},
       ],"layers":[],"name":"Base","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Floor","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_5A6AE9B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A6AE9B","objectId":{"name":"obj_TileWhite","path":"objects/obj_TileWhite/obj_TileWhite.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":512.0,},

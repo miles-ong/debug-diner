@@ -19,8 +19,7 @@ northAmericaLevels = [
 		undefined, 
 		rm_Level1_1,
 		undefined,
-		//[ BlockType.MOVE ],
-		undefined,
+		[ BlockType.MOVE ],
 		#region Level 1-1 Event
 		[
 			EventAction(EventSignal.LEVELSTARTED, new Dialogue("Agh!!!", spr_AlienSilhouette, Position.RIGHT, DialogueColor.WHITE)),
@@ -197,7 +196,7 @@ southAmericaLevels = [
 		undefined, 
 		rm_Level2_1,
 		undefined,
-		[ BlockType.MOVE, BlockType.LOOP],
+		[ BlockType.MOVE, BlockType.LOOP, BlockType.DEFINE, BlockType.CALL ],
 		undefined
 	),
 	CreateLevel(

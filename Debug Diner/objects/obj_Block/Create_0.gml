@@ -136,14 +136,13 @@ function Initialize() {
 			isSource = true;
 			hasBody = true;
 			hasSequence = false;
-			var def = obj_Terminal.AddFunction("helloWorld");
-			argDef = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT, def);
+			argDef = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT, obj_Terminal.GetUniqueFunctionDefinition("function"));
 			break;
 		
 		case BlockType.CALL:
 			name = "Call Function";
 			SetBlockColor(BlockColor.SLATE);
-			argCall = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT, "helloWorld");
+			argCall = AddContent(BlockContentType.ARGUMENT, BlockArgumentType.TEXT, "function");
 			break;
 		
 		case BlockType.COND_AHEAD_IS:
